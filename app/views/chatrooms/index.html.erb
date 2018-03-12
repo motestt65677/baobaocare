@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="row">
+
+    <% @chatrooms.each do |room| %>
+      <div class = "col-4">
+        <%= link_to chatroom_path(room)do %>
+          Doctor_id: <%=  room.user_id%>
+          Child_id: <%= room.child_id%>
+        <% end %>    
+      </div>
+    <% end %>
+
+  </div>  
+</div>
+
+
+
+<!--     <div class="col-4"></div>
+    <div class="col-4">
+      <h1>Chatroom Page</h1>
+      
+      <section>
+        <%#= image_tag("chatbubbles.png", :alt => "rss feed") %>
+        
+      </section>
+
+
+    </div>
+    <div class="col-4"></div> -->
