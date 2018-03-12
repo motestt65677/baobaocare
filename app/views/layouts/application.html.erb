@@ -5,6 +5,12 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="navbar">
+    <%= form_tag '/search', id:"doctor_form", method:"get" do %>
+      <%= label_tag(:doctor, "Search for:") %>
+      <%= text_field_tag 'doctor', nil, list: 'list' %>
+  </div>
+  
   <div id="header">
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
