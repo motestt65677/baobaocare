@@ -1,3 +1,2 @@
 class Mother < User
-
 end
