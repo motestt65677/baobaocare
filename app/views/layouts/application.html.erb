@@ -19,6 +19,7 @@
     <%= form_tag '/search', id:"doctor_form", method:"get" do %>
       <%= label_tag(:doctor, "") %>
       <%= text_field_tag 'doctor', nil, list: 'list' %>
+    <% end %>
         <div class="dropdown">
           <% if signed_in? -%>
           <button class="dropbtn">What do you want to do?</button>
@@ -39,7 +40,6 @@
 
          </div>
   </div>
-    <% end %>
      
   </div>
   
