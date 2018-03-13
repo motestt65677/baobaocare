@@ -42,6 +42,27 @@ require 'faker'
 # end
 
 
+mother ={}
+
+5.times do |num|
+  mother['first_name'] = Faker::Name.first_name
+  mother['last_name'] = Faker::Name.last_name  
+  mother['email'] = Faker::Internet.email
+  mother['password'] =Faker::Internet.password
+
+
+
+  mother1 = Mother.create(mother)
+  p mother1.errors
+
+end
+
+
+
+
+
+
+
 
 # child_ids = (22..31).to_a
 # 5.times do |num|

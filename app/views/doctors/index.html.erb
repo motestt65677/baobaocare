@@ -9,11 +9,13 @@
             <%group.each do|doctor|%>
 
               <div class="card  w-50" style = " padding: 2%">
-    
+
                 <div class="card-body" >
-                  <h5 class="card-title"><strong> Dr: </strong><%=doctor.first_name%>&nbsp<%=doctor.last_name%></h5>
-                  <p class= "card-text"> <strong> Specialty:</strong><%=doctor.specialty%></p>     
-                  <p class= "card-text"> <strong> Years of experience:</strong><%=doctor.experience_years%></p>     
+
+                  <h5 class="card-title"><strong> Dr: </strong><%= link_to "#{doctor.first_name}  #{doctor.last_name}", doctor_path(doctor)%></h5>
+                  <p class= "card-text"> <strong> Specialty: </strong><%=doctor.specialty%></p>     
+                  <p class= "card-text"> <strong> Years of experience: </strong><%=doctor.experience_years%></p>     
+                  <button type="button" class="btn btn-primary"> Get in touch</button>
 
 
                  </div>
