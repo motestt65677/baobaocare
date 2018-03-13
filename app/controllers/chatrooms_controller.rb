@@ -5,15 +5,14 @@ class ChatroomsController < ApplicationController
       @chatrooms = []
       
       @children.each do |child|
-
-        byebug
-
-        @chatrooms.push(child.chatrooms)        
+        @chatrooms.push(child.chatrooms)
       end
-      byebug
+
+      @chatrooms = @chatrooms[0]
 
     elsif current_user.type == "Doctor"
-      
+      @chatrooms = current_user.chatrooms
+
     else
       redirect_to login_in_path
     end
