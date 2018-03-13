@@ -16,6 +16,8 @@ class ChatroomsController < ApplicationController
     else
       redirect_to login_in_path
     end
+
+    @children = Child.all
   end
 
 
