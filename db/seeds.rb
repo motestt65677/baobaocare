@@ -42,27 +42,24 @@ require 'faker'
 # end
 
 
-mother ={}
+# mother ={}
 
-5.times do |num|
-  mother['first_name'] = Faker::Name.first_name
-  mother['last_name'] = Faker::Name.last_name  
-  mother['email'] = Faker::Internet.email
-  mother['password'] =Faker::Internet.password
-
-
-
-  mother1 = Mother.create(mother)
-  p mother1.errors
-
-end
+# 5.times do |num|
+#   mother['first_name'] = Faker::Name.first_name
+#   mother['last_name'] = Faker::Name.last_name  
+#   mother['email'] = Faker::Internet.email
+#   mother['password'] =Faker::Internet.password
 
 
 
+#   mother1 = Mother.create(mother)
+#   p mother1.errors
+
+# end
 
 
-
-
+# child ={}
+# mother_ids = (37..42).to_a
 
 # child_ids = (22..31).to_a
 # 5.times do |num|
@@ -71,7 +68,7 @@ end
 
 
 
-#   child['user_id'] = mother_ids.sample
+#   child['mother_id'] = mother_ids.sample
 
 #   child1 = Child.create(child)
 #   p child1.errors
@@ -80,13 +77,13 @@ end
 
 
 
-# chatroom = {}
-# user_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# child = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+chatroom = {}
+doctor_ids = [16,17]
+child_ids = [3, 4, 5]
 
-# 10.times do |num|
-#   chatroom['user_id'] = user_ids.sample
-#   chatroom['child_id'] = child_ids.sample
-#   chatroom1 = Chatroom.create(chatroom)
-#   p chatroom1.errors
-# end
+10.times do |num|
+  chatroom['doctor_id'] = doctor_ids.sample
+  chatroom['child_id'] = child_ids.sample
+  chatroom1 = Chatroom.create(chatroom)
+  p chatroom1.errors
+end
