@@ -1,11 +1,5 @@
 
 <div class="mother_wrap">
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-10">
-        <!--<h1>Mother's Show Page</h1>-->
         
         <div class="mother_info">
             <h1>Hello <span><%= @mother.first_name%>!</span></h1> 
@@ -16,18 +10,18 @@
         </div>
         
         <h2>Here Are Your Babies</h2>
-        <div class="child_wrap">
+        <div class="children_wrap">
           
           <%@mother.children.each do |child| %>
             <div class='child_field'>
-              <%= link_to mother_child_path(@mother, child) do %>
               
                   <div class="child_img">
-                    <img></img>
+                    <%= link_to mother_child_path(@mother, child) do %>
+                      <%= image_tag 'newborn.png' %>
                   </div>
-                  <p class='child_name'><%=child.name%></p>
+                    <span class='child_name'><%=child.name%></span>
             
-              <% end %>
+                    <% end %>
             </div>
           <%end%>
           
@@ -35,8 +29,6 @@
             <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
           </div>
         </div>
-        
-        <div class="space"></div>
         
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -68,8 +60,5 @@
             </div>
           </div>
         </div>
-      </div>
-     
-    </div>
-  </div>
+
 </div>

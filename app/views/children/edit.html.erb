@@ -1,9 +1,6 @@
 
 <div class="child_edit">
-  <div class="container">
-      <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+
         <h1>Child Edit Page</h1>
   
         <%= form_for [@mother, @child] do |form|%>
@@ -19,8 +16,4 @@
           <%=form.submit "Update", class:'submit' %>
         <%end%>
   
-      </div>
-      <div class="col-2"></div>
-    </div>
-  </div>
 </div>
