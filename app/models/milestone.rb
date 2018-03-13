@@ -1,0 +1,5 @@
+class Milestone < ApplicationRecord
+
+  
+
+end
