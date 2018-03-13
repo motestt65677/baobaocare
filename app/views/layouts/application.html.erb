@@ -21,6 +21,7 @@
       <%= text_field_tag 'doctor', nil, list: 'list' %>
     <% end %>
         <div class="dropdown">
+        <% if current_user.nil? == false %>
           <% if current_user.type == "Mother" -%> 
           <button class="dropbtn">What do you want to do?</button>
           <div class="dropdown-content">
@@ -34,9 +35,10 @@
             <a href=''>View my profile</a>
             <a href=''>Connect with patients</a>
             <a href='chatrooms'>View chatroom history</a>
-          <% end %>
+         <% end %>
+        <% end %>
         </div>
-
+           
          <div id="header">
           <% if signed_in? -%>
           <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
