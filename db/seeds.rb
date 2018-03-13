@@ -20,34 +20,35 @@ require 'faker'
 # end
 
 
-doctor = {}
-specialties= ["pediatrician","nutritionist","psychologist","nutritionist"]
-years= [1,2,3,4,5,6]
+# doctor = {}
+# specialties= ["pediatrician","nutritionist","psychologist","nutritionist"]
+# years= [1,2,3,4,5,6]
 
-
-
-5.times do |num|
-  doctor['first_name'] = Faker::Name.first_name
-  doctor['last_name'] = Faker::Name.last_name  
-  doctor['email'] = Faker::Internet.email
-  doctor['password'] =Faker::Internet.password
-  doctor['specialty']= specialties.sample
-  doctor ['experience_years'] =years.sample
-  doctor ['location'] =Faker::Address.city
-
-
-  doctor1 = Doctor.create(doctor)
-  p doctor1.errors
-
-end
-
-# child = {}
-# mother_ids = [22]
 
 
 # 5.times do |num|
+#   doctor['first_name'] = Faker::Name.first_name
+#   doctor['last_name'] = Faker::Name.last_name  
+#   doctor['email'] = Faker::Internet.email
+#   doctor['password'] =Faker::Internet.password
+#   doctor['specialty']= specialties.sample
+#   doctor ['experience_years'] =years.sample
+#   doctor ['location'] =Faker::Address.city
+
+
+#   doctor1 = Doctor.create(doctor)
+#   p doctor1.errors
+
+# end
+
+
+
+# child_ids = (22..31).to_a
+# 5.times do |num|
 #   child['name'] = Faker::Name.name
 #   child['birthday'] = Faker::Date.birthday
+
+
 
 #   child['user_id'] = mother_ids.sample
 
@@ -57,8 +58,6 @@ end
 
 
 
-
-# child_ids = (22..31).to_a
 
 # chatroom = {}
 # user_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]

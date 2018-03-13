@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :children
   
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
