@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309111203) do
+ActiveRecord::Schema.define(version: 20180313042734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,12 @@ ActiveRecord::Schema.define(version: 20180309111203) do
   create_table "milestones", force: :cascade do |t|
     t.string "title", null: false
     t.string "description"
-    t.string "type", null: false
     t.string "document"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "child_id"
+    t.string "age_group"
     t.index ["child_id"], name: "index_milestones_on_child_id"
   end
 
@@ -74,6 +74,13 @@ ActiveRecord::Schema.define(version: 20180309111203) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "qualifications"
+    t.string "specialty"
+    t.integer "experience_years"
+    t.string "location"
+    t.string "position"
+    t.string "certified"
+    t.integer "number_of_children"
+    t.string "type"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

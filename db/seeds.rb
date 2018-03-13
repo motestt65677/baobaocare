@@ -20,20 +20,20 @@ require 'faker'
 # end
 
 
-# child = {}
-# mother_ids = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-# 20.times do |num|
-#   child['name'] = Faker::Name.name
-#   child['birthday'] = Faker::Date.birthday
+child = {}
+mother_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+20.times do |num|
+  child['name'] = Faker::Name.name
+  child['birthday'] = Faker::Date.birthday
 
-#   child['user_id'] = mother_ids.sample
+  child['user_id'] = mother_ids.sample
 
-#   child1 = Child.create(child)
-#   p child1.errors
-# end
+  child1 = Child.create(child)
+  p child1.errors
+end
 
 
-# child_ids = (22..31).to_a
+# child_ids = (1..11).to_a
 
 # chatroom = {}
 # user_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
