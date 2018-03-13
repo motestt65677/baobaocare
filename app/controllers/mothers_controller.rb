@@ -6,9 +6,10 @@ class MothersController < Clearance::UsersController
     @mother = Mother.new(mother_params)
     if @mother.save
       sign_in @mother
-      redirect_back_or url_after_create
+      redirect_to mother_path(@mother)
     else
-      render template: "users/new"
+      flash[:notice]
+      redirect_to root_path, notice: @mother.errors.full_messages.join(', ')
     end
   end
 
