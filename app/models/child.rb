@@ -1,4 +1,4 @@
 class Child < ApplicationRecord
-  belongs_to :user
+  belongs_to :mother
   has_many :chatrooms
 end

@@ -8,30 +8,30 @@
 require 'faker'
 
 
-# user = {}
-# user['password'] = 'asdf'
-# user['confirmation_token'] = 'asdf'
+user = {}
+user['password'] = 'asdf'
+user['confirmation_token'] = 'asdf'
 
-# 10.times do |num| 
-#     user['first_name'] = Faker::Name.first_name 
-#     user['last_name'] = Faker::Name.last_name  
-#     user['email'] = Faker::Internet.email
-#     User.create(user)
-# end
-
-
-child = {}
-mother_ids = [22]
-
-5.times do |num|
-  child['name'] = Faker::Name.name
-  child['birthday'] = Faker::Date.birthday
-
-  child['user_id'] = mother_ids.sample
-
-  child1 = Child.create(child)
-  p child1.errors
+1.times do |num| 
+    user['first_name'] = Faker::Name.first_name 
+    user['last_name'] = Faker::Name.last_name  
+    user['email'] = Faker::Internet.email
+    Doctor.create(user)
 end
+
+
+# child = {}
+# mother_ids = [22]
+
+# 5.times do |num|
+#   child['name'] = Faker::Name.name
+#   child['birthday'] = Faker::Date.birthday
+
+#   child['user_id'] = mother_ids.sample
+
+#   child1 = Child.create(child)
+#   p child1.errors
+# end
 
 
 # child_ids = (22..31).to_a
