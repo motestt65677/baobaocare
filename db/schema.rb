@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 20180313042734) do
   create_table "chatrooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.bigint "child_id"
+    t.integer "doctor_id"
     t.index ["child_id"], name: "index_chatrooms_on_child_id"
-    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "children", force: :cascade do |t|
@@ -29,8 +28,7 @@ ActiveRecord::Schema.define(version: 20180313042734) do
     t.date "birthday", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_children_on_user_id"
+    t.integer "mother_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,11 +38,6 @@ ActiveRecord::Schema.define(version: 20180313042734) do
     t.bigint "chatroom_id"
     t.integer "user_id"
     t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
-  end
-
-  create_table "doctors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "milestones", force: :cascade do |t|
@@ -57,11 +50,6 @@ ActiveRecord::Schema.define(version: 20180313042734) do
     t.bigint "child_id"
     t.string "age_group"
     t.index ["child_id"], name: "index_milestones_on_child_id"
-  end
-
-  create_table "mothers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,8 +74,6 @@ ActiveRecord::Schema.define(version: 20180313042734) do
   end
 
   add_foreign_key "chatrooms", "children"
-  add_foreign_key "chatrooms", "users"
-  add_foreign_key "children", "users"
   add_foreign_key "comments", "chatrooms"
   add_foreign_key "milestones", "children"
 end
