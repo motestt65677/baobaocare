@@ -11,10 +11,19 @@ class DoctorsController < Clearance::UsersController
     end
   end
 
+  def index
+    @doctors =Doctor.all
+  end
+
+  def show
+    @doctor = Doctor.find(params[:id])
+  end
+
+
+
   private
   def user_from_params
     params[:doctor].permit(:email, :password, :first_name, :last_name, :type)
   end
-
 
 end

@@ -20,18 +20,34 @@ require 'faker'
 # end
 
 
-child = {}
-mother_ids = [22]
+# child = {}
+# mother_ids = [22]
+
+# 5.times do |num|
+#   child['name'] = Faker::Name.name
+#   child['birthday'] = Faker::Date.birthday
+
+#   child['user_id'] = mother_ids.sample
+
+#   child1 = Child.create(child)
+#   p child1.errors
+# end
+
+
+
+doctor = {}
+# mother_ids = [22]
 
 5.times do |num|
-  child['name'] = Faker::Name.name
-  child['birthday'] = Faker::Date.birthday
+  doctor['first_name'] = Faker::Name.first_name
+  doctor['last_name'] = Faker::Name.last_name  
+  doctor['email'] = Faker::Internet.email
+  doctor['password'] =Faker::Internet.password
 
-  child['user_id'] = mother_ids.sample
-
-  child1 = Child.create(child)
-  p child1.errors
+  doctor1 = Doctor.create(doctor)
+  p doctor1.errors
 end
+
 
 
 # child_ids = (22..31).to_a
