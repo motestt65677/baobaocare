@@ -1,20 +1,30 @@
-
-<div class="container">
-  <div class="row">
-
-    <% @chatrooms.each do |room| %>
-      <div class = "col-4">
-        <%= link_to chatroom_path(room)do %>
-          Doctor_id: <%=  room.doctor_id%>
-          Child_id: <%= room.child_id%>
-        <% end %>    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class= col-2></div>
+      <div class= col-8>
+        <h1>chatrooms</h1>
+        <div class= "row">
+          <% @chatrooms.each do |room| %>
+            <div class = "col-4">
+              <%= link_to chatroom_path(room)do %>
+                <%= image_tag("chatbubbles.png", :alt => "rss feed", :id => "chat_room_image", :class => "img-thumbnail") %>
+                <div class="border">
+                    <p class="">Doctor: <%=  Doctor.find(room.doctor_id).first_name%></p>
+                    <span>Child: <%= Child.find(room.child_id).name%></span>
+                </div>
+              <% end %>    
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+      <div class= col-2></div>
+      
 
-  </div>  
-</div>
+    </div>  
+  </div>
 
-
+</main>
 
 <!--     <div class="col-4"></div>
     <div class="col-4">

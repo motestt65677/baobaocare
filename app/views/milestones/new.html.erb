@@ -1,0 +1,77 @@
+New Milestones
+
+  Select Baby's Age Group:
+
+  <%#= form_for @milestones do |f| %>
+
+  <!-- <div><%#= f.label :type %></div>
+  <div><%#= f.select :type, options_for_select([["select one", ""], 0 to 1,1 to 2,2 to 3,3 to 4,4 to 6,6 to 9,9 to 12])%></div> -->
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-growth-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Growth</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-social-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Social</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-communication-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Communication</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" id="pills-congnitive-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Cognitive</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-vaccinations-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Vaccinations</a>
+  </li>  
+
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-growth" role="tabpanel" aria-labelledby="pills-growth-tab">...</div>
+  <div class="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">...</div>
+  <div class="tab-pane fade" id="pills-communication" role="tabpanel" aria-labelledby="pills-communication-tab">...</div>
+  <div class="tab-pane fade" id="pills-cognitive" role="tabpanel" aria-labelledby="pills-cognitive-tab">...</div>
+  <div class="tab-pane fade" id="pills-communication" role="tabpanel" aria-labelledby="pills-voaccinations-tab">...</div>
+</div>
+
+
+
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Growth</a>
+  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Social</a>
+  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Communication</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Cognitive</a>
+  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Vaccinations</a>
+</div>
+<div class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                  <p>Average weight gain of 900 grams at the mean rate of 20-30 grams per day
+                  <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Up to 5 cm increase in length
+                    <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Around 15 inch growth of head circumference
+                   <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Can stretch arms and legs and also bend back sometimes
+                   <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Legs and feet continue to rotate inwards
+                   <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Can lift head for a few seconds
+                   <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+                  <p>Ready for supervised tummy time
+                   <%#= f.check_box :description, {multiple: true}, "Growth", nil %></p>
+  </div>
+  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+  ...
+  </div>
+  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+  ...
+  </div>
+  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+  ...
+  </div>
+  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+  ...
+  </div>
+</div>
+<%# end %>
+<%# f.submit %>
