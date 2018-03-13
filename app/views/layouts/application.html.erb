@@ -15,13 +15,35 @@
 
 </head>
 <body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
+  <div id="navbar">
+    <%= form_tag '/search', id:"doctor_form", method:"get" do %>
+      <%= label_tag(:doctor, "") %>
+      <%= text_field_tag 'doctor', nil, list: 'list' %>
+        <div class="dropdown">
+          <% if signed_in? -%>
+          <button class="dropbtn">What do you want to do?</button>
+          <div class="dropdown-content">
+            <a href=''>View baby profile</a>
+            <a href=''>Connect with a doctor</a>
+            <a href=''>View chatroom history</a>
+          </div>
+          <% end %>
+        </div>
+
+         <div id="header">
+          <% if signed_in? -%>
+          <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+          <% else -%>
+          <%= link_to t(".sign_in"), sign_in_path %>
+          <% end -%>
+
+         </div>
   </div>
+    <% end %>
+     
+  </div>
+  
+  
 
   <div id="flash">
     <% flash.each do |key, value| -%>
@@ -29,6 +51,8 @@
     <% end %>
   </div>
 
+ 
+
   <%= yield %>
 </body>
-</html>
+</html> 
