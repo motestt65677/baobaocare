@@ -2,6 +2,7 @@ class DoctorsController < Clearance::UsersController
 
   def create
     @doctor = Doctor.new(user_from_params)
+
     if @doctor.save
       sign_in @doctor
       redirect_back_or url_after_create
