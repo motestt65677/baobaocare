@@ -2,6 +2,7 @@ class UsersController < Clearance::UsersController
 
 
   def new
+
     @mother= Mother.new
     @doctor= Doctor.new
     
@@ -28,6 +29,4 @@ class UsersController < Clearance::UsersController
   # def user_from_params
   #   params[:user].permit(:email, :password, :first_name, :last_name, :type)
   # end
-
-
-end
+ 
