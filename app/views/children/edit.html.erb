@@ -1,0 +1,26 @@
+
+<div class="child_edit">
+  <div class="container">
+      <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h1>Child Edit Page</h1>
+  
+        <%= form_for [@mother, @child] do |form|%>
+          <div>
+            <%=form.label :name%>
+            <%=form.text_field :name, class: 'form-control' %>
+          </div>
+          <div>
+            <%=form.label :date%>
+            <%=form.text_field :birthday, class: 'form-control' %>
+          </div>
+          
+          <%=form.submit "Update", class:'submit' %>
+        <%end%>
+  
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+</div>
