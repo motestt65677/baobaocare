@@ -8,20 +8,35 @@
 require 'faker'
 
 
-# user = {}
-# user['password'] = 'asdf'
-# user['confirmation_token'] = 'asdf'
+user = {}
+user['password'] = 'asdf'
+user['confirmation_token'] = 'asdf'
 
-# 10.times do |num| 
-#     user['first_name'] = Faker::Name.first_name 
-#     user['last_name'] = Faker::Name.last_name  
-#     user['email'] = Faker::Internet.email
-#     User.create(user)
-# end
+1.times do |num| 
+    user['first_name'] = Faker::Name.first_name 
+    user['last_name'] = Faker::Name.last_name  
+    user['email'] = Faker::Internet.email
+    Doctor.create(user)
+end
+
+
+doctor = {}
+
+
+5.times do |num|
+  doctor['first_name'] = Faker::Name.first_name
+  doctor['last_name'] = Faker::Name.last_name  
+  doctor['email'] = Faker::Internet.email
+  doctor['password'] =Faker::Internet.password
+
+  doctor1 = Doctor.create(doctor)
+  p doctor1.errors
+
 
 
 # child = {}
 # mother_ids = [22]
+
 
 # 5.times do |num|
 #   child['name'] = Faker::Name.name
@@ -33,20 +48,6 @@ require 'faker'
 #   p child1.errors
 # end
 
-
-
-doctor = {}
-# mother_ids = [22]
-
-5.times do |num|
-  doctor['first_name'] = Faker::Name.first_name
-  doctor['last_name'] = Faker::Name.last_name  
-  doctor['email'] = Faker::Internet.email
-  doctor['password'] =Faker::Internet.password
-
-  doctor1 = Doctor.create(doctor)
-  p doctor1.errors
-end
 
 
 
