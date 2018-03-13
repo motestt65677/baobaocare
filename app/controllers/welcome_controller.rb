@@ -7,7 +7,6 @@ class WelcomeController < ApplicationController
         redirect_to chatrooms_path
       end
     end
+  end
+  end
 
-  end
-  end
-end
