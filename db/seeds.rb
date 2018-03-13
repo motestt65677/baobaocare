@@ -8,19 +8,22 @@
 require 'faker'
 
 
-user = {}
-user['password'] = 'asdf'
-user['confirmation_token'] = 'asdf'
+# user = {}
+# user['password'] = 'asdf'
+# user['confirmation_token'] = 'asdf'
 
-1.times do |num| 
-    user['first_name'] = Faker::Name.first_name 
-    user['last_name'] = Faker::Name.last_name  
-    user['email'] = Faker::Internet.email
-    Doctor.create(user)
-end
+# 1.times do |num| 
+#     user['first_name'] = Faker::Name.first_name 
+#     user['last_name'] = Faker::Name.last_name  
+#     user['email'] = Faker::Internet.email
+#     Doctor.create(user)
+# end
 
 
 doctor = {}
+specialties= ["pediatrician","nutritionist","psychologist","nutritionist"]
+years= [1,2,3,4,5,6]
+
 
 
 5.times do |num|
@@ -28,11 +31,15 @@ doctor = {}
   doctor['last_name'] = Faker::Name.last_name  
   doctor['email'] = Faker::Internet.email
   doctor['password'] =Faker::Internet.password
+  doctor['specialty']= specialties.sample
+  doctor ['experience_years'] =years.sample
+  doctor ['location'] =Faker::Address.city
+
 
   doctor1 = Doctor.create(doctor)
   p doctor1.errors
 
-
+end
 
 # child = {}
 # mother_ids = [22]
