@@ -21,6 +21,14 @@ class ChildrenController < ApplicationController
     redirect_to mother_child_path(@mother, @child)
   end
   
+  def destroy
+    @mother = Mother.find(params[:mother_id])
+    @child = @mother.children.find(params[:id])
+    if @child.destroy
+      redirect_to mother_path(@mother)
+    end
+  end
+  
   private
   def child_params
     params.require(:child).permit(:name, :birthday)
