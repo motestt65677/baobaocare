@@ -15,24 +15,22 @@
       
       <h2>Here Are Your Babies</h2>
       <div class="child_wrap">
-        <%@mother.children.each do |child|%>
+        <%@mother.children.each do |child| %>
+          <div class='child_field'>
+          <%= link_to mother_child_path(@mother, child) do %>
           
-            <div class='child_field'>
-              
+            
               <div class="child_img">
-                <img src=''></img>
+                <img></img>
               </div>
-              
               <p><%=child.name%></p>
-              
             </div>
+            
+          <% end %>
           
         <%end%>
       </div>
 
-
-
-      
     </div>
     <div class="col-2"></div>
   </div>

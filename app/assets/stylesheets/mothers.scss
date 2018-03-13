@@ -10,11 +10,11 @@
 }
 
 .child_field{
-    width:32%;
+    width:30%;
     display:inline-block;
     border:1px solid #6c757d;
     padding:10px;
-    // border-radius:5px;
+    border-radius:5px;
     text-align:center;
     box-shadow:3px 3px 15px lightgray;
 }
@@ -37,3 +37,11 @@ h1,h2{
     margin-top:20px;
 }
 
+a{
+    color:black;
+    
+}
+a:hover{
+    text-decoration:none;
+    color:black;
+}
