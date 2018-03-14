@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h1>Doctor's Edit Page</h1>
+
+      <%= form_for @doctor do |form|%>
+        <div>
+          <%=form.label :first_name%>
+          <%=form.text_field :first_name%>
+        </div>
+        <div>
+          <%=form.label :last_name%>       
+          <%=form.text_field :last_name%>
+        </div>
+        <div>
+          <%=form.label :email%>       
+          <%=form.text_field :email%>
+        </div>
+
+        <div>
+          <%=form.label :specialty%>       
+          <%=form.text_field :specialty%>
+        </div>
+
+        <div>
+          <%=form.label :experience_years%>       
+          <%=form.text_field :experience_years%>
+        </div>
+
+
+        <div>
+          <%=form.label :location%>       
+          <%=form.text_field :location%>
+        </div>
+
+        <div>
+          <%=form.label :qualifications%>       
+          <%=form.text_field :qualifications%>
+        </div>
+
+        <%=form.submit "Update"%>
+      <%end%>
+
+
+
+
+
+
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
