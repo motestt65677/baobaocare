@@ -21,24 +21,6 @@
       <%= text_field_tag 'doctor', nil, list: 'list' %>
     <% end %>
         <div class="dropdown">
-<<<<<<< HEAD
-        <% if current_user.nil? == false %>
-          <% if current_user.type == "Mother" -%> 
-          <button class="dropbtn">What do you want to do?</button>
-          <div class="dropdown-content">
-            <a href=''>View baby profile</a>
-            <a href=''>Connect with a doctor</a>
-            <a href=''>View chatroom history</a>
-          </div>
-          <% elsif current_user.type == "Doctor" -%>
-          <button class="dropbtn">What do you want to do?</button>
-          <div class="dropdown-content">
-            <a href=''>View my profile</a>
-            <a href=''>Connect with patients</a>
-            <a href='chatrooms'>View chatroom history</a>
-         <% end %>
-        <% end %>
-=======
           <% if signed_in? %> 
             <% if current_user.type == "Mother" -%> 
             <button class="dropbtn">What do you want to do?</button>
@@ -55,7 +37,7 @@
               <a href='chatrooms'>View chatroom history</a>
             <% end %>
           <% end %>
->>>>>>> ec816e9e0a4fe25821331e467ddc6c244a923dd8
+
         </div>
            
          <div id="header">

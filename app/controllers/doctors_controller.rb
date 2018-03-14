@@ -5,6 +5,7 @@ class DoctorsController < Clearance::UsersController
 
     if @doctor.save
       sign_in @doctor
+      UserMailer.welcome_doctor_email(@doctor).deliver_now
       redirect_back_or url_after_create
     else
       render template: "users/new"
