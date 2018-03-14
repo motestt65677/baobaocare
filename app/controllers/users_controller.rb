@@ -1,33 +1,38 @@
-class UsersController < Clearance::UsersController
+# class UsersController < Clearance::UsersController
 
 
-  def new
+#   def new
 
-    @mother= Mother.new
-    @doctor= Doctor.new
+#     @mother= Mother.new
+#     @doctor= Doctor.new
     
-    render template: "users/new"
-  end
+#     render template: "users/new"
+#   end
 
-  
+#   def create 
+#     @user = User.new{user_from_params}
 
-  # def create
-  #   @user = User.new(user_from_params)
-  #   if @user.save
-  #     sign_in @user
-  #     redirect_back_or url_after_create
-  #   else
-  #     render template: "users/new"
-  #   end
-  # end
+#     if user.save 
+#       RegistrationMailer.
+#     @
+
+#   # def create
+#   #   @user = User.new(user_from_params)
+#   #   if @user.save
+#   #     sign_in @user
+#   #     redirect_back_or url_after_create
+#   #   else
+#   #     render template: "users/new"
+#   #   end
+#   # end
 
 
 
 
 
-  private
+#   private
 
-  def user_from_params
-    params[:user].permit(:email, :password, :first_name, :last_name, :type)
-  end
- # 
+#   def user_from_params
+#     params[:user].permit(:email, :password, :first_name, :last_name, :type)
+#   end
+#  # 

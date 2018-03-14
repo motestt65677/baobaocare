@@ -27,19 +27,20 @@
             <button class="dropbtn">What do you want to do?</button>
             <div class="dropdown-content">
               <a href=''>View baby profile</a>
-              <a href=''>Connect with a doctor</a>
+              <%= link_to "Connect with a doctor", doctors_path %> 
               <a href=''>View chatroom history</a>
             </div>
             <% elsif current_user.type == "Doctor" -%>
             <button class="dropbtn">What do you want to do?</button>
             <div class="dropdown-content">
-              <%= link_to "View my profile", doctor_path(current_user)%>  
+              <%= link_to "View my profile", doctor_path(current_user) %>  
 
-              <%= link_to "View chatrooms", chatrooms_path%> 
+              <%= link_to "View chatrooms", chatrooms_path %> 
 
             <% end %>
 
           <% end %>
+
         </div>
            
          <div id="header">

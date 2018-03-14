@@ -5,6 +5,7 @@ class DoctorsController < Clearance::UsersController
 
     if @doctor.save
       sign_in @doctor
+      UserMailer.welcome_doctor_email(@doctor).deliver_now
       redirect_back_or url_after_create
     else
       render template: "users/new"
@@ -12,7 +13,8 @@ class DoctorsController < Clearance::UsersController
   end
 
   def index
-    @doctors =Doctor.all
+    @doctors = Doctor.all
+    @doctors = Doctor.order(:first_name).page params[:page]
   end
 
   def show #public show page
@@ -23,11 +25,6 @@ class DoctorsController < Clearance::UsersController
     @doctor = Doctor.find(params[:id])
 
     @chatrooms = @doctor.chatrooms
-
-
-
-
-
   end
 
   def edit

@@ -35,7 +35,6 @@ require 'faker'
 #   doctor ['experience_years'] =years.sample
 #   doctor ['location'] =Faker::Address.city
 
-
 #   doctor1 = Doctor.create(doctor)
 #   p doctor1.errors
 
@@ -77,13 +76,13 @@ require 'faker'
 
 
 
-chatroom = {}
-doctor_ids = [16,17]
-child_ids = [3, 4, 5]
+# chatroom = {}
+# doctor_ids = [16,17]
+# child_ids = [3, 4, 5]
 
-10.times do |num|
-  chatroom['doctor_id'] = doctor_ids.sample
-  chatroom['child_id'] = child_ids.sample
-  chatroom1 = Chatroom.create(chatroom)
-  p chatroom1.errors
-end
+# 10.times do |num|
+#   chatroom['doctor_id'] = doctor_ids.sample
+#   chatroom['child_id'] = child_ids.sample
+#   chatroom1 = Chatroom.create(chatroom)
+#   p chatroom1.errors
+# end

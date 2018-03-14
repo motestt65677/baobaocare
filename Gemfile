@@ -34,8 +34,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem "clearance"
+gem 'kaminari'
+gem "mail"
+gem 'figaro'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem "letter_opener", :group => :development
 
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
