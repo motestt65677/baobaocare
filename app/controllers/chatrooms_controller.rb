@@ -16,13 +16,17 @@ class ChatroomsController < ApplicationController
     else
       redirect_to login_in_path
     end
-  end
+
+    @children = Child.all
+    end
 
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @comment = Comment.new
     @comments = @chatroom.comments
+    
   end
+  
   
 end

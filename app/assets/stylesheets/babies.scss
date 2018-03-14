@@ -6,6 +6,7 @@
 .child_wrap{
     margin: 5% auto;
     max-width:900px;
+    
 }
 
 .child_wrap p{
@@ -17,3 +18,21 @@
     margin: 10% auto 0;
     max-width:400px;
 }
+
+.child_header{
+    display:flex;
+    align-items:center;
+}
+.child_avatar{
+    width:250px;
+    height:250px;
+    overflow:hidden;
+    border-radius:50%;
+    margin:0 50px 20px 0;
+    
+}
+
+.child_avatar img{
+    width:100%;
+}
+

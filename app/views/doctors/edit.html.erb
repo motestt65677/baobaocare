@@ -40,7 +40,12 @@
           <%=form.label :qualifications%>       
           <%=form.text_area :qualifications, class: 'form-control'%>
         </div>
-
+        
+        <div class="mb-3">
+          <%=form.label :avatar%>
+          <%= form.file_field :avatar, class: 'form-control' %>
+        </div>
+          
         <div class ="row">
 
           <div class ="col-4">

@@ -42,7 +42,7 @@
     margin:0;
 }
 
-.mother_wrap h1,.mother_wrap h2{
+.mother_wrap h2{
     margin-top:5%;
 }
 
@@ -70,4 +70,22 @@
 #edit_acc{
     text-decoration:underline;
     font-size:14px;
+}
+
+.mother_header{
+    display:flex;
+    align-items:center;
+}
+
+.mother_avatar{
+    width:250px;
+    height:250px;
+    overflow:hidden;
+    border-radius:50%;
+    margin:0 50px 20px 0;
+    
+}
+
+.mother_avatar img{
+    width:100%;
 }

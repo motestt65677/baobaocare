@@ -1,3 +1,30 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#messages-table{
+  overflow:auto;
+  height:25em;
+  width:50em;
+  border:1px;
+  padding: 2em;
+  
+}
+
+#message_content{
+  width:50em;
+  height: 5em;
+}
+
+.comments_box{
+  height:3em;
+}
+.comments{
+  font-size: 1em;
+
+}
+
+section{
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
