@@ -40,7 +40,7 @@ class DoctorsController < Clearance::UsersController
 
   private
   def user_from_params
-    params[:doctor].permit(:email, :password, :first_name, :last_name, :type, :specialty, :experience_years,:location, :qualifications)
+    params[:doctor].permit(:email, :password, :first_name, :last_name, :type, :specialty, :experience_years,:location, :qualifications, :avatar)
   end
 
 end
