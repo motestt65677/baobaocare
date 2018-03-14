@@ -44,10 +44,10 @@
         <h3>Chat History</h3>
         <section>
           <% @comments.each do |comment| %>
-            <% if current_user.type == "Doctor"%>
+            <% if comment.user.type == "Doctor"%>
             <p>Dr. <%= comment.user.last_name%>:
             <%= comment.text%></p>
-            <% else current_user.type == "Mother" %>
+            <% else comment.user.type == "Mother" %>
             <p>Ms. <%= comment.user.last_name%>:
             <%= comment.text%></p>
             <% end %>

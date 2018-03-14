@@ -1,13 +1,9 @@
-  <%= form_tag doctors_search_path, method: :get do %> 
-  
-  <h7>Location </h7>
-    <%= text_field_tag :location, params[:location] %>
-  
-  <h7>Speciality </h7>
-    <%= text_field_tag :speciality, params[:speciality] %>
+      <br>
+      <br>
+      <br>
 
-   <%= submit_tag "Search", name: nil, class:"btn btn-primary" %>
-<% end %>
+
+      <h3 style = "text-align: center"> Search Results </h3>
 
 
 <div class="container mt-5">
@@ -23,6 +19,7 @@
                 <div class="card-body" >
 
                   <h5 class="card-title"><strong> Dr: </strong><%= "#{doctor.first_name}  #{doctor.last_name}"%></h5>
+                  <p class= "card-text"> <strong> Location: </strong><%=doctor.location%></p> 
                   <p class= "card-text"> <strong> Specialty: </strong><%=doctor.specialty%></p>     
                   <p class= "card-text"> <strong> Years of experience: </strong><%=doctor.experience_years%></p>   
                   <%= link_to "Contact", doctor_path(doctor), class:"btn btn-primary"%>  

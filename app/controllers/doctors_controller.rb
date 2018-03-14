@@ -42,9 +42,25 @@ class DoctorsController < Clearance::UsersController
   end
 
 
+ def search
+    @doctors =Doctor.all
+      filtering_params(params).each do |key,value|          
+        @doctors = @doctors.public_send(key,value) if value.present? 
+        if @doctors.empty?
+        flash[:notice] = "Sorry there are no matching results for your search!"
+      end 
+    end
+  end
+   
+
   private
   def user_from_params
     params[:doctor].permit(:email, :password, :first_name, :last_name, :type, :specialty, :experience_years,:location, :qualifications)
   end
+
+  def filtering_params(params)
+    params.slice(:location, :speciality)
+  end
+
 
 end
