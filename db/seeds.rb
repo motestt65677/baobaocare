@@ -26,13 +26,13 @@ require 'faker'
 
 
 
-# 5.times do |num|
+# 24.times do |num|
 #   doctor['first_name'] = Faker::Name.first_name
 #   doctor['last_name'] = Faker::Name.last_name  
 #   doctor['email'] = Faker::Internet.email
 #   doctor['password'] =Faker::Internet.password
 #   doctor['specialty']= specialties.sample
-#   doctor ['experience_years'] =years.sample
+#   doctor ['experience_years'] = years.sample
 #   doctor ['location'] =Faker::Address.city
 
 #   doctor1 = Doctor.create(doctor)

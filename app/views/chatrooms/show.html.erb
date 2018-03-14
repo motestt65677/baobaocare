@@ -39,6 +39,7 @@
         
         <section>
 
+
           <div id="messages-table" data-user-name="<%=current_user.first_name%>"" data-user-type="<%=current_user.type%>" class="border">
             <%if current_user.type == "Doctor"%>
               <% @comments.each do |comment| %>
