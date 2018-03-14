@@ -27,7 +27,7 @@
                   <p class= "card-text"> <strong> Years of experience: </strong><%=doctor.experience_years%></p>   
                   <%= link_to "Contact", doctor_path(doctor), class:"btn btn-primary"%>  
             
-
+                 
 
                  </div>
               </div>
@@ -36,3 +36,5 @@
     <%end%>
   </div>
 </div>
+
+ <%= paginate @doctors, window: 2 %>

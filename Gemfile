@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem "clearance"
-
+gem 'kaminari'
 gem "mail"
 gem 'figaro'
 gem 'bootstrap', '~> 4.0.0'

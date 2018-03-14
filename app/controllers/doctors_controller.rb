@@ -13,7 +13,8 @@ class DoctorsController < Clearance::UsersController
   end
 
   def index
-    @doctors =Doctor.all
+    @doctors = Doctor.all
+    @doctors = Doctor.order(:first_name).page params[:page]
   end
 
   def show #public show page
@@ -24,11 +25,6 @@ class DoctorsController < Clearance::UsersController
     @doctor = Doctor.find(params[:id])
 
     @chatrooms = @doctor.chatrooms
-
-
-
-
-
   end
 
   def edit

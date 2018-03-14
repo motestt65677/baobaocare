@@ -30,4 +30,7 @@ Rails.application.routes.draw do
   post '/doctor/:doctor_id/children/:child_id' => "chatrooms#create", as:"create_chatroom"
   get 'payment/:chatroom_id/new' => "payments#new", as:"new_payment"
   post 'payment/:chatroom_id/checkout' => "payments#checkout", as: "check_out"
+
+  mount ActionCable.server, at: '/cable'
+
 end
