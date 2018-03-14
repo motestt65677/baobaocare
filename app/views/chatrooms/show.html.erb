@@ -24,7 +24,7 @@
                         <span style = "margin: 3vw">Baby</span><%#=  current_user.last_name%></p>
                       <%# end %>
           </div>
-        </div>
+        </div> 
         </div>
       </div>
     </div>
@@ -39,25 +39,47 @@
         
         <section>
 
-          <div id="messages-table" class="border">
-            <% @comments.each do |comment| %>
-              <% if comment.user.type == "Doctor"%>
-                <p>Dr. <%= comment.user.first_name%>:
-                <%= comment.text%></p>
-              <% else comment.user.type == "Mother" %>
-                <p>Ms. <%= comment.user.first_name%>:
-                <%= comment.text%></p>
-              <% end %>            
+
+          <div id="messages-table" data-user-name="<%=current_user.first_name%>"" data-user-type="<%=current_user.type%>" class="border">
+            <%if current_user.type == "Doctor"%>
+              <% @comments.each do |comment| %>
+                <% if comment.user == current_user%>
+                  <div class="comments_box" style="text-align:right"> 
+                    <span class= "comments badge badge-pill badge-info"><%=comment.text%>
+                    </span>
+                  </div>
+                <% else %>
+                  <div class="comments_box"> Ms.<%=comment.user.last_name%>:
+                    <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                  </div>
+                <% end %>
               <% end %>
+
+            <% end%>
+
+            <%if current_user.type == "Mother"%>
+              <% @comments.each do |comment| %>
+                <% if comment.user == current_user%>
+                  <div class="comments_box" style="text-align:right"> 
+                    <span class= "comments badge badge-pill badge-info"><%=comment.text%>
+                    </span>
+                  </div>
+                <% else %>
+                  <div class="comments_box"> Dr.<%=comment.user.last_name%>:
+                    <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end%>
           </div>
-          
-
-        </section>
-
         <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
           <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
           <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
-        <% end %>
+        <% end %>          
+
+        </section>
+
+
 
 
       </div>
