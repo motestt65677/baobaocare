@@ -4,8 +4,10 @@ class MothersController < Clearance::UsersController
 
   def create
     @mother = Mother.new(mother_params)
+    
     if @mother.save
       sign_in @mother
+      UserMailer.welcome_mother_email(@mother).deliver_now
       redirect_to mother_path(@mother)
     else
       flash[:notice]
