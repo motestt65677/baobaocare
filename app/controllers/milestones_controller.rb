@@ -1,24 +1,26 @@
 class MilestonesController < ApplicationController
 
   def index      
-    @mother = User.find(params[:mother_id])
+    @mother = Mother.find(params[:mother_id])
     @child = Child.find(params[:child_id])   
     @milestones = Milestone.all         
   end
 
   def new     
-      @mother = User.find(params[:mother_id])
+      @mother = Mother.find(params[:mother_id])
       @child = Child.find(params[:child_id]) 
       @milestones = Milestone.new
   end
 
   def create
-    @mother = User.find(params[:mother_id])
+    @mother = Mother.find(params[:mother_id])
     @child = Child.find(params[:child_id]) 
-    @milestones = milestones.new(milestone_params)
-    if @milestones.save
-      redirect to mother_child_milestones(@mother, @child, @milestones)
+    @milestone_type = params[:milestone_type]
+    @milestones = params[:milestones]
+    @milestones.each do |milestone|
+      @child.milestones.create(title: @milestone_type, description: milestone)      
     end
+    redirect_to mother_child_milestones_path(@mother, @child)
   end
 
   def show
