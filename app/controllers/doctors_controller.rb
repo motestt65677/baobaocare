@@ -21,6 +21,13 @@ class DoctorsController < Clearance::UsersController
 
   def homepage
     @doctor = Doctor.find(params[:id])
+
+    @chatrooms = @doctor.chatrooms
+
+
+
+
+
   end
 
   def edit

@@ -33,9 +33,10 @@
             <% elsif current_user.type == "Doctor" -%>
             <button class="dropbtn">What do you want to do?</button>
             <div class="dropdown-content">
-              <a href=''>View my profile</a>
-              <a href=''>Connect with patients</a>
-              <a href='chatrooms'>View chatroom history</a>
+              <%= link_to "View my profile", doctor_path(current_user)%>  
+
+              <%= link_to "View chatrooms", chatrooms_path%> 
+
             <% end %>
 
           <% end %>
