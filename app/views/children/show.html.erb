@@ -1,0 +1,13 @@
+
+<div class="child_wrap">
+
+    <h1><%= @child.name %>'s Profile</h1>
+            
+    <p><%= @mother.first_name %>'s baby</p>
+    <p>Date of birth: <%= @child.birthday %></p>
+    <%= link_to 'edit', edit_mother_child_path(@mother, @child) %>
+    </br>
+    <%= link_to 'remove', mother_child_path(@mother, @child), method: 'delete', data: { confirm: "Are you sure?" } %>
+            
+
+</div>

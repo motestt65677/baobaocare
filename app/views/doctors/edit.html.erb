@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h1>Doctor's Edit Page</h1>
+
+      <%= form_for(@doctor, :html => {:class => "form-control mb-5"} ) do |form|%>
+        <div class="mb-3">
+          <%=form.label :first_name%>
+          <%=form.text_field :first_name, class: 'form-control'%>
+        </div>
+
+        <div class="mb-3">
+          <%=form.label :last_name%>       
+          <%=form.text_field :last_name, class: 'form-control'%>
+        </div>
+
+        <div class="mb-3">
+          <%=form.label :email%>       
+          <%=form.text_field :email, class: 'form-control'%>
+        </div>
+
+        <div class="mb-3">
+          <%=form.label :specialty%>       
+          <%=form.text_field :specialty, class: 'form-control'%>
+        </div>
+
+        <div class="mb-3">
+          <%=form.label :experience_years%>       
+          <%=form.text_field :experience_years, class: 'form-control'%>
+        </div>
+
+
+        <div class="mb-3">
+          <%=form.label :location%>       
+          <%=form.text_field :location, class: 'form-control'%>
+        </div>
+
+        <div class="mb-3">
+          <%=form.label :qualifications%>       
+          <%=form.text_area :qualifications, class: 'form-control'%>
+        </div>
+
+        <div class ="row">
+
+          <div class ="col-4">
+          </div>
+
+          <div class ="col-4" style="text-align:center ">
+            <%=form.submit "Update", class: "btn btn-primary mt-5"%>
+          </div>
+
+          <div class ="col-4">
+          </div>
+
+        </div>
+      <%end%>
+
+
+
+
+
+
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
