@@ -1,75 +1,28 @@
-<div class="container">
-    <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <h1>Mother Edit Page</h1>
 
-      <%= form_for @mother do |form|%>
-        <div>
-          <%=form.label :first_name%>
-          <%=form.text_field :first_name%>
-        </div>
-        <div>
-          <%=form.label :last_name%>       
-          <%=form.text_field :last_name%>
-        </div>
-        <div>
-          <%=form.label :email%>       
-          <%=form.text_field :email%>
-        </div>
-        <%=form.submit "Update"%>
-      <%end%>
-
-      <h2>Here Are Your Babies</h2>
+<div class="mother_edit">
+  <div class="container">
       <div class="row">
-        <%@mother.children.each do |child|%>
-            <div class="col-4">
-              <span><%=child.name%></span>
-            </div>
-        <%end%>
-      </div> 
-
-
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Baby
-      </button>
-      <%=link_to "back", mother_path(@mother)%>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Baby</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <%= form_tag "/mothers/#{@mother.id}/children" do%>
-
-              <div class="modal-body">
-                  <div>
-                    <%=label_tag :name%>
-                    <%=text_field_tag "child[name]"%>
-                  </div>
-                  <div>
-                    <%=label_tag :birthday%>
-                    <%=text_field_tag "child[birthday]"%>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <%=submit_tag "Add"%>
-              </div>
-            <% end %>
-
+      <div class="col-4"></div>
+      <div class="col-8">
+        <h1>Mother Edit Page</h1>
+  
+        <%= form_for @mother do |form|%>
+          <div>
+            <%=form.label :first_name%>
+            <%=form.text_field :first_name, class: 'form-control' %>
           </div>
-        </div>
+          <div>
+            <%=form.label :last_name%>       
+            <%=form.text_field :last_name, class: 'form-control' %>
+          </div>
+          <div>
+            <%=form.label :email%>       
+            <%=form.text_field :email, class: 'form-control' %>
+          </div>
+          <%=form.submit "Update", class:'submit' %>
+        <%end%>
+  
       </div>
-
-
     </div>
-    <div class="col-2"></div>
   </div>
 </div>

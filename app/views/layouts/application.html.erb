@@ -21,6 +21,7 @@
       <%= text_field_tag 'doctor', nil, list: 'list' %>
     <% end %>
         <div class="dropdown">
+
           <% if signed_in? %> 
             <% if current_user.type == "Mother" -%> 
             <button class="dropbtn">What do you want to do?</button>
@@ -32,13 +33,15 @@
             <% elsif current_user.type == "Doctor" -%>
             <button class="dropbtn">What do you want to do?</button>
             <div class="dropdown-content">
-              <a href=''>View my profile</a>
-              <a href=''>Connect with patients</a>
-              <a href='chatrooms'>View chatroom history</a>
+              <%= link_to "View my profile", doctor_path(current_user)%>  
+
+              <%= link_to "View chatrooms", chatrooms_path%> 
+
             <% end %>
+
           <% end %>
         </div>
-
+           
          <div id="header">
           <% if signed_in? -%>
           <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
