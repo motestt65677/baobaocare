@@ -2,7 +2,7 @@ class ChildrenController < ApplicationController
   def create
     @mother = Mother.find(params[:mother_id])
     @mother.children.create(child_params)
-    redirect_to edit_mother_path(@mother)
+    redirect_to mother_path(@mother)
   end
 
   def show
@@ -17,7 +17,10 @@ class ChildrenController < ApplicationController
   
   def update
     @mother = Mother.find(params[:mother_id])
-    @child = @mother.children.update(child_params)
+    @child = @mother.children.find(params[:id])
+    @child.avatar = params[:file]
+    @child.update(child_params)
+    
     redirect_to mother_child_path(@mother, @child)
   end
   
@@ -31,6 +34,6 @@ class ChildrenController < ApplicationController
   
   private
   def child_params
-    params.require(:child).permit(:name, :birthday)
+    params.require(:child).permit(:name, :birthday, :avatar)
   end
 end
