@@ -31,33 +31,32 @@
   </div>
 </div>
 
+
 <div class="container">
     <div class="row">
       <div class="col-2"></div>
       <div class="col-8">
-        <br>
-          <%= form_tag "/chatrooms/#{@chatroom.id}/comments" do %>
-          <%= text_field_tag :text %>
-          <%= submit_tag "Submit"%>
-        <% end %>
-
-        <h3>Chat History</h3>
+        
         <section>
-          <% @comments.each do |comment| %>
-            <% if current_user.type == "Doctor"%>
-            <p>Dr. <%= comment.user.last_name%>:
-            <%= comment.text%></p>
-            <% else current_user.type == "Mother" %>
-            <p>Ms. <%= comment.user.last_name%>:
-            <%= comment.text%></p>
+          <div id="messages-table" class="border">
+            <% @comments.each do |comment| %>
+              <% if comment.user.type == "Doctor"%>
+                <p>Dr. <%= comment.user.first_name%>:
+                <%= comment.text%></p>
+              <% else comment.user.type == "Mother" %>
+                <p>Ms. <%= comment.user.first_name%>:
+                <%= comment.text%></p>
+              <% end %>
             <% end %>
-            <p><%= comment.created_at %></p>
-
-            
-          <% end %>
+          </div>
+          
 
         </section>
 
+        <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
+          <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
+          <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
+        <% end %>
 
 
       </div>
