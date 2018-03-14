@@ -27,12 +27,12 @@ class MothersController < Clearance::UsersController
   def update
     @mother = Mother.find(params[:id])
     @mother.update_attributes(mother_params)
-    redirect_to edit_mother_path(@mother)
+    redirect_to mother_path(@mother)
   end
 
 private
   def mother_params
-    params.require(:mother).permit(:email, :password, :first_name, :last_name, :type)
+    params.require(:mother).permit(:email, :password, :first_name, :last_name, :type, :avatar)
   end
 
 
