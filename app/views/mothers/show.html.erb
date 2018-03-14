@@ -1,37 +1,64 @@
-<div class="container">
-  
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <!--<h1>Mother's Show Page</h1>-->
-      
-      <div class="mother_info">
-          <h1>Hello <span><%= @mother.first_name%>!</span></h1> 
-          <p>Your Email is: <span><%=@mother.email%></span></p>
-          <%=link_to edit_mother_path(@mother) do%> 
-            <span>Edit Account</span> 
-          <%end%>
-      </div>
-      
-      <h2>Here Are Your Babies</h2>
-      <div class="child_wrap">
-        <%@mother.children.each do |child| %>
-          <div class='child_field'>
-          <%= link_to mother_child_path(@mother, child) do %>
-          
-            
-              <div class="child_img">
-                <img></img>
-              </div>
-              <p><%=child.name%></p>
-            </div>
-            
-          <% end %>
-          
-        <%end%>
-      </div>
 
-    </div>
-    <div class="col-2"></div>
-  </div>
+<div class="mother_wrap">
+        
+        <div class="mother_info">
+            <h1>Hello <span><%= @mother.first_name%>!</span></h1> 
+            <p>Your email: <span><%=@mother.email%></span></p>
+            <%=link_to edit_mother_path(@mother) do%> 
+              <span id='edit_acc'>Edit Account</span> 
+            <%end%>
+        </div>
+        
+        <h2>Here Are Your Babies</h2>
+        <div class="children_wrap">
+          
+          <%@mother.children.each do |child| %>
+            <div class='child_field'>
+              
+                  <div class="child_img">
+                    <%= link_to mother_child_path(@mother, child) do %>
+                      <%= image_tag 'newborn.png' %>
+                  </div>
+                    <span class='child_name'><%=child.name%></span>
+            
+                    <% end %>
+            </div>
+          <%end%>
+          
+          <div class='child_field'>
+            <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
+          </div>
+        </div>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Baby</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= form_tag "/mothers/#{@mother.id}/children" do%>
+  
+                <div class="modal-body">
+                    <div>
+                      <%=label_tag :name%>
+                      <%=text_field_tag "child[name]"%>
+                    </div>
+                    <div>
+                      <%=label_tag :birthday%>
+                      <%=text_field_tag "child[birthday]"%>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <%=submit_tag "Add"%>
+                </div>
+              <% end %>
+  
+            </div>
+          </div>
+        </div>
+
 </div>

@@ -1,3 +1,19 @@
 // Place all the styles related to the babies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.child_wrap{
+    margin: 5% auto;
+    max-width:900px;
+}
+
+.child_wrap p{
+    font-size:20px;
+    margin:0;
+}
+
+.child_edit{
+    margin: 10% auto 0;
+    max-width:400px;
+}
