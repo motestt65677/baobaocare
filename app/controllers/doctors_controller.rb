@@ -24,10 +24,6 @@ class DoctorsController < Clearance::UsersController
 
     @chatrooms = @doctor.chatrooms
 
-
-
-
-
   end
 
   def edit

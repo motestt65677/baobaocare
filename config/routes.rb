@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   end
 
   get "/doctors/:id/homepage" => "doctors#homepage", as: "doctor_profile"
+  get "/mothers/:id/homepage" => "mothers#homepage", as: "mother_profile"
+
   post '/doctor/:doctor_id/children/:child_id' => "chatrooms#create", as:"create_chatroom"
   get 'payment/:chatroom_id/new' => "payments#new", as:"new_payment"
   post 'payment/:chatroom_id/checkout' => "payments#checkout", as: "check_out"
