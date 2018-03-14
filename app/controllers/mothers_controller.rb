@@ -19,6 +19,11 @@ class MothersController < Clearance::UsersController
     @mother = Mother.find(params[:id])
   end
 
+  def homepage
+    @mother = Mother.find(params[:id])
+    # @chatrooms = @doctor.chatrooms
+  end
+
   def edit
     @mother = Mother.find(params[:id])
     @child = Child.new

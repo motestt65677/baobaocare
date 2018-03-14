@@ -57,10 +57,14 @@
 
 .add_box{
     line-height:250px;
-    font-size: 50px;
+    color:#fd7e14;
+    font-size: 100px;
     cursor: pointer;
     border:1px solid black;
     border-radius:50%;
+    background: image-url('stork.png');
+    text-shadow:-2px -2px 0 #575c66, 2px -2px 0 #575c66,-2px 2px 0 #575c66, 2px 2px 0 #575c66;
+
 }
 
 #edit_acc{

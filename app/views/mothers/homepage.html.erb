@@ -1,29 +1,55 @@
+<div class= "container mt-5 ">
+  <h3> Welcome Back, <%= "#{@mother.first_name} #{@mother.last_name}"%>!</h3>
 
-<div class="mother_wrap">
-      <div class="mother_header">
-        <div class="mother_avatar">
-          <% if @mother.avatar.url.nil? %>
-              <%= image_tag 'newborn.png' %>
-          <% else %>
-              <%= image_tag @mother.avatar.url %>
-          <% end %> 
-        </div>
+  <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
+
+<div class ="row">
+
+  <div class = "col-3 mt-5" >
+    <%= link_to doctors_path do %>
+      <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+    <% end %>
+    <br/>   
+   <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
+  </div>
+
+
+
+  <div class = "col-3 mt-5" >
+   <%= link_to chatrooms_path do %> 
+      <%= image_tag("doctor.png", :alt => "rss feed") %>
+    <% end %>  
+    <br/>   
+   <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
+  </div>
+
+  <div class = "col-3 mt-5">
+    <%= link_to mother_path do %>
+      <%= image_tag("home.png", :alt => "rss feed") %>
+    <% end %> 
+    <br/>   
+   <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
+  </div>
+
+    <div class = "col-3 mt-5">
+    <%= link_to edit_mother_path do %>
+      <%= image_tag("tools.png", :alt => "rss feed") %>
+    <% end %> 
+    <br/>   
+   <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class= "container mt-5 mb-5 ">
         
-        <div class="mother_info">
-            <h1><span><%=" #{@mother.first_name} #{@mother.last_name}"%></span></h1> 
-            <p>Email: <span><%=@mother.email%></span></p>
-            <%=link_to edit_mother_path(@mother) do%> 
-              <span id='edit_acc'>Edit Account</span> 
-            <%end%>
-        </div>
-
-
-        
- 
-
-      </div>  
-      
- <h2><%="#{@mother.first_name}'s"%> Babies</h2>
+        <h2>Here Are Your Babies</h2>
         <div class="children_wrap">
           
           <%@mother.children.each do |child| %>
@@ -31,24 +57,19 @@
               
                   <div class="child_img">
                     <%= link_to mother_child_path(@mother, child) do %>
-                      <% if child.avatar.url.nil? %>
-                        <%= image_tag 'newborn.png' %>
-                      <% else %>
-                        <%= image_tag child.avatar.url %>
-                      <% end %>  
+                      <%= image_tag 'newborn.png' %>
                   </div>
                     <span class='child_name'><%=child.name%></span>
-                    <br/>
-                    <span class='child_name'><%=child.age%> years old.</span>
             
                     <% end %>
             </div>
           <%end%>
           
-<!--           <div class='child_field'>
+          <div class='child_field'>
             <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
+            <span class='child_name'>Add a Baby!</span>
           </div>
-        </div> -->
+        </div>
         
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -80,5 +101,6 @@
             </div>
           </div>
         </div>
+
 
 </div>
