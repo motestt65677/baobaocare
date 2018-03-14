@@ -3,23 +3,22 @@
     <div class="container">
       
       <div class="row">
-
-        <div class="col-lg-8 mt-5" style= "text-align: center">
-          <strong> <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">Chat<span style="color:#02e595">Rooms</span></h1> </strong>
-        
-        <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>       
-
-        </div>
-
-        <div class="col-lg-4 mt-4">
-          <%= image_tag("newborn.png", height: '20%') %>
-            <div class = "col-4">
-                    <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
-                      <% if current_user.type == "Doctor"%>
-                        <span>Dr.<%=  current_user.last_name%></span></p>
-                      <% end %>
-                    </div>
+        <div class="col-lg-3 mt-0" style= "text-align: right ;">
+          
+           <div class = "col-4">
+                    >
+              </div>
             </div>
+            <div class="col-lg-6 mt-0" style= "text-align: center;">
+              <strong> <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">Chat<span style="color:#02e595"> </span><span style="color:#02e595">Rooms</span></h1> </strong>            
+                  <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>
+            </div>        
+           <div class="col-lg-3 mt-0" style= "text-align: left;">
+           
+            <div class = "col-4">
+                  
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -27,6 +26,7 @@
 </div>
 
 <main>
+
   <div class="container">
     <div class="row">
       <div class= col-2></div>
@@ -37,10 +37,15 @@
               <%= link_to chatroom_path(room)do %>
                 <%= image_tag("newborn.png", :alt => "rss feed", :id => "chat_room_image", :class => "img-thumbnail") %>
                 <div class = "b_info">
+                  <% if current_user.type == "Doctor"%>
                     <p id = "baby_name">
                       <strong>Baby <%= Child.find(room.child_id).name%></strong>
+                      <% else current_user.type == "Mother" %>
+                      <p id = "baby_name">
+                      <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
                       <br>
                         Last Appointment: <p>
+                  <% end %> 
                 </div>
               <% end %>    
             </div>

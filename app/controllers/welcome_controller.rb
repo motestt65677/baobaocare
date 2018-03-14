@@ -6,7 +6,12 @@ class WelcomeController < ApplicationController
       elsif current_user.type == "Doctor"
         redirect_to doctor_profile_path(current_user)
       end
+
+
     end
   end
-  end
 
+  
+end
+
+  

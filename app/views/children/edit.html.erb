@@ -12,8 +12,11 @@
             <%=form.label :date%>
             <%=form.text_field :birthday, class: 'form-control' %>
           </div>
-          
-          <%=form.submit "Update", class:'submit' %>
+          <div>
+            <%=form.label :avatar%>
+            <%= form.file_field :avatar, class: 'form-control' %>
+          </div>
+          <%=form.submit "Update", class: "btn btn-primary mt-5" %>
         <%end%>
   
 </div>

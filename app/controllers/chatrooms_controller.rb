@@ -18,13 +18,15 @@ class ChatroomsController < ApplicationController
     end
 
     @children = Child.all
-  end
+    end
 
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @comment = Comment.new
     @comments = @chatroom.comments
+    
   end
+  
   
 end
