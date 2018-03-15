@@ -1,0 +1,5 @@
+console.log("hi");  
+$("#doctor_list").html("");
+
+$("<%= j render(partial:'doctors', object: @doctors)%>").appendTo("#doctor_list")
+

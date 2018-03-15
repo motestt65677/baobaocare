@@ -14,7 +14,12 @@ class DoctorsController < Clearance::UsersController
 
   def index
     @doctors = Doctor.all
+
     @doctors = Doctor.order(:first_name).page params[:page]
+
+    @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
+
+
   end
 
   def show #public show page
@@ -41,12 +46,22 @@ class DoctorsController < Clearance::UsersController
 
   def search
     @doctors =Doctor.all
-      filtering_params(params).each do |key,value|          
-        @doctors = @doctors.public_send(key,value) if value.present? 
-        if @doctors.empty?
-          flash[:notice] = "Sorry there are no matching results for your search!"
-        end 
-      end
+    filtering_params(params).each do |key,value|          
+      @doctors = @doctors.public_send(key,value) if value.present? 
+    end
+
+    if @doctors.empty?
+      flash[:notice] = "Sorry there are no matching results for your search!"   
+    end
+    
+    @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
+    @doctors = @doctors.page params[:page]
+
+
+    respond_to do |format|
+      format.js
+    end
+    
   end
    
 
