@@ -2,11 +2,18 @@
 	float: right;
 }
 
-#navbar {
+#container {
 	padding: 20px;
-	border: 0px; 
+	border: 4px; 
+    margin: 4px;
+    border-color: green;
 }
 
+#searchbar {
+    right:30px;
+    bottom:50px;
+    border-color: green;
+}
 .dropbtn {
 	background-color: LightSalmon;
 	color: white;
@@ -62,3 +69,10 @@
 .other-links a{
     margin-right:10px;
 }
+
+
+.img-nav {
+    height: 100px;
+    width: 100px;
+}
+

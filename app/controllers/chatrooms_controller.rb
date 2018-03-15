@@ -5,10 +5,10 @@ class ChatroomsController < ApplicationController
       @chatrooms = []
       
       @children.each do |child|
-        @chatrooms.push(child.chatrooms)
+        child.chatrooms.each do |room|
+          @chatrooms.push(room)
+        end        
       end
-
-      @chatrooms = @chatrooms[0]
 
     elsif current_user.type == "Doctor"
       @chatrooms = current_user.chatrooms

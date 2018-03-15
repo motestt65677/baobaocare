@@ -42,7 +42,7 @@
     margin:0;
 }
 
-.mother_wrap h1,.mother_wrap h2{
+.mother_wrap h2{
     margin-top:5%;
 }
 
@@ -57,13 +57,35 @@
 
 .add_box{
     line-height:250px;
-    font-size: 50px;
+    color:#fd7e14;
+    font-size: 100px;
     cursor: pointer;
     border:1px solid black;
     border-radius:50%;
+    background: image-url('stork.png');
+    text-shadow:-2px -2px 0 #575c66, 2px -2px 0 #575c66,-2px 2px 0 #575c66, 2px 2px 0 #575c66;
+
 }
 
 #edit_acc{
     text-decoration:underline;
     font-size:14px;
+}
+
+.mother_header{
+    display:flex;
+    align-items:center;
+}
+
+.mother_avatar{
+    width:250px;
+    height:250px;
+    overflow:hidden;
+    border-radius:50%;
+    margin:0 50px 20px 0;
+    
+}
+
+.mother_avatar img{
+    width:100%;
 }
