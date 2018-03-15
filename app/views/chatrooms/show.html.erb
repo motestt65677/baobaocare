@@ -1,41 +1,37 @@
-<div>
-  <div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 50vh;">
-    <div class="container">
-      
-      <div class="row">
-        <div class="col-lg-3 mt-0" style= "text-align: right ;">
-          <%= image_tag("newborn.png", height: '25%') %>
-           <div class = "col-4">
-                    <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
-                      <%# if user.type == "Mother"%>
-                        <span style = "margin: 8vw" >Doctor</span><%#=  current_user.last_name%></p>
-                      <%# end %>
-              </div>
-            </div>
-            <div class="col-lg-6 mt-5" style= "text-align: center;">
-              <strong> <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">Chat<span style="color:#02e595"> </span><span style="color:#02e595">Room</span></h1> </strong>            
-                  <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>
-            </div>        
-           <div class="col-lg-3 mt-0" style= "text-align: left;">
-           <%= image_tag("newborn.png", height: '25%') %>
-            <div class = "col-4">
-                    <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
-                      <%# if user.type == "Mother"%>
-                        <span style = "margin: 3vw">Baby</span><%#=  current_user.last_name%></p>
-                      <%# end %>
-          </div>
-        </div> 
+<div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 50vh;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mt-0" style= "text-align: right ;">
+        <%= image_tag("newborn.png", height: '25%') %>
+        <div class = "col-4">
+          <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
+            <span style = "margin: 8vw" >Doctor</span>
+          </p>
         </div>
       </div>
+      <div class="col-lg-6 mt-5" style= "text-align: center;">
+        <strong>
+          <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">Chat
+            <span style="color:#02e595">Room</span>
+          </h1>
+        </strong>
+        <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>
+      </div>        
+      <div class="col-lg-3 mt-0" style= "text-align: left;">
+        <%= image_tag("newborn.png", height: '25%') %>
+        <div class = "col-4">
+          <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
+            <span style = "margin: 3vw">Baby</span>
+          </p>
+        </div>
+      </div>       
     </div>
   </div>
 </div>
-
-
 <div class="container">
     <div class="row">
       <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-9">
         
         <section>
 
@@ -48,12 +44,11 @@
                     </span>
                   </div>
                 <% else %>
-                  <div class="comments_box"> Ms.<%=comment.user.last_name%>:
+                  <div class="comments_box"> <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
                     <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
                   </div>
                 <% end %>
               <% end %>
-
             <% end%>
 
             <%if current_user.type == "Mother"%>
@@ -64,17 +59,17 @@
                     </span>
                   </div>
                 <% else %>
-                  <div class="comments_box"> Dr.<%=comment.user.last_name%>:
+                  <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=comment.user.last_name%></strong></span><br>
                     <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
                   </div>
                 <% end %>
               <% end %>
             <% end%>
           </div>
-        <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
-          <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
-          <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
-        <% end %>          
+          <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
+            <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
+            <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
+          <% end %>          
 
         </section>
 
@@ -82,7 +77,6 @@
 
 
       </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
-
-  </div>
+</div>
