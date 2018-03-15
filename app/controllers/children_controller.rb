@@ -1,7 +1,15 @@
 class ChildrenController < ApplicationController
   def create
+    year = params[:children]["birthday(1i)"]
+    month = params[:children]["birthday(2i)"]
+    day = params[:children]["birthday(3i)"]
+    birthday = "#{day}-#{month}-#{year}"
+
     @mother = current_user
-    @mother.children.create(child_params)
+    @child = @mother.children.new(child_params)
+    @child[:birthday] = birthday
+    @child.save
+    
     redirect_to mother_path(@mother)
   end
 
@@ -35,5 +43,9 @@ class ChildrenController < ApplicationController
   private
   def child_params
     params.require(:child).permit(:name, :birthday, :avatar)
+    # params[:post].assert_valid_keys( 'birthday(1i)', 'birthday(2i)', 'birthday(3i)')
+
   end
+
+
 end
