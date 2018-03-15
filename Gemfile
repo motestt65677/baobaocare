@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "braintree"
 gem "clearance"
 gem 'kaminari'
 gem "mail"
@@ -45,7 +46,8 @@ gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 
 gem 'pry-rails', :group => :development
-
+gem "figaro"
+gem 'redis'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

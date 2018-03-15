@@ -1,19 +1,19 @@
 class MilestonesController < ApplicationController
 
   def index      
-    @mother = Mother.find(params[:mother_id])
+    @mother = current_user
     @child = Child.find(params[:child_id])   
     @milestones = Milestone.all         
   end
 
   def new     
-      @mother = Mother.find(params[:mother_id])
+      @mother = current_user
       @child = Child.find(params[:child_id]) 
       @milestones = Milestone.new
   end
 
   def create
-    @mother = Mother.find(params[:mother_id])
+    @mother = current_user
     @child = Child.find(params[:child_id]) 
     @milestone_type = params[:milestone_type]
     @milestones = params[:milestones]
