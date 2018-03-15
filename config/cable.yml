@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:ff15b0816c0566c9ff507cc6bf2f95b7@soldierfish.redistogo.com:11870/
   channel_prefix: baobaocare_production

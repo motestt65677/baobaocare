@@ -101,4 +101,6 @@ Rails.application.configure do
   authentication:       'plain',
   enable_starttls_auto: true  }
  
+  config.web_socket_server_url = "wss://baobaocare.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://baobaocare.herokuapp.com', 'http://baobaocare.herokuapp.com']
 end
