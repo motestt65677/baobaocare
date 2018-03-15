@@ -8,16 +8,6 @@
 @import "welcome";
 @import "sign_in";
 @import "braintree";
+@import "milestones";
 @import "navbar";
-
-.doctor_avatar{
-    width:250px;
-    height:250px;
-    overflow:hidden;
-    border-radius:50%;
-
-}
-
-.doctor_avatar img{
-    width:100%;
-}
+@import "doctors";

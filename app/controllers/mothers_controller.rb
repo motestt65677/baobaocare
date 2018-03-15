@@ -16,21 +16,21 @@ class MothersController < Clearance::UsersController
   end
 
   def show
-    @mother = Mother.find(params[:id])
+    @mother = current_user
   end
 
   def homepage
-    @mother = Mother.find(params[:id])
+    @mother = current_user
     # @chatrooms = @doctor.chatrooms
   end
 
   def edit
-    @mother = Mother.find(params[:id])
+    @mother = current_user
     @child = Child.new
   end
 
   def update
-    @mother = Mother.find(params[:id])
+    @mother = current_user
     @mother.update_attributes(mother_params)
     redirect_to mother_path(@mother)
   end

@@ -14,39 +14,61 @@ class DoctorsController < Clearance::UsersController
 
   def index
     @doctors = Doctor.all
+
     @doctors = Doctor.order(:first_name).page params[:page]
+
+    @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
   end
 
   def show #public show page
     @doctor = Doctor.find(params[:id])
+    @children = current_user.children
+    @children_option = []
+
+    @children.each do |child|
+      @array = []
+      @array.push(child.name)
+      @array.push(child.id)
+      @children_option.push(@array)
+    end
   end
 
   def homepage
-    @doctor = Doctor.find(params[:id])
+    @doctor = current_user
 
     @chatrooms = @doctor.chatrooms
 
   end
 
   def edit
-    @doctor = Doctor.find(params[:id])
+    @doctor = current_user
   end
 
   def update
-    @doctor = Doctor.find(params[:id])
+    @doctor = current_user
     @doctor.update_attributes(user_from_params)
     redirect_to doctor_path(@doctor)
   end
 
 
- def search
+  def search
     @doctors =Doctor.all
-      filtering_params(params).each do |key,value|          
-        @doctors = @doctors.public_send(key,value) if value.present? 
-        if @doctors.empty?
-        flash[:notice] = "Sorry there are no matching results for your search!"
-      end 
+    filtering_params(params).each do |key,value|          
+      @doctors = @doctors.public_send(key,value) if value.present? 
     end
+
+    if @doctors.empty?
+      flash[:notice] = "Sorry there are no matching results for your search!"   
+    end
+    
+    @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
+    @doctors = @doctors.page params[:page]
+
+
+    respond_to do |format|
+      format.js
+    end
+    
   end
    
 
