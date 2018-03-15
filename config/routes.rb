@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -31,8 +33,8 @@ Rails.application.routes.draw do
   get "/subscribe" => "mothers#subscribe", as: "subscribe"
 
   post '/doctor/:doctor_id/children/:child_id' => "chatrooms#create", as:"create_chatroom"
-  get 'payment/:chatroom_id/new' => "payments#new", as:"new_payment"
-  post 'payment/:chatroom_id/checkout' => "payments#checkout", as: "check_out"
+  get 'braintree/new' => "braintree#new"
+  post 'braintree/checkout' => "braintree#checkout", as: "check_out"
 
   mount ActionCable.server, at: '/cable'
 
