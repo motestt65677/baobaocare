@@ -9,7 +9,6 @@ class ChildrenController < ApplicationController
     @child = @mother.children.new(child_params)
     @child[:birthday] = birthday
     @child.save
-
     redirect_to mother_path(@mother)
   end
 
