@@ -35,6 +35,10 @@ class MothersController < Clearance::UsersController
     redirect_to mother_path(@mother)
   end
 
+  def subscribe
+    
+  end
+
 private
   def mother_params
     params.require(:mother).permit(:email, :password, :first_name, :last_name, :type, :avatar)
