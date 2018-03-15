@@ -1,22 +1,23 @@
-
-<div class="child_edit">
-
-        <h1>Child Edit Page</h1>
+<div class="wrapper"> 
+  <div class="child_edit">
   
-        <%= form_for [@mother, @child] do |form|%>
-          <div>
-            <%=form.label :name%>
-            <%=form.text_field :name, class: 'form-control' %>
-          </div>
-          <div>
-            <%=form.label :date%>
-            <%=form.text_field :birthday, class: 'form-control' %>
-          </div>
-          <div>
-            <%=form.label :avatar%>
-            <%= form.file_field :avatar, class: 'form-control' %>
-          </div>
-          <%=form.submit "Update", class: "btn btn-primary mt-5" %>
-        <%end%>
-        
+          <h1>Child Edit Page</h1>
+    
+          <%= form_for [@mother, @child] do |form|%>
+            <div>
+              <%=form.label :name%>
+              <%=form.text_field :name, class: 'form-control' %>
+            </div>
+            <div>
+              <%=form.label :date%>
+              <%=form.text_field :birthday, class: 'form-control' %>
+            </div>
+            <div>
+              <%=form.label :avatar%>
+              <%= form.file_field :avatar, class: 'form-control' %>
+            </div>
+            <%=form.submit "Update", class: "btn btn-primary mt-5" %>
+          <%end%>
+          
+  </div>
 </div>
