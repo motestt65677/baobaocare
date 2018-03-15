@@ -1,40 +1,18 @@
-  <%= form_tag doctors_search_path, method: :get do %> 
-  
-  <h7>Location </h7>
-    <%= text_field_tag :location, params[:location] %>
-  
-  <h7>Speciality </h7>
-    <%= text_field_tag :speciality, params[:speciality] %>
-
-   <%= submit_tag "Search", name: nil, class:"btn btn-primary" %>
-<% end %>
-
-
-<div class="container mt-5">
-  <div class ="column">
-   <% @doctors.in_groups_of(2,false).each do|group| %> 
-
-        <div class="row">
-
-            <%group.each do|doctor|%>
-
-              <div class="card  w-50" style = " padding: 2%">
-
-                <div class="card-body" >
-
-                  <h5 class="card-title"><strong> Dr: </strong><%= "#{doctor.first_name}  #{doctor.last_name}"%></h5>
-                  <p class= "card-text"> <strong> Specialty: </strong><%=doctor.specialty%></p>     
-                  <p class= "card-text"> <strong> Years of experience: </strong><%=doctor.experience_years%></p>   
-                  <%= link_to "Contact", doctor_path(doctor), class:"btn btn-primary"%>  
-            
-                 
-
-                 </div>
-              </div>
-            <%end%>    
-        </div>
-    <%end%>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_tag doctors_search_path, method: :post, remote: true do %> 
+        <h7>Location </h7>
+          <%= text_field_tag :location, params[:location] %>
+        <h7>Speciality </h7>
+          <%= select_tag "speciality", options_for_select(@specialties, @specialties)%>
+        <%= submit_tag "Search", name: nil, class:"btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
+<div class="container mt-5" id="doctor_list">
+  <%= render partial: '/doctors/doctors', object: @doctors %>
+</div>
 
- <%= paginate @doctors, window: 2 %>
+
