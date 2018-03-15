@@ -93,7 +93,9 @@
                     </div>
                     <div>
                       <%=label_tag :birthday%>
-                      <%=text_field_tag "child[birthday]"%>
+                      <%= date_select "children", :birthday, :start_year => 2000, :end_year => Date.today.year %>
+                      <%#= select_tag :birthday, options_for_select([["select year", ""], 1,2,3,4,5,6,7,8,9,10])%>
+                      <%#=text_field_tag "child[birthday]"%>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -20,6 +20,7 @@ class ChatroomsController < ApplicationController
 
   def show
     if current_user.type == "Mother"
+
       @chatroom = Chatroom.find(params[:id])
       @child = @chatroom.child
       if current_user.children.includes(@child)

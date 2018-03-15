@@ -18,7 +18,6 @@ class DoctorsController < Clearance::UsersController
     @doctors = Doctor.order(:first_name).page params[:page]
 
     @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
-
   end
 
   def show #public show page
