@@ -1,50 +1,51 @@
-
-<div class="mother_wrap">
-      <div class="mother_header">
-        <div class="mother_avatar">
-          <% if @mother.avatar.url.nil? %>
-              <%= image_tag 'newborn.png' %>
-          <% else %>
-              <%= image_tag @mother.avatar.url %>
-          <% end %> 
-        </div>
-        
-        <div class="mother_info">
-            <h1><span><%=" #{@mother.first_name} #{@mother.last_name}"%></span></h1> 
-            <p>Email: <span><%=@mother.email%></span></p>
-            <%=link_to edit_mother_path(@mother) do%> 
-              <span id='edit_acc'>Edit Account</span> 
-            <%end%>
-        </div>
-
-
-        
- 
-
-      </div>  
-      
- <h2><%="#{@mother.first_name}'s"%> Babies</h2>
-        <div class="children_wrap">
+<div class="wrapper">
+  <div class="mother_wrap">
+        <div class="mother_header">
+          <div class="mother_avatar">
+            <% if @mother.avatar.url.nil? %>
+                <%= image_tag 'newborn.png' %>
+            <% else %>
+                <%= image_tag @mother.avatar.url %>
+            <% end %> 
+          </div>
           
-          <%@mother.children.each do |child| %>
-            <div class='child_field'>
-              
-                  <div class="child_img">
-                    <%= link_to mother_child_path(@mother, child) do %>
-                      <% if child.avatar.url.nil? %>
-                        <%= image_tag 'newborn.png' %>
-                      <% else %>
-                        <%= image_tag child.avatar.url %>
-                      <% end %>  
-                  </div>
-                    <span class='child_name'><%=child.name%></span>
-                    <br/>
-                    <span class='child_name'><%=child.age%> years old.</span>
+          <div class="mother_info">
+              <h1><span><%=" #{@mother.first_name} #{@mother.last_name}"%></span></h1> 
+              <p>Email: <span><%=@mother.email%></span></p>
+              <%=link_to edit_mother_path(@mother) do%> 
+                <span id='edit_acc'>Edit Account</span> 
+              <%end%>
+          </div>
+  
+  
+          
+   
+  
+        </div>  
+        
+   <h2><%="#{@mother.first_name}'s"%> Babies</h2>
+          <div class="children_wrap">
             
-                    <% end %>
-            </div>
-          <%end%>
-          
+            <%@mother.children.each do |child| %>
+              <div class='child_field'>
+                
+                    <div class="child_img">
+                      <%= link_to mother_child_path(@mother, child) do %>
+                        <% if child.avatar.url.nil? %>
+                          <%= image_tag 'newborn.png' %>
+                        <% else %>
+                          <%= image_tag child.avatar.url %>
+                        <% end %>  
+                    </div>
+                      <span class='child_name'><%=child.name%></span>
+                      <br/>
+                      <span class='child_name'><%=child.age%> years old.</span>
+              
+                      <% end %>
+              </div>
+            <%end%>
+
+</div>          
 <!--           <div class='child_field'>
             <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
           </div>
