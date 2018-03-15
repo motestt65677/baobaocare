@@ -41,7 +41,7 @@ class MothersController < Clearance::UsersController
 
 private
   def mother_params
-    params.require(:mother).permit(:email, :password, :first_name, :last_name, :type, :avatar, :birthday )
+    params.require(:mother).permit(:email, :password, :first_name, :last_name, :type, :avatar)
   end
 
 
