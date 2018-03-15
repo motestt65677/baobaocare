@@ -18,7 +18,7 @@ class ChatroomsController < ApplicationController
     end
 
     @children = Child.all
-    end
+  end
 
 
   def show

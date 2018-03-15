@@ -1,0 +1,18 @@
+
+    <% @doctors.in_groups_of(2,false).each do|group| %> 
+      <div class="row">
+        <%group.each do|doctor|%>
+          <div class="card  w-50" style = " padding: 2%">
+            <div class="card-body" >
+              <h5 class="card-title"><strong> Dr: </strong><%= "#{doctor.first_name}  #{doctor.last_name}"%></h5>
+              <p class= "card-text"> <strong> Years of experience: </strong><%=doctor.experience_years%></p>   
+              <p class= "card-text"> <strong> Specialties: </strong><%=doctor.specialty%></p>   
+              <p class= "card-text"> <strong> Location: </strong><%=doctor.location%></p>   
+              <%= link_to "Contact", doctor_path(doctor), class:"btn btn-primary"%>  
+             </div>
+          </div>
+        <%end%>    
+      </div>
+    <%end%>
+    <hr>
+  <%= paginate @doctors %>
