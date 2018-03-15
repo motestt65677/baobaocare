@@ -1,55 +1,57 @@
 <div class= "container mt-5 ">
-  <h3> Welcome Back, <%= "#{@mother.first_name} #{@mother.last_name}"%>!</h3>
+    <h3> Welcome Back, <%= "#{@mother.first_name} #{@mother.last_name}"%>!</h3>
 
-  <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
+    <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
 
-<div class ="row">
+  <div class ="row">
 
-  <div class = "col-3 mt-5" >
-    <%= link_to doctors_path do %>
-      <%= image_tag("search_doctors.png", :alt => "rss feed") %>
-    <% end %>
-    <br/>   
-   <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
-  </div>
+    <div class = "col-3 mt-5" >
+      <%= link_to doctors_path do %>
+        <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+      <% end %>
+      <br/>   
+     <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
+    </div>
 
 
 
-  <div class = "col-3 mt-5" >
-   <%= link_to chatrooms_path do %> 
-      <%= image_tag("doctor.png", :alt => "rss feed") %>
-    <% end %>  
-    <br/>   
-   <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
-  </div>
-
-  <div class = "col-3 mt-5">
-    <%= link_to mother_path do %>
-      <%= image_tag("home.png", :alt => "rss feed") %>
-    <% end %> 
-    <br/>   
-   <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
-  </div>
+    <div class = "col-3 mt-5" >
+     <%= link_to chatrooms_path do %> 
+        <%= image_tag("doctor.png", :alt => "rss feed") %>
+      <% end %>  
+      <br/>   
+     <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
+    </div>
 
     <div class = "col-3 mt-5">
-    <%= link_to edit_mother_path do %>
-      <%= image_tag("tools.png", :alt => "rss feed") %>
-    <% end %> 
-    <br/>   
-   <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
+      <%= link_to mother_path do %>
+        <%= image_tag("home.png", :alt => "rss feed") %>
+      <% end %> 
+      <br/>   
+     <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
+    </div>
+
+      <div class = "col-3 mt-5">
+      <%= link_to edit_mother_path do %>
+        <%= image_tag("tools.png", :alt => "rss feed") %>
+      <% end %> 
+      <br/>   
+     <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
+    </div>
+
   </div>
-
+  <div class ="row">
+    <div class= "col-3 mt-5">
+       <%= image_tag("credit-card.png", :alt => "rss feed") %>
+    </div>
+  </div>
 </div>
-</div>
 
 
 
-
-
-
-<div class= "container mt-5 mb-5 ">
+<div class= "container mt-5 mb-5"><h2>Here Are Your Babies</h2></div>
         
-        <h2>Here Are Your Babies</h2>
+        
         <div class="children_wrap">
           
           <%@mother.children.each do |child| %>
@@ -103,4 +105,3 @@
         </div>
 
 
-</div>
