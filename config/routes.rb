@@ -34,6 +34,14 @@ Rails.application.routes.draw do
   get "/subscribe" => "mothers#subscribe", as: "subscribe"
 
 
+  get "/mothers/:id/reservations" => "reservations#index", as: "mothers_reservations"
+  post '/chatrooms/:id/reservation' =>"reservations#create", as: "reserve"
+
+
+  resources :timeslots
+
+
+
   post '/doctor/:doctor_id/chatrooms' => "chatrooms#create", as:"create_chatroom"
   get 'braintree/new' => "braintree#new"
   post 'braintree/checkout' => "braintree#checkout", as: "check_out"
