@@ -3,24 +3,29 @@ class BraintreeController < ApplicationController
   	 @client_token = Braintree::ClientToken.generate
      @type = params[:type]
 
-    if @type == "monthly" 
+    if @type == "one-month" 
+      @amount = "100"
+    elsif @type == "three-month"
       @amount = "300.00"
-
-    elsif @type == "weekly"
-      @amount = "200.00"
-
-    elsif @type == "daily"
-      @amount = "100.00"
-   
+    elsif @type == "six-month"
+      @amount = "500.00"    
+    elsif @type == "one-year"
+      @amount = "800.00"
     end
   end
 
   def checkout
+    @type = params[:checkout_form][:type]
+    if @type == "one-month" 
+      @amount = "100"
+    elsif @type == "three-month"
+      @amount = "300.00"
+    elsif @type == "six-month"
+      @amount = "500.00"    
+    elsif @type == "one-year"
+      @amount = "800.00"
+    end
 
-    if @amount = params[:checkout_form][:daily]
-    elsif @amount = params[:checkout_form][:weekly]   
-    elsif @amount = params[:checkout_form][:monthly]  
-  end
   nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
 
   result = Braintree::Transaction.sale(
@@ -33,6 +38,8 @@ class BraintreeController < ApplicationController
   
   if result.success?
     @mother = current_user
+    current_user[:subscription_status] = true
+    current_user.save
     redirect_to :root, :flash => { :success => "Transaction successful!" }
     PaymentMailer.customer_email(@mother, @amount).deliver_now
   else  
