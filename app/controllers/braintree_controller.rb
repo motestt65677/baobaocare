@@ -37,9 +37,11 @@ class BraintreeController < ApplicationController
    )
   
   if result.success?
+    @mother = current_user
     current_user[:subscription_status] = true
     current_user.save
     redirect_to :root, :flash => { :success => "Transaction successful!" }
+    PaymentMailer.customer_email(@mother, @amount).deliver_now
   else  
   
     result.errors.for(:customer).each do |error|
