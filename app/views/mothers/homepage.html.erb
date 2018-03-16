@@ -6,24 +6,24 @@
       <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
   
     <div class ="row">
-  
-      <div class = "col-3 mt-5" >
-        <%= link_to doctors_path do %>
-          <%= image_tag("search_doctors.png", :alt => "rss feed") %>
-        <% end %>
-        <br/>   
-       <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
-      </div>
-  
-  
-  
-      <div class = "col-3 mt-5" >
-       <%= link_to chatrooms_path do %> 
-          <%= image_tag("doctor.png", :alt => "rss feed") %>
-        <% end %>  
-        <br/>   
-       <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
-      </div>
+      <% if current_user.subscription_status == true%>
+      
+        <div class = "col-3 mt-5" >
+          <%= link_to doctors_path do %>
+            <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+          <% end %>
+          <br/>   
+         <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
+        </div>
+    
+        <div class = "col-3 mt-5" >
+         <%= link_to chatrooms_path do %> 
+            <%= image_tag("doctor.png", :alt => "rss feed") %>
+          <% end %>  
+          <br/>   
+         <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
+        </div>
+      <% end %>
   
       <div class = "col-3 mt-5">
         <%= link_to mother_path do %>
@@ -33,26 +33,28 @@
        <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
       </div>
   
-        <div class = "col-3 mt-5">
+      <div class = "col-3 mt-5">
         <%= link_to edit_mother_path do %>
           <%= image_tag("tools.png", :alt => "rss feed") %>
         <% end %> 
         <br/>   
        <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
       </div>
-  
     </div>
+  </div>
 
-  </div>
-  <div class ="row">
-    <div class= "col-3 mt-5">
-      <%= link_to subscribe_path do %>
-       <%= image_tag("credit-card.png", :alt => "rss feed") %>
-      <% end %>
-      <br/>
-     <h6 style ="margin-left:25%; margin-top: 5%">Subscribe now!</h6>
+  <% if current_user.subscription_status == false%>
+    <div class ="row">
+      <div class= "col-3 mt-5">
+        <%= link_to subscribe_path do %>
+         <%= image_tag("credit-card.png", :alt => "rss feed") %>
+        <% end %>
+        <br/>
+       <h6 style ="margin-left:25%; margin-top: 5%">Subscribe now!</h6>
+      </div>
     </div>
-  </div>
+  <% end %>
+  
 
 </div>
 
