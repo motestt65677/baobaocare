@@ -13,10 +13,12 @@
       <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
       <p> <strong> Location:  </strong><%=@doctor.location%> </p>
       <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
+
       <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
         <%= select_tag "child_id", options_for_select(@children_option), class:"full-width"%>
         <%=submit_tag "Connect", class:"btn btn-primary full-width text-center"%>
       <% end %>          
+
     </div>
   </div>
 </div>

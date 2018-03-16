@@ -41,9 +41,10 @@
        <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
       </div>
     </div>
-  </div>
+
 
   <% if current_user.subscription_status == false%>
+ 
     <div class ="row">
       <div class= "col-3 mt-5">
         <%= link_to subscribe_path do %>
@@ -51,6 +52,15 @@
         <% end %>
         <br/>
        <h6 style ="margin-left:25%; margin-top: 5%">Subscribe now!</h6>
+      </div>
+
+
+      <div class= "col-3 mt-5">
+        <!-- <%= link_to subscribe_path do %> -->
+         <%= image_tag("calendar.png", :alt => "rss feed") %>
+        <!-- <% end %> -->
+        <br/>
+       <h6 style ="margin-left:30%; margin-top: 5%">Manage your appointments!</h6>
       </div>
     </div>
   <% end %>
