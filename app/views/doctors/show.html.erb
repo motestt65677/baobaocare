@@ -1,35 +1,26 @@
-
-
 <div class="wrapper">
   <div class= "container">
     <div class="card  w-100 mt-5" style = " padding: 2%">
       <div class="doctor_avatar">
-            <% if @doctor.avatar.url.nil? %>
-                <%= image_tag 'newborn.png' %>
-            <% else %>
-                <%= image_tag @doctor.avatar.url %>
-            <% end %> 
+        <% if @doctor.avatar.url.nil? %>
+            <%= image_tag 'newborn.png' %>
+        <% else %>
+            <%= image_tag @doctor.avatar.url %>
+        <% end %> 
       </div>
-      <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%> </h5><br/>
+      <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
       <p> <strong> Specialty: </strong><%=@doctor.specialty%> </p>
       <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
       <p> <strong> Location:  </strong><%=@doctor.location%> </p>
       <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
-<<<<<<< HEAD
-      <%= link_to "Book a chat now!", doctor_path(@doctor), class:"btn btn-primary", style:"width:200px" %>
-=======
->>>>>>> 7daa7c9ab5cfd2a528c11c10e395c7d2b31e2363
 
       <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
-        <%= select_tag "child_id", options_for_select(@children_option)%>
-        <%=submit_tag "Connect", class:"btn btn-primary"%>
-      <% end %>
+        <%= select_tag "child_id", options_for_select(@children_option), class:"full-width"%>
+        <%=submit_tag "Connect", class:"btn btn-primary full-width text-center"%>
+      <% end %>          
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7daa7c9ab5cfd2a528c11c10e395c7d2b31e2363
     </div>
   </div>
 </div>
+
+
