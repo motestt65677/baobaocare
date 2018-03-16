@@ -1,5 +1,7 @@
 class Doctor < User
   has_many :chatrooms
+  has_many :timeslots
+  
   max_paginates_per 5
 	paginates_per 5
 	
