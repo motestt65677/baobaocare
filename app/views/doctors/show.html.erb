@@ -13,21 +13,11 @@
       <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
       <p> <strong> Location:  </strong><%=@doctor.location%> </p>
       <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
-<<<<<<< HEAD
-
-      <%= link_to "Book a chat now!", doctor_path(@doctor), class:"btn btn-primary", style:"width:200px" %>
-
-      <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
-        <%= select_tag "child_id", options_for_select(@children_option)%>
-        <%=submit_tag "Connect", class:"btn btn-primary"%>
-      <% end %>
-=======
 
       <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
         <%= select_tag "child_id", options_for_select(@children_option), class:"full-width"%>
         <%=submit_tag "Connect", class:"btn btn-primary full-width text-center"%>
       <% end %>          
->>>>>>> 44b7b1652990369ecda54b2f317f17f47b971581
 
     </div>
   </div>
