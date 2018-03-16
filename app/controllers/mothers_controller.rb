@@ -8,7 +8,7 @@ class MothersController < Clearance::UsersController
     if @mother.save
       sign_in @mother
       UserMailer.welcome_mother_email(@mother).deliver_now
-      redirect_to mother_path(@mother)
+      redirect_to mother_profile_path(@mother)
     else
       flash[:notice]
       redirect_to root_path, notice: @mother.errors.full_messages.join(', ')
@@ -36,7 +36,8 @@ class MothersController < Clearance::UsersController
   end
 
   def subscribe
-    
+  
+
   end
 
 private

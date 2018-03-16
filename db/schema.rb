@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314064232) do
+ActiveRecord::Schema.define(version: 20180316030107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,25 @@ ActiveRecord::Schema.define(version: 20180314064232) do
     t.index ["child_id"], name: "index_milestones_on_child_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "chatroom_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.boolean "confirmed"
+    t.time "end_time"
+  end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.integer "doctor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,6 +90,7 @@ ActiveRecord::Schema.define(version: 20180314064232) do
     t.integer "number_of_children"
     t.string "type"
     t.string "avatar"
+    t.boolean "subscription_status", default: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

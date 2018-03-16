@@ -6,7 +6,7 @@ class DoctorsController < Clearance::UsersController
     if @doctor.save
       sign_in @doctor
       UserMailer.welcome_doctor_email(@doctor).deliver_now
-      redirect_back_or url_after_create
+      redirect_to doctor_profile_path(@doctor)
     else
       render template: "users/new"
     end
@@ -18,12 +18,19 @@ class DoctorsController < Clearance::UsersController
     @doctors = Doctor.order(:first_name).page params[:page]
 
     @specialties = Doctor.all.select(:specialty).map(&:specialty).uniq
-
-
   end
 
   def show #public show page
     @doctor = Doctor.find(params[:id])
+    @children = current_user.children
+    @children_option = []
+
+    @children.each do |child|
+      @array = []
+      @array.push(child.name)
+      @array.push(child.id)
+      @children_option.push(@array)
+    end
   end
 
   def homepage

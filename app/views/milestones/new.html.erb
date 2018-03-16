@@ -1,16 +1,29 @@
-New Milestones
+<div>
+<h4 style = "text-align: center"><strong>0-1 Month Milestones</strong></h4>
+</div>
 
-  Select Baby's Age Group:
 
-  <%#= form_for @milestones do |f| %>
-
-  <!-- <div><%#= f.label :type %></div>
-  <div><%#= f.select :type, options_for_select([["select one", ""], 0 to 1,1 to 2,2 to 3,3 to 4,4 to 6,6 to 9,9 to 12])%></div> -->
-
-<div class="container">
+<div class="container">  
+  <div class="row">
+    <div class="col"> 
+    <div class="btn-group dropright">
+        <button type="button" class="btn btn-primary">Age Group</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropright</span></button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">0 to 1</a>
+        <a class="dropdown-item" href="#">1 to 2</a>
+        <a class="dropdown-item" href="#">2 to 4</a>
+        <a class="dropdown-item" href="#">4 to 6</a>
+        <a class="dropdown-item" href="#">6 to 9</a>
+        <a class="dropdown-item" href="#">9 to 12</a>
+      </div>      
+    </div>     
+    </div>
+    <div class="col-10">
+      <div class="container">  
+  <%=form_tag "/mothers/#{@mother.id}/children/#{@child.id}/milestones", method: :post do%>
   <div class="row">
     <div class="col-12">
-
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="pills-growth-tab" data-toggle="pill" href="#pills-growth" role="tab" aria-controls="pills-growth" aria-selected="true">Growth</a>
@@ -28,10 +41,10 @@ New Milestones
           <a class="nav-link" id="pills-vaccination-tab" data-toggle="pill" href="#pills-vaccination" role="tab" aria-controls="pills-vaccination" aria-selected="false">Vaccination</a>
         </li>
       </ul>
-
+        <!-- GROWTH -->
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-growth" role="tabpanel" aria-labelledby="pills-growth-tab">
-          <%=form_tag "/mothers/#{@mother.id}/children/#{@child.id}/milestones", method: :post do%>
+          
             <div>
               <%=check_box_tag "milestones[]", "Average weight gain of 900 grams at the mean rate of 20-30 grams per day", nil%>
               <span>Average weight gain of 900 grams at the mean rate of 20-30 grams per day</span>
@@ -57,18 +70,84 @@ New Milestones
               <span>Ready for supervised tummy time</span>
             </div>
             <%=hidden_field_tag "milestone_type", "vaccination"%>
-            <%=submit_tag "Update"%>
-          <% end %>
         </div>
-        
-        <div class="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">B</div>
-        <div class="tab-pane fade" id="pills-communication" role="tabpanel" aria-labelledby="pills-communication-tab">C</div>
-        <div class="tab-pane fade" id="pills-cognitive" role="tabpanel" aria-labelledby="pills-cognitive-tab">D</div>
-        <div class="tab-pane fade" id="pills-vaccination" role="tabpanel" aria-labelledby="pills-voaccination-tab">E</div>
-      </div>   
-    </div>
-  </div>
+        <!-- SOCIAL -->
+        <div class="tab-pane fade" id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">
+          
+            <div>
+              <%=check_box_tag "milestones[]", "Smile when passing gas or urine, falling asleep or just feeling comfortable and satisfied after feed", nil%>
+              <span>Smile when passing gas or urine, falling asleep or just feeling comfortable and satisfied after feed</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "May smile in response to parent", nil%>
+              <span>May smile in response to parent</span>
+            </div>
+            <%=hidden_field_tag "milestone_type", "vaccination"%>
+        </div>
+        <!-- COMMUNICATION -->
+        <div class="tab-pane fade" id="pills-communication" role="tabpanel" aria-labelledby="pills-communication-tab">
+          
+            <div>
+              <%=check_box_tag "milestones[]", "Startle at sudden loud sounds", nil%>
+              <span>Startle at sudden loud sounds</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "May get familiar with the faces of parents", nil%>
+              <span>May get familiar with the faces of parents</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "Keep staring at ceiling fans, other things at distance and people", nil%>
+              <span>Keep staring at ceiling fans, other things at distance and people</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "May turn head in the direction of approaching sound", nil%>
+              <span>May turn head in the direction of approaching sound</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "Become irritated and start crying to grab attention", nil%>
+              <span>Become irritated and start crying to grab attention</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "Ready for supervised tummy time", nil%>
+              <span>Ready for supervised tummy time</span>
+            </div>
+            <%=hidden_field_tag "milestone_type", "vaccination"%>
+        </div>
+        <!-- COGNITIVE -->       
+        <div class="tab-pane fade" id="pills-cognitive" role="tabpanel" aria-labelledby="pills-cognitive-tab">
+            <div>
+              <%=check_box_tag "milestones[]", "Get comfort by sucking hands and toes", nil%>
+              <span>Get comfort by sucking hands and toes</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "Smile when passing gas or urine, falling asleep or just feeling comfortable and satisfied after feed", nil%>
+              <span>Smile when passing gas or urine, falling asleep or just feeling comfortable and satisfied after feed</span>
+            </div>
+            <div>
+              <%=check_box_tag "milestones[]", "May smile in response to parent", nil%>
+              <span>May smile in response to parent</span>
+            </div>            
+            <%=hidden_field_tag "milestone_type", "vaccination"%>          
+        </div>
+        <!-- VACCINATION -->
+        <div class="tab-pane fade" id="pills-vaccination" role="tabpanel" aria-labelledby="pills-voaccination-tab">
+            <div>
+              <%=check_box_tag "milestones[]", "Average weight gain of 900 grams at the mean rate of 20-30 grams per day", nil%>
+              <span>Hepatitis A</span>
+            </div>            
+            <%=hidden_field_tag "milestone_type", "vaccination"%>
+            </div>
+          </div>   
+        </div>
+      </div>
+      <%=submit_tag "Update"%>
+      <% end %>
 </div>
+    </div>
+    </div>
+</div>
+
+
 
 
 
