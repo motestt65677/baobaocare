@@ -17,14 +17,12 @@ class TimeslotsController < ApplicationController
         end
     end
     
-    def edit
-        
-    end
-    
-    def update
-    end
-    
     def destroy
+        @timeslot = Timeslot.find(params[:id])
+        @timeslot.destroy
+        if @timeslot.destroy
+          redirect_to timeslots_path
+        end
     end
     
     private
