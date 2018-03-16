@@ -1,4 +1,4 @@
-class DoctorsController < Clearance::UsersController
+  class DoctorsController < Clearance::UsersController
 
   def create
     @doctor = Doctor.new(user_from_params)
