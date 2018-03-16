@@ -1,57 +1,71 @@
 <div class="wrapper">  
-
   <div class= "container mt-5 ">
-      <h3> Welcome Back, <%= "#{@mother.first_name} #{@mother.last_name}"%>!</h3>
-  
-      <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
-  
+    <h3> Welcome Back, <%= "#{@mother.first_name} #{@mother.last_name}"%>!</h3>
+    <h6><em> Access your Chatrooms, view or manage your profile</em> </h6>
     <div class ="row">
-  
-      <div class = "col-3 mt-5" >
-        <%= link_to doctors_path do %>
-          <%= image_tag("search_doctors.png", :alt => "rss feed") %>
-        <% end %>
-        <br/>   
-       <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
-      </div>
-  
-  
-  
-      <div class = "col-3 mt-5" >
-       <%= link_to chatrooms_path do %> 
-          <%= image_tag("doctor.png", :alt => "rss feed") %>
-        <% end %>  
-        <br/>   
-       <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
-      </div>
-  
+      <% if current_user.subscription_status == true%>
+        <div class = "col-3 mt-5" >
+          <%= link_to doctors_path do %>
+            <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+          <% end %>
+          <br/>   
+          <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
+        </div>
+    
+        <div class = "col-3 mt-5" >
+          <%= link_to chatrooms_path do %> 
+            <%= image_tag("doctor.png", :alt => "rss feed") %>
+          <% end %>  
+          <br/>   
+          <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
+        </div>  
+      <% end %>
+      <% if current_user.subscription_status == false%>
+        <div class = "col-3 mt-5" >
+          <div>
+            <%= image_tag("gray_search_doctors.png", :alt => "rss feed") %>
+          </div>
+          <br/>   
+          <h6 style ="margin-left:23%; margin-top: 5%">Search for Doctors</h6>
+        </div>
+    
+        <div class = "col-3 mt-5" >
+          <div>
+            <%= image_tag("gray_doctor.png", :alt => "rss feed") %>
+          </div>
+          <br/>   
+          <h6 style ="margin-left:34%; margin-top: 5%">Chatrooms</h6>
+        </div>  
+      <% end %>
+
       <div class = "col-3 mt-5">
         <%= link_to mother_path do %>
           <%= image_tag("home.png", :alt => "rss feed") %>
         <% end %> 
         <br/>   
-       <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
+        <h6 style ="margin-left:25%; margin-top: 5%">View your profile</h6>
       </div>
   
-        <div class = "col-3 mt-5">
+      <div class = "col-3 mt-5">
         <%= link_to edit_mother_path do %>
           <%= image_tag("tools.png", :alt => "rss feed") %>
         <% end %> 
         <br/>   
-       <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
+        <h6 style ="margin-left:25%; margin-top: 5%">Update your profile</h6>
       </div>
-  
     </div>
 
-  
+
     <div class ="row">
-      <div class= "col-3 mt-5">
-        <%= link_to subscribe_path do %>
+      <% if current_user.subscription_status == false%>
+        <div class= "col-3 mt-5">
+          <%= link_to subscribe_path do %>
           <%= image_tag("credit-card.png", :alt => "rss feed") %>
-        <% end %>
-        <br/>
-       <h6 style ="margin-left:25%; margin-top: 5%">Subscribe now!</h6>
-      </div>
+          <% end %>
+          <br/>
+          <h6 style ="margin-left:25%; margin-top: 5%">Subscribe now!</h6>
+        </div>
+      <% end %>
 
 
       <div class= "col-3 mt-5">
@@ -62,67 +76,56 @@
        <h6 style ="margin-left:30%; margin-top: 5%">Manage your appointments!</h6>
       </div>
 
-
     </div>
-  </div>
-
 </div>
 
 <div class= "container mt-5 mb-5"><h2>Here Are Your Babies</h2></div>
-        
-        
-        <div class="children_wrap">
-          
-          <%@mother.children.each do |child| %>
-            <div class='child_field'>
-              
-                  <div class="child_img">
-                    <%= link_to mother_child_path(@mother, child) do %>
-                      <%= image_tag 'newborn.png' %>
-                  </div>
-                    <span class='child_name'><%=child.name%></span>
-            
-                    <% end %>
-            </div>
-          <%end%>
-          
-          <div class='child_field'>
-            <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
-            <span class='child_name'>Add a Baby!</span>
-          </div>
+<div class="children_wrap">
+  <%@mother.children.each do |child| %>
+    <div class='child_field'>
+      <%= link_to mother_child_path(@mother, child) do %>
+        <div class="child_img">
+          <%= image_tag 'newborn.png' %>
         </div>
-        
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Baby</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <%= form_tag "/mothers/#{@mother.id}/children" do%>
+        <span class='child_name'><%=child.name%></span>
+      <% end %>
+    </div>
+  <%end%>
   
-                <div class="modal-body">
-                    <div>
-                      <%=label_tag :name%>
-                      <%=text_field_tag "child[name]"%>
-                    </div>
-                    <div>
-                      <%=label_tag :birthday%>
-                      <%= date_select "children", :birthday, :start_year => 2000, :end_year => Date.today.year %>
-                      <%#= select_tag :birthday, options_for_select([["select year", ""], 1,2,3,4,5,6,7,8,9,10])%>
-                      <%#=text_field_tag "child[birthday]"%>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <%=submit_tag "Add"%>
-                </div>
-              <% end %>
-  
+  <div class='child_field'>
+    <div class="add_box" data-toggle="modal" data-target="#exampleModal">+</div>
+    <span class='child_name'>Add a Baby!</span>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Baby</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag "/mothers/#{@mother.id}/children" do%>
+
+        <div class="modal-body">
+            <div>
+              <%=label_tag :name%>
+              <%=text_field_tag "child[name]"%>
             </div>
-          </div>
+            <div>
+              <%=label_tag :birthday%>
+              <%= date_select "children", :birthday, :start_year => 2000, :end_year => Date.today.year %>
+            </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%=submit_tag "Add"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
