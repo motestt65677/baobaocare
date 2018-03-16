@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20180316024615) do
   end
 
   create_table "reservations", force: :cascade do |t|
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "chatroom_id"
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20180316024615) do
     t.time "start_time"
     t.boolean "confirmed"
     t.time "end_time"
-
   end
 
   create_table "timeslots", force: :cascade do |t|
