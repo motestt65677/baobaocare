@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get "/mothers/:id/homepage" => "mothers#homepage", as: "mother_profile"
   get "/subscribe" => "mothers#subscribe", as: "subscribe"
 
+
   post '/doctor/:doctor_id/chatrooms' => "chatrooms#create", as:"create_chatroom"
   get 'braintree/new' => "braintree#new"
   post 'braintree/checkout' => "braintree#checkout", as: "check_out"
