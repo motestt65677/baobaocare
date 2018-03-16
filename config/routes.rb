@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   get "/doctors/:id/homepage" => "doctors#homepage", as: "doctor_profile"
   get "/mothers/:id/homepage" => "mothers#homepage", as: "mother_profile"
   get "/subscribe" => "mothers#subscribe", as: "subscribe"
-
+  get "/mothers/:id/reservations" => "reservations#index", as: "mothers_reservations"
+  post '/chatrooms/:id/reservation' =>"reservations#create", as: "reserve"
 
   post '/doctor/:doctor_id/chatrooms' => "chatrooms#create", as:"create_chatroom"
   get 'braintree/new' => "braintree#new"

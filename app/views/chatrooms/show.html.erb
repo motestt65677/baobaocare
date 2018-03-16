@@ -80,4 +80,29 @@
       </div>
       <div class="col-1"></div>
     </div>
+
+    <div class ="row">
+
+        <%= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-control form-inline"} ) do |form| %>
+
+
+          <%= form.label :end_date, style: 'margin: 1%'%>
+          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>
+
+          <%= form.label :start_date, style: 'margin: 1%'%>
+          <%= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2') %> 
+        
+
+          <!--  <%= form.label :start_time, style: 'margin: 1%' %>
+          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>
+
+    <%= form.label :end_time, style: 'margin: 1%' %>
+          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>  -->
+
+          <%= form.submit "Reserve!", class: "btn btn-primary mb-2", style: 'margin-left: 5%'  %>
+
+        <% end %>
+
+
+    </div>
 </div>
