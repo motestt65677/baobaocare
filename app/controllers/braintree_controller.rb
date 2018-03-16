@@ -16,19 +16,6 @@ class BraintreeController < ApplicationController
   end
 
   def checkout
-    # @type = params[:type]
-
-
-    # if @type == "monthly"
-    #   @amount == "300.00"
-
-    # elsif @type == "weekly"
-    #   @amount == "200.00"
-
-    # elsif @type == "daily"
-    #   @amount == "100.00"
-
-    # end
 
     if @amount = params[:checkout_form][:daily]
     elsif @amount = params[:checkout_form][:weekly]   
@@ -45,7 +32,9 @@ class BraintreeController < ApplicationController
    )
   
   if result.success?
+    @mother = current_user
     redirect_to :root, :flash => { :success => "Transaction successful!" }
+    PaymentMailer.customer_email(@mother, @amount).deliver_now
   else  
   
     result.errors.for(:customer).each do |error|

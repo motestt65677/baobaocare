@@ -12,4 +12,5 @@ class UserMailer < ApplicationMailer
 		@url = 'www.google.com'
 		mail to: @mother.email, subject: "Wow, you made the right choice!"
 	end
+
 end

@@ -37,7 +37,6 @@ class MothersController < Clearance::UsersController
 
   def subscribe
   
-
   end
 
 private
