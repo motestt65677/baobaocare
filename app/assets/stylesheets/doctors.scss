@@ -1,5 +1,28 @@
-// Place all the styles related to the doctors controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#doctor_details{
+  text-align: center;
+  margin: auto;
+}
 
+.full-width{
+  width: 100%;
+}
 
+.text-center{
+  text-align: center;
+}
+
+.doctor_avatar{
+    width:250px;
+    height:250px;
+    overflow:hidden;
+    border-radius:50%;
+
+}
+
+.doctor_avatar img{
+    width:100%;
+}
+
+.wrapper{
+    margin-top:100px;
+}
