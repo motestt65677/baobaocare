@@ -32,10 +32,7 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col-9">
-        
         <section>
-
-
           <div id="messages-table" data-user-name="<%=current_user.first_name%>"" data-user-type="<%=current_user.type%>" class="border">
             <%if current_user.type == "Doctor"%>
               <% @comments.each do |comment| %>
@@ -51,7 +48,6 @@
                 <% end %>
               <% end %>
             <% end%>
-
             <%if current_user.type == "Mother"%>
               <% @comments.each do |comment| %>
                 <% if comment.user == current_user%>
@@ -71,12 +67,7 @@
             <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
             <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
           <% end %>          
-
         </section>
-
-
-
-
       </div>
       <div class="col-1"></div>
     </div>

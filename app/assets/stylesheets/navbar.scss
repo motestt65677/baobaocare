@@ -83,7 +83,16 @@
     width: 300px;
     margin: 20vh auto;
 }
+.wrapper-lg{
+  margin-top: 15em;
+}
+.wrapper-sm{
+  margin-top: 5em;
+}
 
+.wrapper-xs{
+  margin-top: 4em;
+}
 .sign-in-btn{
     margin-top:10px;
 }
@@ -91,12 +100,36 @@
     margin-top:10px;
 }
 .other-links a{
-    margin-right:10px;
+  margin-right:10px;
 }
 
 
 .img-nav {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+#flash{
+  position: relative;
+}
+
+
+
+.navbar{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 5;
+  background-color: #360086;
+  opacity: 0.8;
+
+}
+#flash{
+  position:relative;
+  top: 4.6em
+}
+
+body{
+  background-color: #f1f1f1;
 }
 
