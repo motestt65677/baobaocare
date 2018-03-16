@@ -22,14 +22,16 @@
 
   def show #public show page
     @doctor = Doctor.find(params[:id])
-    @children = current_user.children
-    @children_option = []
+    if current_user.type == "Mother"
+      @children = current_user.children
+      @children_option = []
 
-    @children.each do |child|
-      @array = []
-      @array.push(child.name)
-      @array.push(child.id)
-      @children_option.push(@array)
+      @children.each do |child|
+        @array = []
+        @array.push(child.name)
+        @array.push(child.id)
+        @children_option.push(@array)
+      end
     end
   end
 
