@@ -1,0 +1,87 @@
+
+<div class="wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col">
+    
+    <h1 class='timeslot_title'>Hello, here's your timeslots</h1>
+    
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+          <th scope="col">Start time</th>
+          <th scope="col">End time</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% n = 1 %>
+        <% @timeslot.each do |t| %>
+        <tr>
+          <th scope="row"><%= n %></th>
+          <td><%= t.start_date %></td>
+          <td><%= t.end_date %></td>
+          <td><%= t.start_time.strftime('%I:%M %p') %></td>
+          <td><%= t.end_time.strftime('%I:%M %p') %></td>
+          <td><%= link_to 'remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
+          <% n += 1 %>
+        
+        <%end%>
+        </tr>
+      </tbody>
+    </table>
+
+    
+    <button class="btn btn-primary" data-toggle="modal" data-target="#add">add timeslot</button>
+    
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addLabel">Add Timeslot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= form_tag "/timeslots" do%>
+  
+                <div class="modal-body">
+                    <div>
+                      <%=label_tag :start_date %>
+                      <%= date_select 'timeslots', :start_date, :start_year => 2000, :end_year => Date.today.year %>
+                    </div>
+                    <div>
+                      <%=label_tag :end_date%>
+                      <%= date_select 'timeslots', :end_date, :start_year => 2000, :end_year => Date.today.year %>
+                    </div>
+                    <div>
+                      <%=label_tag :start_time%>
+                      <%= time_select 'timeslots', :start_time, {ampm: true} %>
+                    </div>
+                    <div>
+                      <%=label_tag :end_time%>
+                      <%= time_select 'timeslots', :end_time, {ampm: true} %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <%=submit_tag "Add", class:"btn btn-primary" %>
+                </div>
+              <% end %>
+  
+            </div>
+          </div>
+        </div>
+        
+    
+</div>
+
+</div>
+</div>
+</div>
