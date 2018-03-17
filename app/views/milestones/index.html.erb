@@ -40,85 +40,294 @@
 
 <%#= link_to "New", new_mother_child_milestone_path %>
 
-<h4 style = "text-align: center"><strong>My Dashboard</strong></h4>
+<h2 style = "text-align: center"><strong>My Dashboard</strong></h2>
 <br>
 
 
 <div class="container">  
   <div class="row">
     <div class="col">
-        <!-- Large modal -->
-        <button type="button" id = "Milestones" class="miles" data-toggle="modal" data-target=".bd-miles" style = "border-radius: 50%;">
-        <strong>My Milestones</strong></button>
-        <div class="modal fade bd-example-modal-lg" id = "Milestones" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                     <table class="table">  
-                  <caption><%= link_to "Add New Milestone", new_mother_child_milestone_path %></caption>         
-            <thead>
-              <tr>
-                <th scope="col">Age Range</th>
-                <th scope="col">Development</th>
-                <th scope="col">Vaccinations</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">0 to 1</th>
-                <td>
-                  <p>Average weight gain of 900 grams at the mean rate of 20-30 grams per day</p>
-                  <p>Up to 5 cm increase in length</p>
-                  <p>Around 15 inch growth of head circumference</p>
-                  <p>Can stretch arms and legs and also bend back sometimes</p>
-                  <p>Legs and feet continue to rotate inwards</p>
-                  <p>Can lift head for a few seconds</p>
-                  <p>Ready for supervised tummy time</p>
-                </td>
-                <td>
-                  <p>Get comfort by sucking hands and toes</p>
-                  <p>Smile when passing gas or urine, falling asleep or just feeling comfortable and satisfied after feed</p>
-                  <p>May smile in response to parent</p>
-                </td>                
-              </tr>
-            </tbody>
-          </table>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="col">
-        <!-- Large modal -->
-      <button type="button" id = "Vaccinations" class="btn btn-primary" data-toggle="modal" data-target=".bd-vacc" style = "border-radius: 50%;">
-      <strong>Vaccinations</strong></button>
-      <div class="modal fade bd-vacc" id = "Vaccinations" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <button type="button" id = "Milestones" class="miles" data-toggle="modal" data-target=".bd-miles" style = "border-radius: 50%;"><strong>Milestones</strong></button>
+      <div class="modal fade bd-miles" id = "Milestones" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-             <%= image_tag 'chart.gif'%>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                  <!-- <span aria-hidden="true">&times;</span> -->
+             <table class="table">
+              <caption style = "text-align: center"><strong>
+                <%= link_to " + Add New Milestones", new_mother_child_milestone_path %></strong> <br>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></caption>
+                <thead>
+                  <tr>
+                    <th class = "miles_head" scope="col">Months</th>
+                    <th class = "miles_head" scope="col">Growth</th>
+                    <th class = "miles_head" scope="col">Social</th>
+                    <th class = "miles_head" scope="col">Communication</th>
+                    <th class = "miles_head" scope="col">Cognitive</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr>
+                    <th class = "miles_head" scope="row">0 to 1</th>
+                    <td class = "miles_cell" bgcolor="#FC370B">2/6</td>
+                    <td class = "miles_cell" bgcolor="#0BFC16">2/2</td>
+                    <td class = "miles_cell" bgcolor="#FFB233">5/6</td>
+                    <td class = "miles_cell" bgcolor="#FC370B">0/3</td>
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">1 to 2</th>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>      
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">2 to 3</th>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>
+                    <td class = "miles_cell" bgcolor="#FBFBF8"></td>      
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">3 to 4</th>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>      
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">4 to 6</th>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>      
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">6 to 9</th>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>      
+                  </tr>
+                  <tr>
+                    <th class = "miles_head" scope="row">9 to 12</th>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>
+                    <td bgcolor="#FBFBF8"></td>      
+                  </tr>
+                </tbody>
+                <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><strong>X</strong></button>
+          </div>
+              </table>
+              
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="col">
+      <button type="button" id = "Vaccinations" class="vaccs" data-toggle="modal" data-target=".bd-vacc" style = "border-radius: 50%;">
+      <strong>Vaccinations</strong></button>
+      <div class="modal fade bd-vacc" id = "Vaccinations" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">        
+          <div class="modal-content">            
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class = "vac_head">Age / <br>Vaccination </th>
+                    <th scope="col" class = "vac_head">0 to 1</th>
+                    <th scope="col" class = "vac_head">1 to 2</th>
+                    <th scope="col" class = "vac_head">2 to 3</th>
+                    <th scope="col" class = "vac_head">3 to 4</th>
+                    <th scope="col" class = "vac_head">4 to 6</th>
+                    <th scope="col" class = "vac_head">6 to 9</th>
+                    <th scope="col" class = "vac_head">9 to 12</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Hep B</th>
+                    <td class = "vac_cell" bgcolor="green">*<%= Date.today %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 60 %></td>
+                    <td class = "vac_cell"bgcolor="#FFB233">*<%= @child.birthday + 90 %></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td> 
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td> 
+                  </tr>
+                  <tr>
+                    <th scope="row">RV</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 180 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                    <td></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">DTap</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 90 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 120 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 180 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell"></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">Hib</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 90 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 120 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 180 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">PCV</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 90 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 120 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 180 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td> 
+                    </tr>
+                  <tr>
+                    <th scope="row">IPV</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233" >*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233" >*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">Influenza</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 270 %></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">MMR</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">Varicella</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">Hep A</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell" bgcolor="#FFB233">*<%= @child.birthday + 365 %></td>      
+                  </tr>
+                  <tr>
+                    <th scope="row">Meningococcal</th>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>
+                    <td class = "vac_cell"></td>      
+                  </tr>
+                </tbody>
+                <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><strong>X</strong></button>
+          </div>
+              </table>            
           </div>
         </div>
       </div>
           </div>
+
     <div class="col">
-           <!-- Large modal -->
-      <button type="button" id = "Activities" class="btn btn-primary" data-toggle="modal" data-target=".bd-activities" style = "border-radius: 50%;">
+      <button type="button" id = "Activities" class="acts" data-toggle="modal" data-target=".bd-activities" style = "border-radius: 50%;">
       <strong>Activities</strong></button>
 
       <div class="modal fade bd-activities" id = "Activities" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            ...
+             <table class="table">
+              <caption style = "text-align: center"><strong>
+                <%= link_to " + Add New Milestones", new_mother_child_milestone_path %></strong></caption>
+                <thead>
+                  <tr>
+                    <th class = "miles_head" scope="col">Months</th>
+                    <th class = "miles_head" scope="col">Milestone Resources</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr>
+                    <th class = "other_head" scope="row">0 to 1</th>
+                    <td></td>                    
+                  </tr>
+                  <tr>
+                    <th class = "other_head" scope="row">1 to 2</th>
+                    <td></td>      
+                  </tr>
+                  <tr>
+                    <th class = "other_head" scope="row">2 to 3</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th class = "other_head" scope="row">3 to 4</th>
+                    <td></td>
+                  </tr>                  
+                  <tr>
+                    <th class = "other_head" scope="row">4 to 6</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th class = "other_head" scope="row">6 to 9</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th class = "other_head" scope="row">9 to 12</th>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><strong>X</strong></button>
+          </div>
+              </table>           
           </div>
         </div>
       </div>
     </div>
     <div class="col">
-      <!-- Large modal -->
-    <button type="button" id = "Other" class="btn btn-primary" data-toggle="modal" data-target=".bd-other" style = "border-radius: 50%;">
-    <strong>Other</strong></button>
+    <button type="button" id = "Other" class="other" data-toggle="modal" data-target=".bd-other" style = "border-radius: 50%;">
+    <strong>Appointments</strong></button>
     <div class="modal fade bd-other" id = "Other" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          ...
+          <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><strong>X</strong></button>
+          </div>
         </div>
       </div>
     </div>
