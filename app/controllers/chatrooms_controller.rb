@@ -19,17 +19,16 @@ class ChatroomsController < ApplicationController
 
 
   def show
+    @chatroom = Chatroom.find(params[:id])
+    @timeslots = @chatroom.doctor.timeslots
     if current_user.type == "Mother"
-
-      @chatroom = Chatroom.find(params[:id])
-      @timeslots=@chatroom.doctor.timeslots
       @child = @chatroom.child
       if current_user.children.includes(@child)
         @comment = Comment.new
         @comments = @chatroom.comments.includes(:user)
       end
     elsif current_user.type == "Doctor"
-      if current_user.chatroom.id == params[:id]
+      if current_user.chatrooms.includes(@chatroom)
           @chatroom = Chatroom.find(params[:id])
           @comment = Comment.new
           @comments = @chatroom.comments.includes(:user)
