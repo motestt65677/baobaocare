@@ -4,10 +4,9 @@
   <div class="row">
     <div class="col">
     
-    <h1 class='timeslot_title'>Hello, here's your timeslots</h1>
+    <h1 class='timeslot_title'>Timeslots</h1>
     
-    
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -21,17 +20,14 @@
       </thead>
       
       <tbody>
-        <% n = 1 %>
         <% @timeslot.each do |t| %>
         <tr>
-          <th scope="row"><%= n %></th>
           <td><%= t.start_date %></td>
           <td><%= t.end_date %></td>
           <td><%= t.start_time.strftime('%I:%M %p') %></td>
           <td><%= t.end_time.strftime('%I:%M %p') %></td>
           <td><%= link_to 'remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
-          <% n += 1 %>
-        
+
         <%end%>
         </tr>
       </tbody>
