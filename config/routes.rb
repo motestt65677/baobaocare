@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :mothers do
     resources :children do
-      resources :milestones, except: :show
+      resources :milestones, except: :show, :path => "/"
     end
   end
 
