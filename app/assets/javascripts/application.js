@@ -17,6 +17,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require flatpickr
+
 //= require_tree .
 
 
