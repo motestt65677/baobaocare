@@ -75,28 +75,72 @@
 
     </div>
 
-    <div class ="row">
+</div>
 
-        <%= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-control form-inline"} ) do |form| %>
+
+
+
+
+<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Book a doctor</a>
+
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body" >
+
+
+          <%= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-inline"} ) do |form| %>
+
+
+          <%= form.label :start_date, style: 'margin: 1%'%>
+          <%= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %> 
 
 
           <%= form.label :end_date, style: 'margin: 1%'%>
-          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>
+          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %>
 
-          <%= form.label :start_date, style: 'margin: 1%'%>
-          <%= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2') %> 
-        
 
-          <!--  <%= form.label :start_time, style: 'margin: 1%' %>
-          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>
+         <%= form.label :start_time, style: 'margin: 1%' %>
+          <%= form.time_field(:start_time, class: 'form-control mb-2 mr-sm-2') %>
 
-    <%= form.label :end_time, style: 'margin: 1%' %>
-          <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2') %>  -->
+          <%= form.label :end_time, style: 'margin: 1%' %>
+          <%= form.time_field(:end_time, class: 'form-control mb-2 mr-sm-2') %>
 
           <%= form.submit "Reserve!", class: "btn btn-primary mb-2", style: 'margin-left: 5%'  %>
 
         <% end %>
 
 
+      </div>
     </div>
+  </div>
 </div>
+
+
+
+
+
+<script type="text/javascript">
+  var blocked_dates = [];
+
+    <% @timeslots.each do |timeslot| %>
+    var date_range = {
+      from: "<%= timeslot.start_date.to_s %>",
+      to: "<%= timeslot.end_date.to_s %>",
+    };
+    blocked_dates.push(date_range);
+  <% end %>
+
+
+  (function(){
+    $('.date_pickr').flatpickr({
+      dateFormat: "Y-m-d",
+      enable: blocked_dates
+    });
+  })();
+</script>
+
+
+
+
+
