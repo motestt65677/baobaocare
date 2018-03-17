@@ -1,40 +1,56 @@
 <main>
-	<div class="container">
+	<div class="container wrapper">
 		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8 text-center">
-				<h5> Hurry up and subscribe! You will not regret it!</h5>
-
-
-				<form action="braintree/new">
-					<h3>RM 100</h3>
-					<input type="hidden" name="type" value="one-month" > 
-					<input type="submit" value="one month" class="full-width">
-				</form>
-
-				<form action="braintree/new">
-					<h3>RM 300</h3>
-
-					<input type="hidden" name="type" value="three-month" > 
-					<input type="submit" value="three months" class="full-width">
-				</form>
-
-				<form action="braintree/new">
-					<h3>RM 500</h3>
-
-					<input type="hidden" name="type" value="six-month" > 
-					<input type="submit" value="six months" class="full-width">
-				</form>
-
-				<form action="braintree/new">
-					<h3>RM 800</h3>
-
-					<input type="hidden" name="type" value="one-year" > 
-					<input type="submit" value="one year" class="full-width">
-				</form>				
-
+			<div class="col-12 text-center">
+				<div class="container">
+					<div class= "row">
+							<div class="col-3 subscribe-box border">
+								<form action="braintree/new">
+									<div class="margin-top">
+										<h5 class="">1 Month Subscription</h5>
+										<h3 class="">RM100.00 <span class="font-12"> /month</span></h3>
+										<hr>
+									</div>
+									<input type="hidden" name="type" value="one-month" > 
+									<input type="submit" value="Subscribe" class="full-width">
+								</form>
+							</div>			
+						<div class="col-3 subscribe-box border">
+							<form action="braintree/new">
+								<div class="margin-top">
+									<h5 class="">3 Month Subscription</h5>
+									<h3 class="">RM100.00 <span class="font-12"> /month</span></h3>
+									<hr>
+								</div>
+								<input type="hidden" name="type" value="three-month" > 
+								<input type="submit" value="Subscribe" class="full-width">
+							</form>
+						</div>						
+						<div class="col-3 subscribe-box border">
+							<form action="braintree/new">
+								<div class="margin-top">
+									<h5 class="">6 Month Subscription</h5>
+									<h3 class="">RM83.33 <span class="font-12"> /month</span></h3>
+									<hr>
+								</div>
+								<input type="hidden" name="type" value="six-month" > 
+								<input type="submit" value="Subscribe" class="full-width">
+							</form>
+						</div>						
+						<div class="col-3 subscribe-box border">
+							<form action="braintree/new">
+								<div class="margin-top">
+									<h5 class="">1 Year Subscription</h5>
+									<h3 class="">RM66.67<span class="font-12"> /month</span></h3>
+									<hr>
+								</div>
+								<input type="hidden" name="type" value="one-year" > 
+								<input type="submit" value="Subscribe" class="full-width">
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-2"></div>
 		</div>
 	</div>
 </main>
