@@ -19,13 +19,10 @@ class ReservationsController < ApplicationController
     end
 
 
-
-
-
   end
 
   def create
-
+  
     @chatroom = Chatroom.find(params[:id])
     @reservation = @chatroom.reservations.new(reservation_params)
     if @reservation.save 
@@ -33,7 +30,7 @@ class ReservationsController < ApplicationController
 
     else
 
-      # "error"
+      "error"
 
     end
 
