@@ -21,12 +21,12 @@ require 'faker'
 
 
 doctor = {}
-specialties= ["pediatrician","nutritionist","psychologist","nutritionist"]
+specialties= ["Pediatrician","Nutritionist","Psychologist","Pediatric Dentist", "Optometrist", "Allergist"]
 years= [1,2,3,4,5,6]
 
 
 
-24.times do |num|
+200.times do |num|
   doctor['first_name'] = Faker::Name.first_name
   doctor['last_name'] = Faker::Name.last_name  
   doctor['email'] = Faker::Internet.email
@@ -36,7 +36,6 @@ years= [1,2,3,4,5,6]
   doctor ['location'] =Faker::Address.city
 
   doctor1 = Doctor.create(doctor)
-  p doctor1.errors
 
 end
 
