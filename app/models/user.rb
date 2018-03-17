@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
-  has_many :comments
-  has_many :children
+  has_many :comments, dependent: :destroy
+  has_many :children, dependent: :destroy
   max_paginates_per 5
 	paginates_per 5
   
