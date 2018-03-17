@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="child_wrap">
+
         <div class="child_header">
             <div class="child_avatar">
                 <% if @child.avatar.url.nil? %>
@@ -14,12 +14,10 @@
                         
                 <p><%= @mother.first_name %>'s baby</p>
                 <p>Date of birth: <%= @child.birthday %></p>
-                <%= link_to 'edit', edit_mother_child_path(@mother, @child) %>
-                </br>
-                <%= link_to 'remove', mother_child_path(@mother, @child), method: 'delete', data: { confirm: "Are you sure?" } %>
-                </br>
-                <%= link_to 'back', mother_path(@mother) %>
+                <%= link_to 'edit', edit_mother_child_path(@mother, @child), class:'child_button' %>
+                <%= link_to 'remove', mother_child_path(@mother, @child), method: 'delete', data: { confirm: "Are you sure?" }, class:'child_button'  %>
+                <%= link_to 'back', mother_path(@mother), class:'child_button'  %>
             </div>
         </div>
-    </div>
+
 </div>

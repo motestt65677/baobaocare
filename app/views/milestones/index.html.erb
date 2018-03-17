@@ -1,53 +1,18 @@
-<div>
-  <div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 50vh;">
-    <div class="container">
-      
-      <div class="row">
-         <div class="col-lg-3 mt-0" style= "text-align: right ;">
-          <div class="child_avatar">
-            <% if @child.avatar.url.nil? %>
-                <%= image_tag 'newborn.png', height: '60%' %>
-            <% else %>
-                <%= image_tag @child.avatar.url, height: '60%' %>
-            <% end %> 
-        </div>
-           <div class = "col-4">
-                    <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">                 
-            </div>
-            </div>
-            <div class="col-lg-6 mt-5" style= "text-align: center;">
-              <strong> <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;"><%= @child.name %>'s<span style="color:#02e595"> </span><span style="color:#02e595">Page</span></h1> </strong>        
-                  <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>
-              </div>       
-           <div class="col-lg-3 mt-0" style= "text-align: left;">
-           <div class="child_profile">  
-                <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-align: center; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">    
-                  <span style = "margin: 3vw"><strong>About Me</strong></span> 
-                <p style="font-family: 'Arvo',serif;font-size: 1em;color: white; margin-top: 3%; text-align: center; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">    
-                <span style = "margin: 3vw">Parent: <%= @mother.first_name %> <%= @mother.last_name %></span>
-                <p style="font-family: 'Arvo',serif;font-size: 1em;color: white; margin-top: 3%; text-align: center; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">    
-                <span style = "margin: 3vw">D.O.B.: <%= @child.birthday %></span>          
-          </div>
-        </div> 
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+
+<div class="container">
+  <%= render partial: '/children/show' %> 
 </div>
 
-<br>
-<br>
-
-<%#= link_to "New", new_mother_child_milestone_path %>
-
-<h2 style = "text-align: center"><strong>My Dashboard</strong></h2>
-<br>
-
-
-<div class="container">  
+<div id="space"></div>
+<div class="container child_thumbs">  
   <div class="row">
     <div class="col">
-      <button type="button" id = "Milestones" class="miles" data-toggle="modal" data-target=".bd-miles" style = "border-radius: 50%;"><strong>Milestones</strong></button>
+      <div id = "Milestones" class="miles field" data-toggle="modal" data-target=".bd-miles">
+        <h6 class='field_title'>Milestones</h6>
+      </div>
+      
       <div class="modal fade bd-miles" id = "Milestones" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -127,8 +92,10 @@
       </div>
   </div>
     <div class="col">
-      <button type="button" id = "Vaccinations" class="vaccs" data-toggle="modal" data-target=".bd-vacc" style = "border-radius: 50%;">
-      <strong>Vaccinations</strong></button>
+      <div id = "Vaccinations" class="vaccs field" data-toggle="modal" data-target=".bd-vacc">
+        <h6 class='field_title'>Vaccinations</h6>
+      </div>
+      
       <div class="modal fade bd-vacc" id = "Vaccinations" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">        
           <div class="modal-content">            
@@ -266,15 +233,16 @@
           </div>
 
     <div class="col">
-      <button type="button" id = "Activities" class="acts" data-toggle="modal" data-target=".bd-activities" style = "border-radius: 50%;">
-      <strong>Activities</strong></button>
-
+      <div id = "Activities" class="acts field" data-toggle="modal" data-target=".bd-activities">
+        <h6 class='field_title'>Activities</h6>
+      </div>
+      
       <div class="modal fade bd-activities" id = "Activities" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
              <table class="table">
               <caption style = "text-align: center"><strong>
-                <%= link_to " + Add New Milestones", new_mother_child_milestone_path %></strong></caption>
+                <%= link_to " + Add New Milestones", new_mother_child_milestone_path(@mother,@child) %></strong></caption>
                 <thead>
                   <tr>
                     <th class = "miles_head" scope="col">Months</th>
@@ -320,8 +288,10 @@
       </div>
     </div>
     <div class="col">
-    <button type="button" id = "Other" class="other" data-toggle="modal" data-target=".bd-other" style = "border-radius: 50%;">
-    <strong>Appointments</strong></button>
+    <div id = "Other" class="other field" data-toggle="modal" data-target=".bd-other">
+      <h6 class='field_title'>Appointments</h6>
+    </div>
+    
     <div class="modal fade bd-other" id = "Other" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">

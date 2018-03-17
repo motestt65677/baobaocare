@@ -30,44 +30,48 @@
 
 .miles {
     line-height:200px;
-    line-width:200px;
-    color: white;
     font-size: 20px;
     cursor: pointer;
-        background: image-url('milestones.png'); 
+    background: image-url('milestones.png'); 
     border-radius:50%; 
-    height: 100%;  
+    height: 250px;  
     }
 
 
 .vaccs {
     line-height:200px;
-    color: white;
     font-size: 20px;
     cursor: pointer;
-        background: image-url('vaccine.png'); 
+    background: image-url('vaccine.png'); 
     border-radius:50%; 
-    height: 100%;  
     }
 
 
 .acts {
     line-height:200px;
-    color:#fd7e14;
     font-size: 20px;
     cursor: pointer;
     background: image-url('activities.png');     
     border-radius:50%;  
-    background-color: green;  
     }
 
 .other {
     line-height:200px;
-    color:#fd7e14;
     font-size: 20px;
     cursor: pointer;
     background: image-url('calendar.png');     
     border-radius:50%; 
-    background-color: red;   
     }
 
+.field{
+    height:250px;
+}
+
+.field_title{
+    text-align:center;
+    padding-top: 102%
+}
+
+.child_thumbs{
+    margin:50px auto;
+}
