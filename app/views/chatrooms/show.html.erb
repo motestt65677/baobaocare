@@ -30,43 +30,10 @@
       <div class="col-2"></div>
       <div class="col-9">
         <section>
-          <div id="messages-table" data-user-name="<%=current_user.first_name%>"" data-user-type="<%=current_user.type%>" class="border">
-            <%if current_user.type == "Doctor"%>
-              <div class="comments_box" style="text-align:right"> 
-                <span class= "comments badge badge-pill badge-info">Hello! I am Dr. <%=@doctor.last_name%>. How can I help you?
-                </span>
-              </div>
-              <% @comments.each do |comment| %>
-                <% if comment.user == current_user%>
-                  <div class="comments_box" style="text-align:right"> 
-                    <span class= "comments badge badge-pill badge-info"><%=comment.text%>
-                    </span>
-                  </div>
-                <% else %>
-                  <div class="comments_box"> <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
-                    <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end%>
-            <%if current_user.type == "Mother"%>
-              <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> 
-                <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                <span class="comments badge badge-pill badge-info">Hello! I am Dr. <%=@doctor.last_name%>. How can I help you?</span>
-              </div>
-              <% @comments.each do |comment| %>
-                <% if comment.user == current_user%>
-                  <div class="comments_box" style="text-align:right"> 
-                    <span class= "comments badge badge-pill badge-info"><%=comment.text%>
-                    </span>
-                  </div>
-                <% else %>
-                  <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=comment.user.last_name%></strong></span><br>
-                    <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end%>
+          <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-room-number="<%=params[:id].to_s%>" data-user-type="<%=current_user.type%>" class="border">
+
+            <%= render partial: '/comments/comment', object: @comments%>
+            
           </div>
           <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
             <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
