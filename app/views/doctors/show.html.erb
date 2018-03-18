@@ -3,18 +3,20 @@
     <div class="row">
       <div class="col-6">
         <div class="card w-100 mt-5" style = " padding: 2%">
-          <div class="doctor_avatar">
-            <% if @doctor.avatar.url.nil? %>
-                <%= image_tag 'newborn.png' %>
-            <% else %>
+          <div class="doctor_profile">
+            <div class="doctor_avatar">
+              <% if @doctor.avatar.url.nil? %>
+                <%= image_tag 'doctor-about-icon.png' %>
+              <% else %>
                 <%= image_tag @doctor.avatar.url %>
-            <% end %> 
+              <% end %> 
+            </div>
+            <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
+            <p> <strong> Specialty: </strong><%=@doctor.specialty%> </p>
+            <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
+            <p> <strong> Location:  </strong><%=@doctor.location%> </p>
+            <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
           </div>
-          <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
-          <p> <strong> Specialty: </strong><%=@doctor.specialty%> </p>
-          <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
-          <p> <strong> Location:  </strong><%=@doctor.location%> </p>
-          <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
 
           <% if current_user.type == "Mother"%>
             <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
