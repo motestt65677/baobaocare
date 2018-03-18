@@ -17,8 +17,10 @@
   </div>
 </div>
 
+<div id="scroll-to-1"></div>
+
 <section class="full-screen-1">
-  <div class="container">
+  <div class="container" id="move-1">
     <div class="row">
       <div class="col-5 margin-top-50"><h2>Access To Over 20,000 Professional Advisors</h2></div>
       <div class="col-7 margin-top-30">
@@ -27,8 +29,11 @@
     </div>
   </div>
 </section>
+
+<div id="scroll-to-2"></div>
+
 <section class="full-screen-2">
-  <div class="container">
+  <div class="container" id="move-2">
     <div class="row">
       <div class="col-1"></div>
       <div class="col-11">
@@ -40,7 +45,9 @@
     </div>
   </div>
 </section>
-<section class="full-screen-1">
+<div id="scroll-to-3"></div>
+
+<section class="full-screen-1" id="move-3">
   <div class="container">
     <div class="row">
       <div class="col-7 margin-top-30">
@@ -67,40 +74,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Doctor sign up Modal -->
 <div class="modal fade" id="DoctorSignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -239,5 +212,39 @@
 
 
 
+<script type="text/javascript">
+  $(window).scroll(function() {
+   var hT = $('#scroll-to-1').offset().top,
+       hH = $('#scroll-to-1').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS > (hT+hH-wH)){
+      var scroll = document.getElementById("scroll-to-1")
+      var element = document.getElementById("move-1")
+      element.classList.add("float-up");
+   }
+  });
 
-      
+  $(window).scroll(function() {
+   var hT = $('#scroll-to-2').offset().top,
+       hH = $('#scroll-to-2').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS > (hT+hH-wH)){
+      var element = document.getElementById("move-2")
+      element.classList.add("float-up");
+   }
+  });
+
+  $(window).scroll(function() {
+   var hT = $('#scroll-to-3').offset().top,
+       hH = $('#scroll-to-3').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS > (hT+hH-wH)){
+      var element = document.getElementById("move-3")
+      element.classList.add("float-up");
+   }
+  });
+
+</script>
