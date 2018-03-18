@@ -12,6 +12,7 @@
 }
 
 .doctor_avatar{
+    margin: auto;
     width:250px;
     height:250px;
     overflow:hidden;
@@ -27,3 +28,15 @@
     margin-top:10em;
 }
 
+#map {
+  height: 80%;
+  width: 100%;
+}
+
+.margin-bot{
+  margin-bottom: 5em;
+}
+
+.doctor_profile{
+  text-align: center;
+}

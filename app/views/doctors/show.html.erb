@@ -1,26 +1,59 @@
 <div class="wrapper">
-  <div class= "container">
-    <div class="card  w-100 mt-5" style = " padding: 2%">
-      <div class="doctor_avatar">
-        <% if @doctor.avatar.url.nil? %>
-            <%= image_tag 'newborn.png' %>
-        <% else %>
-            <%= image_tag @doctor.avatar.url %>
-        <% end %> 
+  <div class= "container margin-bot">
+    <div class="row">
+      <div class="col-6">
+        <div class="card w-100 mt-5" style = " padding: 2%">
+          <div class="doctor_profile">
+            <div class="doctor_avatar">
+              <% if @doctor.avatar.url.nil? %>
+                <%= image_tag 'doctor-about-icon.png' %>
+              <% else %>
+                <%= image_tag @doctor.avatar.url %>
+              <% end %> 
+            </div>
+            <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
+            <p> <strong> Specialty: </strong><%=@doctor.specialty%> </p>
+            <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
+            <p> <strong> Location:  </strong><%=@doctor.location%> </p>
+            <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
+          </div>
+
+          <% if current_user.type == "Mother"%>
+            <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
+              <%= select_tag "child_id", options_for_select(@children_option), class:"full-width"%>
+              <%=submit_tag "Connect", class:"btn btn-primary full-width text-center"%>
+            <% end %> 
+          <%end%>   
+
+        </div>
+
       </div>
-      <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
-      <p> <strong> Specialty: </strong><%=@doctor.specialty%> </p>
-      <p> <strong> Years of experience: </strong><%=@doctor.experience_years%> </p>
-      <p> <strong> Location:  </strong><%=@doctor.location%> </p>
-      <p> <strong> Qualifications:  </strong><%=@doctor.qualifications%> </p>
-      <% if current_user.type == "Mother"%>
-        <%=form_tag "/doctor/#{@doctor.id}/chatrooms", method: :post do%>
-          <%= select_tag "child_id", options_for_select(@children_option), class:"full-width"%>
-          <%=submit_tag "Connect", class:"btn btn-primary full-width text-center"%>
-        <% end %> 
-      <%end%>         
+      <div class="col-6 card mt-5" style = "padding:2%">
+        <div id="map" class="wrapper-xs"></div>
+      </div>
     </div>
+    
   </div>
 </div>
 
 
+
+<script type="text/javascript">
+  function initMap() {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({"address":"<%=@doctor.location%>"}, function(result, status){
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4, 
+        center: result[0].geometry.location
+      })
+      var marker = new google.maps.Marker({
+        position: result[0].geometry.location,
+        map: map
+      });
+    })
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+</script>
