@@ -6,7 +6,7 @@
     if @doctor.save
       sign_in @doctor
       UserMailer.welcome_doctor_email(@doctor).deliver_now
-      redirect_to doctor_profile_path(@doctor)
+      redirect_to edit_doctor_path(@doctor)
     else
       render template: "users/new"
     end
