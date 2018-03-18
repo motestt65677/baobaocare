@@ -20,24 +20,31 @@ require 'faker'
 # end
 
 
-doctor = {}
-specialties= ["Pediatrician","Nutritionist","Psychologist","Pediatric Dentist", "Optometrist", "Allergist"]
-years= [1,2,3,4,5,6]
+# doctor = {}
+# specialties= ["Pediatrician","Nutritionist","Psychologist","Pediatric Dentist", "Optometrist", "Allergist"]
+# years= [1,2,3,4,5,6]
 
 
 
-1.times do |num|
-  doctor['first_name'] = Faker::Name.first_name
-  doctor['last_name'] = Faker::Name.last_name  
-  doctor['email'] = Faker::Internet.email
-  doctor['password'] = "asdf"
-  doctor['specialty']= specialties.sample
-  doctor ['experience_years'] = years.sample
-  doctor ['location'] =Faker::Address.city
+# 1.times do |num|
+#   doctor['first_name'] = Faker::Name.first_name
+#   doctor['last_name'] = Faker::Name.last_name  
+#   doctor['email'] = Faker::Internet.email
+#   doctor['password'] = "asdf"
+#   doctor['specialty']= specialties.sample
+#   doctor ['experience_years'] = years.sample
+#   doctor ['location'] =Faker::Address.city
 
-  doctor1 = Doctor.create(doctor)
+#   doctor1 = Doctor.create(doctor)
 
-end
+# end
+# cities = %w(Kabul London Taipei Kuala Lumpur Canberra Beijing Berlin Moscow Seoul Pyongyang Manila Cape_Town Rome Tokyo)
+# doctors = Doctor.all
+
+# doctors.each do |doctor|
+#   doctor.location = cities.sample
+#   doctor.save
+# end
 
 
 # mother ={}
