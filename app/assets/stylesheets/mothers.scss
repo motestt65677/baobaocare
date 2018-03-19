@@ -68,14 +68,10 @@
 
 }
 
-// #edit_acc{
-//     text-decoration:underline;
-//     font-size:14px;
-// }
-
 .mother_header{
     display:flex;
     align-items:center;
+    flex-wrap:wrap;
 }
 
 .mother_avatar{
