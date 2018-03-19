@@ -6,11 +6,11 @@ class BraintreeController < ApplicationController
     if @type == "one-month" 
       @amount = "100.00"
     elsif @type == "three-month"
-      @amount = "300.00"
+      @amount = "270.00"
     elsif @type == "six-month"
-      @amount = "500.00"    
+      @amount = "480.00"    
     elsif @type == "one-year"
-      @amount = "800.00"
+      @amount = "792.00"
     end
   end
 
@@ -19,11 +19,11 @@ class BraintreeController < ApplicationController
     if @type == "one-month" 
       @amount = "100.00"
     elsif @type == "three-month"
-      @amount = "300.00"
+      @amount = "270.00"
     elsif @type == "six-month"
-      @amount = "500.00"    
+      @amount = "480.00"    
     elsif @type == "one-year"
-      @amount = "800.00"
+      @amount = "792.00"
     end
 
   nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
