@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th></th>
+  </tr>
+  <%@timeslots.each do |timeslot|%>
+      <tr>
+        <td><%=timeslot.start_date%></td>
+        <td><%=timeslot.start_time.hour%>:<%=timeslot.start_time.min%> to <%= timeslot.end_time.hour%>:<%=timeslot.end_time.min%></td>   
+        <td>
+          <%= form_tag "/chatrooms/#{@chatroom.id}/reservation", method: :post do%>
+
+            <%=hidden_field_tag "timeslot_id", timeslot.id%>
+            <%=submit_tag "Reserve"%>
+          <% end %>
+        </td>    
+      </tr>
+
+  <%end%>
+</table>
+

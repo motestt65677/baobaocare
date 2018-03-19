@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   delete "/mothers/:mother_id/reservations/:id" => "reservations#destroy", as: "delete_mothers_reservations"
 
   resources :timeslots
+  post '/chatrooms/:chatroom_id/search' =>"chatrooms#search", as: "timeslots_search"
 
 
   post '/doctor/:doctor_id/chatrooms' => "chatrooms#create", as:"create_chatroom"

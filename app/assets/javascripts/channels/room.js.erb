@@ -2,8 +2,7 @@
 $( document ).ready(function() {
 
 
-var room_number = $("#messages-table").data("room-number");
-
+  var room_number = $("#messages-table").data("room-number");
   App['room' + room_number] = App.cable.subscriptions.create({channel: "RoomChannel",room: room_number}, {
     connected: function() {},
     disconnected: function() {},
