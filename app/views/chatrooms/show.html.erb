@@ -23,6 +23,8 @@
                   pending
                 <%elsif reservation.status == "confirmed"%>
                   confirmed
+                <%elsif reservation.status == "rejected"%>
+                  rejected
                 <%end%>
               </td>        
             </tr>
@@ -50,7 +52,7 @@
   <div id="content1">
     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" >
       <i class="glyphicon glyphicon-align-left"></i>
-      <span>Toggle Sidebar</span>
+      <span>Book a live chat</span>
     </button>
   </div>
 
@@ -113,12 +115,12 @@
 
 
 
-<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Book a doctor</a>
+<!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Book a doctor</a>
 
 <div class="row">
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body" >
+      <div class="card card-body" > 
 
 
           <%#= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-inline"} ) do |form| %>
@@ -146,7 +148,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div> --> 
 
 
 

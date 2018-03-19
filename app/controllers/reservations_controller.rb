@@ -46,8 +46,27 @@ class ReservationsController < ApplicationController
   # def edit
   # end
 
-  # def update
-  # end 
+  def update
+
+    (option, reservation_id) = params[:format].split("-")
+    reservation = Reservation.find(reservation_id)
+    timeslot = Timeslot.where(start_date: reservation.start_date,end_date: reservation.end_date, start_time: reservation.start_time, end_time: reservation.end_time, doctor_id: reservation.chatroom.doctor.id)
+
+    if option == "confirm" 
+      reservation.status = "confirmed"
+      timeslot[0].destroy
+    elsif option == "reject"
+      reservation.status = "rejected"
+    end
+
+    if reservation.save
+      redirect_to timeslots_path
+    else
+      flash[:notice] = "error has occured"
+      redirect_to timeslots_path
+    end
+      
+  end 
 
   def destroy
     @reservation = Reservation.find(params[:id])
