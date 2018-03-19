@@ -22,16 +22,22 @@ class ReservationsController < ApplicationController
   end
 
   def create
-  
     @chatroom = Chatroom.find(params[:id])
-    @reservation = @chatroom.reservations.new(reservation_params)
+    @timeslot = Timeslot.find(params[:timeslot_id])
+    @reservation = @chatroom.reservations.new({
+      start_date: @timeslot.start_date,
+      end_date: @timeslot.end_date, 
+      start_time: @timeslot.start_time, 
+      end_time: @timeslot.end_time,
+      status: "pending"
+    })
+
     if @reservation.save 
-      new_chatroom_path(@chatroom)
-
+      redirect_to chatroom_path(@chatroom)
+      flash[:success] = "reservation successful, waiting for docotr's confirmation"
     else
-
-      "error"
-
+      redirect_to chatroom_path(@chatroom)
+      flash[:notice] = "reservation unsuccessful"
     end
 
   end
@@ -50,7 +56,10 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # private
+
+
+
+  private
 
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date, :start_time, :end_time)
