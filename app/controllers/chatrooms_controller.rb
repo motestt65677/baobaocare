@@ -39,6 +39,21 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def destroy 
+    @chatroom = Chatroom.find(params[:id])
+    @child = @chatroom.child
+    @mother = @child.mother
+
+    if current_user.children.includes(@child)
+      Chatroom.delete(@chatroom)
+      flash[:sucess] = "Your chatroom has been deleted"
+      redirect_to chatrooms_path
+    else
+      flash[:notice] = "you are not allowed to perform this action."
+      redirect_to chatrooms_path 
+    end 
+  end
+
   def create
     Chatroom.create(doctor_id: params[:doctor_id], child_id: params[:child_id])
     redirect_to chatrooms_path

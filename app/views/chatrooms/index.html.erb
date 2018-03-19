@@ -18,6 +18,8 @@
                       <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
                       <br>
                         Last Appointment: 
+                      <br>
+                        <%= link_to "delete this chatroom", "/chatrooms/#{room.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
                     </p>
                   <% end %> 
                 </div>
