@@ -1,0 +1,7 @@
+console.log("hi")
+
+
+$("#timeslots").html("");
+
+$("<%= j render(partial:'timeslots', object: @timeslots, object: @chatroom)%>").appendTo("#timeslots")
+

@@ -1,7 +1,17 @@
 
 
-  <div class="container wrapper">
-    <div class="row">
+<div class="container wrapper">
+
+<% if @chatrooms.blank? %>
+  <%= link_to doctors_path do %>
+    <div id="chatroom_search">
+      <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+      <h5>You've not connected to any doctors yet, search for doctors</h5>
+    </div>
+  <% end %>
+<% end %>
+    
+      
       <div class= col-2></div>
       <div class= col-8>       
         <div class= "row">
@@ -18,6 +28,8 @@
                       <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
                       <br>
                         Last Appointment: 
+                      <br>
+                        <%= link_to "delete this chatroom", "/chatrooms/#{room.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
                     </p>
                   <% end %> 
                 </div>
