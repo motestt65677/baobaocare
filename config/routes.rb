@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get "/mothers/:id/reservations" => "reservations#index", as: "mothers_reservations"
   post '/chatrooms/:id/reservation' =>"reservations#create", as: "reserve"
   delete "/mothers/:mother_id/reservations/:id" => "reservations#destroy", as: "delete_mothers_reservations"
+  patch "/reservations" => "reservations#update", as: "update_reservation"
 
   resources :timeslots
   post '/chatrooms/:chatroom_id/search' =>"chatrooms#search", as: "timeslots_search"

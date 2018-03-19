@@ -1,20 +1,18 @@
 
-<div class="wrapper">
-<div class="container">
+<div class="wrapper" style="margin-bottom: 10%">
+  <div class="container">
   <div class="row">
     <div class="col">
     
-    <h1 class='timeslot_title'>Timeslots</h1>
+    <h1 class='timeslot_title'>Your available timeslots</h1>
     
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
           <th scope="col">Start time</th>
           <th scope="col">End time</th>
-          <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -26,15 +24,19 @@
           <td><%= t.end_date %></td>
           <td><%= t.start_time.strftime('%I:%M %p') %></td>
           <td><%= t.end_time.strftime('%I:%M %p') %></td>
-          <td><%= link_to 'remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to 'Remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
 
         <%end%>
+                  <%if @timeslot == []%>
+         
+          <%end%>
         </tr>
       </tbody>
     </table>
+   <p> You have no timeslots set. <p>
 
     
-    <button class="btn btn-primary" data-toggle="modal" data-target="#add">add timeslot</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#add">Add a timeslot</button>
     
     <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -50,20 +52,19 @@
                 <div class="modal-body">
                     <div>
                       <%=label_tag :start_date %>
-                      <%= date_select 'timeslots', :start_date, :start_year => 2000, :end_year => Date.today.year %>
+                      <%= date_select 'timeslots', :start_date, :start_year => Date.today.year, :end_year => Date.today.year+ 3 %>
                     </div>
-                    <div>
-                      <%=label_tag :end_date%>
-                      <%= date_select 'timeslots', :end_date, :start_year => 2000, :end_year => Date.today.year %>
-                    </div>
+
                     <div>
                       <%=label_tag :start_time%>
                       <%= time_select 'timeslots', :start_time, {ampm: true} %>
                     </div>
+
+
                     <div>
-                      <%=label_tag :end_time%>
-                      <%= time_select 'timeslots', :end_time, {ampm: true} %>
+                      <%= select_tag "Duration", options_for_select(['30 Minutes', '1 Hour'], ['30', '60'])%>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -73,11 +74,60 @@
   
             </div>
           </div>
-        </div>
-        
+        </div>   
+      </div>
+    </div>
+    <div class= "row">
+      <div class= "col">
+          <h1 class='timeslot_title'>Your current reservations </h1>
     
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
+                <th scope="col">Start time</th>
+                <th scope="col">End time</th>
+                <th scope="col">Status</th>
+                <th></th>
+
+              </tr>
+            </thead>
+            
+            <tbody>
+              <% @reservations.each do |t| %>
+              <tr>
+                <td><%= t.start_date %></td>
+                <td><%= t.end_date %></td>
+                <td><%= t.start_time.strftime('%I:%M %p') %></td>
+                <td><%= t.end_time.strftime('%I:%M %p') %></td>
+                <td><%= t.status%></td>
+                <td><%= link_to 'Confirm', update_reservation_path("confirm-#{t.id}"), method: 'patch', value:"confirm", name:"option"%> &nbsp
+                <%= link_to 'Reject', update_reservation_path("reject-#{t.id}"), method: 'patch', value:"confirm", name:"option"%> </td>
+
+
+                  
+
+
+               <!--  <td><%#= link_to 'Remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td> -->
+
+              <%end%>
+              </tr>
+            </tbody>
+          </table>
+          <%if @reservations == []%>
+          <p> You have no reservations pending <p>
+          <%end%>
+      </div>
+    </div>
+
+
+
+
+  </div>
 </div>
 
-</div>
-</div>
-</div>
+
+
+   
+  

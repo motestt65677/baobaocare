@@ -19,10 +19,12 @@
       </thead>
       <tbody>
         <tr>
+
       <% @reservations.each do |reservation| %>
          <td><%="Dr. #{reservation.chatroom.doctor.first_name} #{reservation.chatroom.doctor.last_name}"%></td> 
           <td><%=reservation.chatroom.doctor.specialty%></td>
           <td><%=reservation.chatroom.child.name%></td>
+          <%byebug%>
           <td><%=reservation.start_date%></td>
           <td><%=reservation.end_date%></td>
           <td><%=reservation.start_time.strftime('%I:%M %p')%></td>
