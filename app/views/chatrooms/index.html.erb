@@ -1,7 +1,17 @@
 
 
-  <div class="container wrapper">
-    <div class="row">
+<div class="container wrapper">
+
+<% if @chatrooms.blank? %>
+  <%= link_to doctors_path do %>
+    <div id="chatroom_search">
+      <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+      <h5>You've not connected to any doctors yet, search for doctors</h5>
+    </div>
+  <% end %>
+<% end %>
+    
+      
       <div class= col-2></div>
       <div class= col-8>       
         <div class= "row">
