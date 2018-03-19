@@ -1,53 +1,173 @@
-<div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 35vh;">
+
+<!-- <div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 50vh;">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3 mt-0" style= "text-align: center ;">
-        <%= image_tag("doctor-about-icon.png", height: '25%') %>
-        <div style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
-          <span><%="Dr. #{@doctor.last_name}"%></span>
-        </div>
+   
+ <div class="row">
+
+      <div class="col-lg-3 mt-0" style= "text-align: right ;">
+  <%= image_tag("newborn.png", height: '25%') %>  
+   <div class = "col-4">
+          <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
+            <span style = "margin: 8vw" >Doctor</span>
+          </p>
+        </div> 
       </div>
+
       <div class="col-lg-6 mt-5" style= "text-align: center;">
         <strong>
           <h1 style="margin-top:0%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">Chat
             <span style="color:#02e595">Room</span>
           </h1>
-        </strong>
-        <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; "></p>
-      </div>        
-      <div class="col-lg-3 mt-0" style= "text-align: center;">
+        </strong> 
+
+      </div> 
+
+      <div class="col-lg-3 mt-0" style= "text-align: left;">
         <%= image_tag("newborn.png", height: '25%') %>
-        <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
-          <span><%=@child.name%></span>
-        </p>
-      </div>       
+       <div class = "col-4">
+          <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">
+            <span style = "margin: 3vw">Baby</span>
+          </p>
+        </div>  
+      </div> 
+
+    </div> 
+
+  </div>
+</div> -->
+
+
+
+
+<div class="sidebarwrapper" style="margin-top: 75px">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+      <h3>Bootstrap Sidebar</h3>
+
+
+    <div class= "container">
+
+      <%= form_for( Reservation.new, url: reserve_path) do |form| %>
+
+        <div class = "row">
+          <div class ="col">
+          <%= form.label :start_date, style: 'margin-top: 20%;'%>
+          <%= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %> 
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class ="col">          
+            <%= form.label :end_date, style: 'margin: 3%'%>
+            <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %>
+          </div>
+         </div>
+
+        <div class = "row">
+          <div class ="col">
+            <%= form.label :start_time, style: 'margin: 3%' %>
+            <%= form.time_field(:start_time, class: 'form-control mb-2 mr-sm-2') %>
+           </div>
+        </div>
+
+       <div class = "row">
+         <div class ="col">
+          <%= form.label :end_time, style: 'margin: 3%' %>
+          <%= form.time_field(:end_time, class: 'form-control mb-2 mr-sm-2') %>
+          </div>
+       </div>
+          <%= form.submit "Reserve!", class: "btn btn-primary mb-2", style: 'margin-left: 25%;'  %>
+    <% end %>
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content1">
+    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" >
+      <i class="glyphicon glyphicon-align-left"></i>
+      <span>Toggle Sidebar</span>
+    </button>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-9">
+            <section>
+              <div id="messages-table" data-user-name="<%=current_user.first_name%>"" data-user-type="<%=current_user.type%>" class="border">
+                <%if current_user.type == "Doctor"%>
+                  <% @comments.each do |comment| %>
+                    <% if comment.user == current_user%>
+                      <div class="comments_box" style="text-align:right"> 
+                        <span class= "comments badge badge-pill badge-info"><%=comment.text%>
+                        </span>
+                      </div>
+                    <% else %>
+                      <div class="comments_box"> <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
+                        <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end%>
+                <%if current_user.type == "Mother"%>
+                  <% @comments.each do |comment| %>
+                    <% if comment.user == current_user%>
+                      <div class="comments_box" style="text-align:right"> 
+                        <span class= "comments badge badge-pill badge-info"><%=comment.text%>
+                        </span>
+                      </div>
+                    <% else %>
+                      <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=comment.user.last_name%></strong></span><br>
+                        <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end%>
+              </div>
+              <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
+                <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
+                <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
+              <% end %>          
+            </section>
+          </div>
+        <div class="col-1"></div>
+
+      </div>
+    </div> 
   </div>
 </div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-9">
-        <section>
-          <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-room-number="<%=params[:id].to_s%>" data-user-type="<%=current_user.type%>" class="border">
-
-            <%= render partial: '/comments/comment', object: @comments%>
-            
-          </div>
-          <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
-            <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
-            <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
-          <% end %>          
-        </section>
-      </div>
-      <div class="col-1"></div>
-    </div>
-</div>
 
 
 
 
+
+
+
+
+
+
+
+<!-- 
 
 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Book a doctor</a>
 
@@ -55,21 +175,34 @@
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body" >
-          <%= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-inline"} ) do |form| %>
-          <%= form.label :start_date, style: 'margin: 1%'%>
-          <%= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %> 
+
+
+          <%#= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-inline"} ) do |form| %>
+
+
+          <%#= form.label :start_date, style: 'margin: 1%'%>
+          <%#= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %> 
+
+
           <%= form.label :end_date, style: 'margin: 1%'%>
           <%= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %>
-          <%= form.label :start_time, style: 'margin: 1%' %>
+
+
+         <%= form.label :start_time, style: 'margin: 1%' %>
           <%= form.time_field(:start_time, class: 'form-control mb-2 mr-sm-2') %>
+
           <%= form.label :end_time, style: 'margin: 1%' %>
           <%= form.time_field(:end_time, class: 'form-control mb-2 mr-sm-2') %>
+
           <%= form.submit "Reserve!", class: "btn btn-primary mb-2", style: 'margin-left: 5%'  %>
+
         <% end %>
+
+
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -77,6 +210,7 @@
 
 <script type="text/javascript">
   var blocked_dates = [];
+
     <% @timeslots.each do |timeslot| %>
     var date_range = {
       from: "<%= timeslot.start_date.to_s %>",
@@ -84,10 +218,25 @@
     };
     blocked_dates.push(date_range);
   <% end %>
+
+
   (function(){
     $('.date_pickr').flatpickr({
       dateFormat: "Y-m-d",
       enable: blocked_dates
     });
   })();
+
+$(document).ready(function() {
+  $("#sidebarCollapse").on("click", function() {
+    $("#sidebar").toggleClass("active");
+    $(this).toggleClass("active");
+  });
+});
+
 </script>
+
+
+
+
+

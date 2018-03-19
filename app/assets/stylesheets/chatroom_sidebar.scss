@@ -1,0 +1,22 @@
+.sidebarwrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#content1 {
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
