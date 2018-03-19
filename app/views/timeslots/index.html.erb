@@ -1,20 +1,18 @@
 
-<div class="wrapper">
-<div class="container">
+<div class="wrapper" style="margin-bottom: 10%">
+  <div class="container">
   <div class="row">
     <div class="col">
     
-    <h1 class='timeslot_title'>Timeslots</h1>
+    <h1 class='timeslot_title'>Your available timeslots</h1>
     
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
           <th scope="col">Start time</th>
           <th scope="col">End time</th>
-          <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -26,7 +24,7 @@
           <td><%= t.end_date %></td>
           <td><%= t.start_time.strftime('%I:%M %p') %></td>
           <td><%= t.end_time.strftime('%I:%M %p') %></td>
-          <td><%= link_to 'remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to 'Remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
 
         <%end%>
         </tr>
@@ -34,7 +32,7 @@
     </table>
 
     
-    <button class="btn btn-primary" data-toggle="modal" data-target="#add">add timeslot</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#add">Add a timeslot</button>
     
     <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -73,11 +71,50 @@
   
             </div>
           </div>
-        </div>
-        
+        </div>   
+      </div>
+    </div>
+    <div class= "row">
+      <div class= "col">
+          <h1 class='timeslot_title'>Your current reservations </h1>
     
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
+                <th scope="col">Start time</th>
+                <th scope="col">End time</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <% @reservations.each do |t| %>
+              <tr>
+                <td><%= t.start_date %></td>
+                <td><%= t.end_date %></td>
+                <td><%= t.start_time.strftime('%I:%M %p') %></td>
+                <td><%= t.end_time.strftime('%I:%M %p') %></td>
+                <td><%= link_to 'Remove', timeslot_path(t), method: 'delete', data: { confirm: "Are you sure?" } %></td>
+
+              <%end%>
+              </tr>
+            </tbody>
+          </table>
+          <%if @reservations == []%>
+          <p> You have no reservations pending <p>
+          <%end%>
+      </div>
+    </div>
+
+
+
+
+  </div>
 </div>
 
-</div>
-</div>
-</div>
+
+
+   
+  

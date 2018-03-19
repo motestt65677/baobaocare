@@ -1,7 +1,17 @@
 class TimeslotsController < ApplicationController
     def index
-        @doctor = current_user
-        @timeslot = @doctor.timeslots
+    @doctor = current_user
+    @timeslot = @doctor.timeslots
+
+
+    @reservations = []
+    @chatrooms = @doctor.chatrooms
+     @chatrooms.each do |chatroom|
+        chatroom.reservations.each do |reservation|
+          @reservations.push(reservation)
+      end
+    end
+
     end
     
     
