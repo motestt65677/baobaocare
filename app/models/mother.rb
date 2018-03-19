@@ -1,5 +1,5 @@
 class Mother < User
-  has_many :children
+  has_many :children, dependent: :destroy
 
   def name
   	[first_name, last_name].join(',')

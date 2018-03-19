@@ -12,16 +12,9 @@
           <div class="mother_info">
               <h1><span><%=" #{@mother.first_name} #{@mother.last_name}"%></span></h1> 
               <p>Email: <span><%=@mother.email%></span></p>
-              <%=link_to edit_mother_path(@mother) do%> 
-                <span id='edit_acc'>Edit Account</span> 
-              <%end%>
-          </div>
-  
-  
-          
-   
-  
-        </div>  
+              <%=link_to 'edit', edit_mother_path(@mother)%></div>
+
+          </div>  
         
    <h2><%="#{@mother.first_name}'s"%> Babies</h2>
           <div class="children_wrap">

@@ -4,7 +4,7 @@ class BraintreeController < ApplicationController
      @type = params[:type]
 
     if @type == "one-month" 
-      @amount = "100"
+      @amount = "100.00"
     elsif @type == "three-month"
       @amount = "300.00"
     elsif @type == "six-month"
@@ -17,7 +17,7 @@ class BraintreeController < ApplicationController
   def checkout
     @type = params[:checkout_form][:type]
     if @type == "one-month" 
-      @amount = "100"
+      @amount = "100.00"
     elsif @type == "three-month"
       @amount = "300.00"
     elsif @type == "six-month"

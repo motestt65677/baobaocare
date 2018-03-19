@@ -1,6 +1,6 @@
 class Doctor < User
-  has_many :chatrooms
-  has_many :timeslots
+  has_many :chatrooms, dependent: :destroy
+  has_many :timeslots, dependent: :destroy
   
   max_paginates_per 5
 	paginates_per 5

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :doctors
   resources :mothers do
     resources :children do
-      resources :milestones, except: :show
+      resources :milestones, except: :show, :path => "/"
     end
   end
 
@@ -36,10 +36,9 @@ Rails.application.routes.draw do
 
   get "/mothers/:id/reservations" => "reservations#index", as: "mothers_reservations"
   post '/chatrooms/:id/reservation' =>"reservations#create", as: "reserve"
-
+  delete "/mothers/:mother_id/reservations/:id" => "reservations#destroy", as: "delete_mothers_reservations"
 
   resources :timeslots
-
 
 
   post '/doctor/:doctor_id/chatrooms' => "chatrooms#create", as:"create_chatroom"

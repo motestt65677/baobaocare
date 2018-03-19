@@ -1,4 +1,4 @@
-<div>
+<div class='wrapper'>
 <h4 style = "text-align: center"><strong>0-1 Month Milestones</strong></h4>
 </div>
 
@@ -21,7 +21,7 @@
     </div>
     <div class="col-10">
       <div class="container">  
-  <%=form_tag "/mothers/#{@mother.id}/children/#{@child.id}/milestones", method: :post do%>
+  <%=form_tag "/mothers/#{@mother.id}/children/#{@child.id}", method: :post do%>
   <div class="row">
     <div class="col-12">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
