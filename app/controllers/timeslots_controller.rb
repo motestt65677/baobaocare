@@ -16,7 +16,6 @@ class TimeslotsController < ApplicationController
     
     
     def create
-        byebug
         @timeslot = Timeslot.new(timeslot_params)
         @timeslot.end_date = @timeslot.start_date
         @timeslot.doctor_id = current_user.id
