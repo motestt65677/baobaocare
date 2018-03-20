@@ -17,7 +17,7 @@
     <%else%>
       <div class="doctor_profile">
         <div class="doctor_avatar">
-          <% if @doctor.avatar.url.nil? %>
+          <% if @child.avatar.url.nil? %>
             <%= image_tag 'newborn.png' %>
           <% else %>
             <%= image_tag @child.avatar.url%>
