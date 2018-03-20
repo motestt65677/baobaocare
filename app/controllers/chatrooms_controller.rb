@@ -24,6 +24,7 @@ class ChatroomsController < ApplicationController
     @reservations = @chatroom.reservations
     @doctor = @chatroom.doctor
     @child = @chatroom.child
+    @mother = @child.mother
 
     if current_user.type == "Mother"
       @child = @chatroom.child

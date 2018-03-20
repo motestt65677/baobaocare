@@ -1,13 +1,41 @@
 
 <div class="sidebarwrapper" style="margin-top: 75px">
   <nav id="sidebar">
+    <%if current_user.type == "Mother"%>
+      <div class="doctor_profile">
+        <div class="doctor_avatar">
+          <% if @doctor.avatar.url.nil? %>
+            <%= image_tag 'doctor-about-icon.png' %>
+          <% else %>
+            <%= image_tag @doctor.avatar.url %>
+          <% end %> 
+        </div>
+        <h3 class="mt-2"><strong>Dr. <%=@doctor.last_name%></strong></h3>
+        <h5><strong>Specialty: </strong><%=@doctor.specialty%></h5>
+      </div>
+
+    <%else%>
+      <div class="doctor_profile">
+        <div class="doctor_avatar">
+          <% if @doctor.avatar.url.nil? %>
+            <%= image_tag 'newborn.png' %>
+          <% else %>
+            <%= image_tag @child.avatar.url%>
+          <% end %> 
+        </div>
+        <h3 class="mt-2"><strong><%=@child.name%></strong></h3>
+        <h5 class="mt-2"><%=@child.age%></h5>
+      </div>
+    <%end%>
+
     <div class="container"> 
-      <h3>My Reservations</h3>  
       <hr>
-      <div id="reservations">
+      <br>
+      <h5><strong>Current Reservations</strong></h5>  
+      <div id="reservations" >
         <table class="table table-bordered">
           <tr>
-            <th>#</th>
+            <th> </th>
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>
@@ -34,19 +62,20 @@
 
       </div>
     </div>
-
-    <div class= "container">
-      <h3>Booking</h3>
-      <hr>
-      <%= form_tag "/chatrooms/#{params[:id]}/search", method: :post, remote: true do |form| %>
-        <%= text_field_tag :start_date, nil,class: 'form-control mb-2 mr-sm-2 date_pickr' %>  
-        <%= submit_tag "Look Up!", class: "btn btn-primary mb-2 float-right", style: 'margin-left: 25%;'  %>
-      <% end %>
-
-      <div id="timeslots">       
+    <%if current_user.type == "Mother"%>
+      <div class= "container">
+        <br>
+        <h5><strong>Book Now</strong></h5>
+        <hr>
+        
+        <%= form_tag "/chatrooms/#{params[:id]}/search", method: :post, remote: true do |form| %>
+          <%= text_field_tag :start_date, nil,class: 'form-control mb-2 mr-sm-2 date_pickr' %>  
+          <%= submit_tag "Look Up!", class: "btn btn-primary mb-2 float-right", style: 'margin-left: 25%;'  %>
+        <% end %>
+        <div id="timeslots">       
+        </div>
       </div>
-
-    </div>
+    <%end%>
   </nav>
   <!-- Page Content Holder -->
   <div id="content1">

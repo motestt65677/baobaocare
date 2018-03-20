@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
 
-  def index      
+  def index
     @mother = current_user
     @child = Child.find(params[:child_id])   
     @milestones = Milestone.all         

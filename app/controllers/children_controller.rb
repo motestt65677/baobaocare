@@ -27,7 +27,6 @@ class ChildrenController < ApplicationController
     @child = @mother.children.find(params[:id])
     @child.avatar = params[:file]
     @child.update(child_params)
-    
     redirect_to mother_child_path(@mother, @child)
   end
   
