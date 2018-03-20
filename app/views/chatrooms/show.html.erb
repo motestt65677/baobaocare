@@ -93,7 +93,7 @@
             <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-user-type="<%=current_user.type%>" data-room-number="<%=params[:id]%>" class="border">
               <%if current_user.type == "Doctor"%>
                 <div class="comments_box" style="text-align:right"> 
-                  <span class= "comments badge badge-pill badge-info">Hello! This is Dr. <%=current_user.last_name%>. How can I help you?
+                  <span class= "comments badge badge-pill badge-info">Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?
                   </span>
                 </div>
                 <% @comments.each do |comment| %>
@@ -111,7 +111,7 @@
               <% end%>
               <%if current_user.type == "Mother"%>
                   <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                    <span class="comments badge badge-pill badge-info"> Hello! This is Dr. <%=current_user.last_name%>. How can I help you?</span>
+                    <span class="comments badge badge-pill badge-info"> Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?</span>
                   </div>
                 <% @comments.each do |comment| %>
                   <% if comment.user == current_user%>
