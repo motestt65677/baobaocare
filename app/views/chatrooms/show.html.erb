@@ -120,7 +120,7 @@
                       </span>
                     </div>
                   <% else %>
-                    <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=comment.user.last_name%></strong></span><br>
+                    <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
                       <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
                     </div>
                   <% end %>
