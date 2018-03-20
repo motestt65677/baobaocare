@@ -32,13 +32,13 @@
                   <% if current_user.type == "Doctor"%>
                     <p id = "baby_name">
                       <strong>Baby <%= Child.find(room.child_id).name%></strong>
-                      <% else current_user.type == "Mother" %>
-                      <p id = "baby_name">
-                      <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
-                      <br>
-                        Last Appointment: 
-                      <br>
-                        <%= link_to "delete this chatroom", "/chatrooms/#{room.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
+                  <% else current_user.type == "Mother" %>
+                    <p id = "baby_name">
+                    <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
+                    <p>Specialty: <%=Doctor.find(room.doctor_id).specialty%></p>
+                       
+                    <br>
+                      <%= link_to "delete this chatroom", "/chatrooms/#{room.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
                     </p>
                   <% end %> 
                 </div>
