@@ -1,15 +1,10 @@
-
-$( document ).ready(function() {
-
-
+$(document).on('turbolinks:load', function() {
   var room_number = $("#messages-table").data("room-number");
   App['room' + room_number] = App.cable.subscriptions.create({channel: "RoomChannel",room: room_number}, {
     connected: function() {},
     disconnected: function() {},
     received: function(data) {
       console.log($("#messages-table").data("user-name"))
-
-
       if (data.username == $("#messages-table").data("user-name")){
         $("#messages-table").append('<div class="comments_box" style="text-align:right">' + '<span>' + '</span>' + ' ' + '<span class= "comments badge badge-pill badge-info">' + data.content + '</span>' + '</div>');
       }else{
@@ -45,8 +40,7 @@ $( document ).ready(function() {
       var objDiv = document.getElementById("messages-table");
       objDiv.scrollTop = objDiv.scrollHeight; 
       message_content.value = ""
-
     }
-  });
+  })
+});
 
-})
