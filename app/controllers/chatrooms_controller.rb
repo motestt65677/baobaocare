@@ -30,13 +30,13 @@ class ChatroomsController < ApplicationController
       @child = @chatroom.child
       if current_user.children.includes(@child)
         @comment = Comment.new
-        @comments = @chatroom.comments.includes(:user)
+        @comments = @chatroom.comments.includes(:user).order(:created_at)
       end
     elsif current_user.type == "Doctor"
       if current_user.chatrooms.includes(@chatroom)
         @chatroom = Chatroom.find(params[:id])
         @comment = Comment.new
-        @comments = @chatroom.comments.includes(:user)
+        @comments = @chatroom.comments.includes(:user).order(:created_at)
       end
     end
   end
