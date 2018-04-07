@@ -1,17 +1,17 @@
 <div id= "bgheader" class="jumbotron jumbotron-fluid mb-0 mr-0" style="height: 100vh;">
   <div class="container wrapper-sm">
     <div class="row">
-      <div class="col-lg-8 mt-5" style= "text-align: center">
-        <strong> <h1 style="margin-top:5%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; font-family: 'Arvo', serif; font-size: 4em; color: white;">BaoBao<span style="color:#02e595">Care</span></h1> </strong>
+      <div class="col-12 mt-5 align-center" >
+        <strong> <h1 class="welcometext">BaoBao<span style="color:#02e595">Care</span></h1> </strong>
       
-      <p style="font-family: 'Arvo',serif;font-size: 1.5em;color: white; margin-top: 3%; margin-left: 3%; text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; ">No matter where you are, find someone who cares. </p>
+        <h5 class="welcometext">No matter where you are, find someone who cares. </h5>
 
-      <h2 style="margin-top: 10%; color:white"> Get Started as ..<h2>
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#DoctorSignUp">A Doctor</button>
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ParentSignUp" >A Parent</button>
+        <h2 style="margin-top: 10%; color:white"> Get Started as ..<h2>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#DoctorSignUp">A Doctor</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ParentSignUp" >A Parent</button>
       </div>
-      <div class="col-lg-4 mt-4">
-        <%= image_tag("newborn.png", height: '60%') %>
+      <div class="col-12 mt-5 align-center">
+        <%= image_tag("newborn.png", width: '200vw') %>
       </div>
     </div>
   </div>
@@ -19,13 +19,13 @@
 
 <div id="scroll-to-1"></div>
 
-<section class="full-screen-1">
-  <div class="container" id="move-1">
-    <div class="row">
-      <div class="col-5 margin-top-50"><h2>Access To Over 20,000 Professional Advisors</h2></div>
-      <div class="col-7 margin-top-30">
-        <%= image_tag("search-ss.png", :alt => "rss feed", :class => "img-thumbnail img-fluid") %>
+<section class="full-screen-1 ">
+  <div class="container " id="move-1">
+    <div class="row pt-mid">
+      <div class="col-12 col-lg-7">
+        <%= image_tag("search-ss.png", :alt => "rss feed", :class => "img-thumbnail img-fluid", width:"100%") %>
       </div>
+      <div class="col-12 col-lg-5 pt-5"><h2>Access To Over 20,000 Professional Advisors</h2></div>
     </div>
   </div>
 </section>
@@ -40,7 +40,7 @@
         <div class="margin-top-30"><h1><strong>Affordable Subscriptions</strong></h1></div>
         <hr>
 
-        <%= image_tag("payment-ss.png", :alt => "rss feed", :class => "img-thumbnail img-fluid") %>
+        <%= image_tag("payment-ss.png", :alt => "rss feed", :class => "img-thumbnail img-fluid", width:"80%") %>
       </div>
     </div>
   </div>

@@ -3,11 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.align-center{
+  text-align: center;
+}
+
+.welcometext{
+  text-shadow:-1px -1px 0 #575c66, 1px -1px 0 #575c66,-1px 1px 0 #575c66, 1px 1px 0 #575c66; 
+  font-family: 'Arvo', serif; 
+  color: white;
+}
+
+.pt-mid{
+  padding-top: 30%;
+}
+
+
 
 #bgheader {
   background: image-url('pattern.png');
   height:100%;
   width:100%;
+  background-size: cover;
 }
 
 .form {
