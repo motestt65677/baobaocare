@@ -26,12 +26,15 @@ class CommentsController < ApplicationController
   private
 
   def mother_message(comment)
-    ApplicationController.renderer.render(partial: 'comments/mother_comment', locals: { comment: comment })
+    p "D"
+    ApplicationController.render(partial: 'comments/mother_comment', locals: { comment: comment })
   end
   def doctor_message(comment)
-    ApplicationController.renderer.render(partial: 'comments/doctor_comment', locals: { comment: comment })
+    p "E"
+    ApplicationController.render(partial: 'comments/doctor_comment', locals: { comment: comment })
   end
   def user_message(comment)
-    ApplicationController.renderer.render(partial: 'comments/user_comment', locals: { comment: comment })
+    p "F"
+    ApplicationController.render(partial: 'comments/user_comment', locals: { comment: comment })
   end
 end
