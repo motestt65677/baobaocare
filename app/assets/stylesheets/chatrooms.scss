@@ -36,3 +36,14 @@ div .b_info{
 .mother_profile{
   margin: 2em;
 }
+
+.text-box{
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.inline-block{
+  display: inline-block;
+}
+

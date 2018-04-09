@@ -1,6 +1,6 @@
 
 <div class="sidebarwrapper" style="margin-top: 75px">
-  <nav id="sidebar">
+  <nav id="sidebar" class="active">
     <%if current_user.type == "Mother"%>
       <div class="doctor_profile">
         <div class="doctor_avatar">
@@ -78,6 +78,9 @@
     <%end%>
   </nav>
   <!-- Page Content Holder -->
+
+
+  <div class="container">
   <div id="content1">
     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" >
       <i class="glyphicon glyphicon-align-left"></i>
@@ -85,106 +88,71 @@
     </button>
   </div>
 
-  <div class="container">
+
+  
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-9">
-          <section>
-            <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-user-type="<%=current_user.type%>" data-room-number="<%=params[:id]%>" class="border">
+        <div class="col-"></div>
+        <div class="col-12">
+            <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-user-type="<%=current_user.type%>" data-room-number="<%=params[:id]%>" class="border text-box row">
               <%if current_user.type == "Doctor"%>
-                <div class="comments_box" style="text-align:right"> 
-                  <span class= "comments badge badge-pill badge-info">Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?
-                  </span>
+                <div class="comments_box col-12 mt-5" style="text-align:right">
+                  <div class="comments badge-info float-right">
+                    <span class= " ">Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?
+                    </span>
+                  </div> 
                 </div>
                 <% @comments.each do |comment| %>
                   <% if comment.user == current_user%>
-                    <div class="comments_box" style="text-align:right"> 
-                      <span class= "comments badge badge-pill badge-info"><%=comment.text%>
-                      </span>
+                    <div class="comments_box col-12  mt-5" style="text-align:right">
+                      <div class="comments badge-info float-right">
+                        <span><%=comment.text%>
+                        </span>
+                      </div>
                     </div>
                   <% else %>
-                    <div class="comments_box"> <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
-                      <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                    <div class="comments_box col-12 mt-5"> 
+                      <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
+                      <div class="comments badge-light ">
+                        <span> <%=comment.text%></span>
+                      </div>
                     </div>
                   <% end %>
                 <% end %>
               <% end%>
               <%if current_user.type == "Mother"%>
-                  <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                    <span class="comments badge badge-pill badge-info"> Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?</span>
+                  <div class="comments_box mt-5 col-12"> 
+                    <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
+                    <div class="comments badge-light" > 
+                      <span>Hello! This is Dr. <%=@doctor.last_name%>. How can I help you? </span>
+                    </div>
                   </div>
+               
                 <% @comments.each do |comment| %>
                   <% if comment.user == current_user%>
-                    <div class="comments_box" style="text-align:right"> 
-                      <span class= "comments badge badge-pill badge-info"><%=comment.text%>
-                      </span>
+                    <div class="comments_box mb-5 col-12" style="text-align:right"> 
+                      <div class= "comments badge-info float-right mt-5" >
+                        <span><%=comment.text%></span>
+                      </div>
                     </div>
                   <% else %>
-                    <div class="comments_box"> <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                      <span class="comments badge badge-pill badge-info"> <%=comment.text%></span>
+                    <div class="comments_box mb-5 col-12"> 
+                      <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
+                      <div class="comments badge-light">
+                        <span> <%=comment.text%></span>
+                      </div>
                     </div>
                   <% end %>
                 <% end %>
               <% end%>
             </div>
-            <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true do %>
+            <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true, class:"border row" do %>
               <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
               <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
             <% end %>  
-          </section>
         </div>
-      <div class="col-1"></div>
     </div>
   </div> 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Book a doctor</a>
-
-<div class="row">
-  <div class="col">
-    <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body" > 
-
-
-          <%#= form_for( Reservation.new, url: reserve_path,:html => {:class => "form-inline"} ) do |form| %>
-
-
-          <%#= form.label :start_date, style: 'margin: 1%'%>
-          <%#= form.text_field( :start_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %> 
-
-
-          <%#= form.label :end_date, style: 'margin: 1%'%>
-          <%#= form.text_field(:end_date, class: 'form-control mb-2 mr-sm-2 date_pickr') %>
-
-
-         <%#= form.label :start_time, style: 'margin: 1%' %>
-          <%#= form.time_field(:start_time, class: 'form-control mb-2 mr-sm-2') %>
-
-          <%#= form.label :end_time, style: 'margin: 1%' %>
-          <%#= form.time_field(:end_time, class: 'form-control mb-2 mr-sm-2') %>
-
-          <%#= form.submit "Reserve!", class: "btn btn-primary mb-2", style: 'margin-left: 5%'  %>
-
-        <#% end %>
-
-
-      </div>
-    </div>
-  </div>
-</div> --> 
 
 
 
