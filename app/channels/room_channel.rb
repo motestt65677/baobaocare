@@ -4,7 +4,6 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    p "unsubscribed"
     # Any cleanup needed when channel is unsubscribed
   end
 
