@@ -5,14 +5,12 @@ class CommentsController < ApplicationController
     
     if comment.save
       if current_user.type == "Doctor"
-        p "A"
         ActionCable.server.broadcast "room_channel_#{params[:chatroom_id]}",
                                      user_message:  user_message(comment),
                                      other_message: doctor_message(comment),
                                      username: comment.user.first_name,
                                      chatroom_id: params[:chatroom_id]
       elsif current_user.type == "Mother"
-        p "B"
         ActionCable.server.broadcast "room_channel_#{params[:chatroom_id]}",
                                      user_message:  user_message(comment),
                                      other_message: mother_message(comment),
@@ -26,15 +24,12 @@ class CommentsController < ApplicationController
   private
 
   def mother_message(comment)
-    p "D"
     ApplicationController.render(partial: 'comments/mother_comment', locals: { comment: comment })
   end
   def doctor_message(comment)
-    p "E"
     ApplicationController.render(partial: 'comments/doctor_comment', locals: { comment: comment })
   end
   def user_message(comment)
-    p "F"
     ApplicationController.render(partial: 'comments/user_comment', locals: { comment: comment })
   end
 end
