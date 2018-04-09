@@ -4,14 +4,19 @@ $(document).on('turbolinks:load', function() {
     connected: function() {},
     disconnected: function() {},
     received: function(data) {
+      console.log("1")
       if (data.username == $("#messages-table").data("user-name")){
         $("#messages-table").append(
           data.user_message
         );
+        console.log("2")
+
       }else{
         $("#messages-table").append(
           data.other_message
         );
+        console.log("3")
+
       }
       var objDiv = document.getElementById("messages-table");
       objDiv.scrollTop = objDiv.scrollHeight; 
