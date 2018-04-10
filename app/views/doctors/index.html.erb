@@ -1,20 +1,24 @@
 
 <main class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <%= form_tag doctors_search_path, method: :post, remote: true do %> 
-          <h7>Location </h7>
-            <%= text_field_tag :location, params[:location] %>
-          <h7>Speciality </h7>
-            <%= select_tag "speciality", options_for_select(@specialties, @specialties)%>
+  <%= form_tag doctors_search_path, method: :post, remote: true do %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-5 mb-2">
+          <strong>Location</strong>
+          <%= text_field_tag :location, params[:location], placeholder:"e.g. Taipei, Kuala Lumpur", class:"full-width" %>
+        </div>
+        <div class="col-12 col-md-5 mb-2">
+          <strong>Speciality</strong>
+          <%= select_tag "speciality", options_for_select(@specialties, @specialties), class:"full-width"%>
+        </div>
+        <div class="col-12 mb-2">
           <%= submit_tag "Search", name: nil, class:"btn btn-primary" %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container mt-5" id="doctor_list">
-    <%= render partial: '/doctors/doctors', object: @doctors %>
-  </div>
+  <% end %>
+    <div class="container mt-5" id="doctor_list">
+      <%= render partial: '/doctors/doctors', object: @doctors %>
+    </div>
 </main>
 

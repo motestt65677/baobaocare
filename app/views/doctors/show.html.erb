@@ -1,14 +1,14 @@
 <div class="wrapper">
   <div class= "container margin-bot">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
         <div class="card w-100 mt-5" style = " padding: 2%">
           <div class="doctor_profile">
-            <div class="doctor_avatar">
+            <div class="doctor_avatar ">
               <% if @doctor.avatar.url.nil? %>
-                <%= image_tag 'doctor-about-icon.png' %>
+                <%= image_tag 'doctor-about-icon.png'%>
               <% else %>
-                <%= image_tag @doctor.avatar.url %>
+                <%= image_tag @doctor.avatar.url%>
               <% end %> 
             </div>
             <br/><h5> Dr. <%=@doctor.first_name%>&nbsp<%=@doctor.last_name%></h5><br/>
@@ -28,8 +28,8 @@
         </div>
 
       </div>
-      <div class="col-6 card mt-5" style = "padding:2%">
-        <div id="map" class="wrapper-xs"></div>
+      <div class="col-12 col-lg-6 card w-100 mt-5 p-3">
+          <div id="map" class="wrapper-xs"></div>
       </div>
     </div>
     

@@ -1,21 +1,28 @@
 .sidebarwrapper {
   display: flex;
   align-items: stretch;
+  margin-top: 2vh;
 }
 
 #sidebar {
-  min-width: 500px;
-  max-width: 500px;
-  background: #e8e5e5;
+  min-width: 100%;
+  max-width: 100%;
   color: #290163;
   transition: all 0.3s;
+  height: 100vh;
+
 }
 
 #sidebar.active {
-  margin-left: -500px;
+  margin-left: -100%;
 }
 
 #content1 {
   padding: 20px;
   transition: all 0.3s;
+}
+
+.res-avatar{
+  width:50%;
+  margin: auto;
 }
