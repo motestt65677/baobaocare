@@ -5,6 +5,7 @@
 
 .full-width{
   width: 100%;
+  height: auto;
 }
 
 .text-center{
@@ -13,8 +14,8 @@
 
 .doctor_avatar{
     margin: auto;
-    width:250px;
-    height:250px;
+    width:50%;
+    height:auto;
     overflow:hidden;
     border-radius:50%;
 
@@ -41,6 +42,7 @@
 #map {
   height: 80%;
   width: 100%;
+  min-height: 20vh;
 }
 
 .margin-bot{
