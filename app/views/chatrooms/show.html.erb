@@ -1,13 +1,24 @@
+<div class="container wrapper">
+  <div class="row">
+    <div class="col-12" id="content1">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" >
+        <i class="glyphicon glyphicon-align-left"></i>
+        <span>Book a live chat</span>
+      </button>
+    </div>
+  </div>
+</div>
 
-<div class="sidebarwrapper" style="margin-top: 75px">
-  <nav id="sidebar" class="active">
+
+<div class="sidebarwrapper">
+  <nav id="sidebar" class="active border-right">
     <%if current_user.type == "Mother"%>
       <div class="doctor_profile">
-        <div class="doctor_avatar">
+        <div class="res-avatar">
           <% if @doctor.avatar.url.nil? %>
-            <%= image_tag 'doctor-about-icon.png' %>
+            <%= image_tag 'doctor-about-icon.png', class:"half-width" %>
           <% else %>
-            <%= image_tag @doctor.avatar.url %>
+            <%= image_tag @doctor.avatar.url, class:"half-width" %>
           <% end %> 
         </div>
         <h3 class="mt-2"><strong>Dr. <%=@doctor.last_name%></strong></h3>
@@ -16,11 +27,11 @@
 
     <%else%>
       <div class="doctor_profile">
-        <div class="doctor_avatar">
+        <div class="res-avatar">
           <% if @child.avatar.url.nil? %>
-            <%= image_tag 'newborn.png' %>
+            <%= image_tag 'newborn-sm.png', class:"half-width" %>
           <% else %>
-            <%= image_tag @child.avatar.url%>
+            <%= image_tag @child.avatar.url, class:"half-width"%>
           <% end %> 
         </div>
         <h3 class="mt-2"><strong><%=@child.name%></strong></h3>
@@ -59,7 +70,6 @@
             <% i = i + 1 %>
           <% end %>
         </table>
-
       </div>
     </div>
     <%if current_user.type == "Mother"%>
@@ -77,79 +87,72 @@
       </div>
     <%end%>
   </nav>
-  <!-- Page Content Holder -->
-
 
   <div class="container">
-  <div id="content1">
-    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" >
-      <i class="glyphicon glyphicon-align-left"></i>
-      <span>Book a live chat</span>
-    </button>
-  </div>
-
-
-  
-      <div class="row">
-        <div class="col-"></div>
-        <div class="col-12">
-            <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-user-type="<%=current_user.type%>" data-room-number="<%=params[:id]%>" class="border text-box row">
-              <%if current_user.type == "Doctor"%>
-                <div class="comments_box col-12 mt-5" style="text-align:right">
-                  <div class="comments badge-info float-right">
-                    <span class= " ">Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?
-                    </span>
-                  </div> 
-                </div>
-                <% @comments.each do |comment| %>
-                  <% if comment.user == current_user%>
-                    <div class="comments_box col-12  mt-5" style="text-align:right">
-                      <div class="comments badge-info float-right">
-                        <span><%=comment.text%>
-                        </span>
-                      </div>
-                    </div>
-                  <% else %>
-                    <div class="comments_box col-12 mt-5"> 
-                      <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
-                      <div class="comments badge-light ">
-                        <span> <%=comment.text%></span>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% end%>
-              <%if current_user.type == "Mother"%>
-                  <div class="comments_box mt-5 col-12"> 
-                    <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                    <div class="comments badge-light" > 
-                      <span>Hello! This is Dr. <%=@doctor.last_name%>. How can I help you? </span>
+    <div class="row">
+      <div class="col-"></div>
+      <div class="col-12">
+          <div id="messages-table" data-user-name="<%=current_user.first_name%>" data-user-type="<%=current_user.type%>" data-room-number="<%=params[:id]%>" class="border text-box row">
+            <%if current_user.type == "Doctor"%>
+              <div class="comments_box col-12 mt-5" style="text-align:right">
+                <div class="comments badge-info float-right">
+                  <span class= " ">Hello! This is Dr. <%=@doctor.last_name%>. How can I help you?
+                  </span>
+                </div> 
+              </div>
+              <% @comments.each do |comment| %>
+                <% if comment.user == current_user%>
+                  <div class="comments_box col-12  mt-5" style="text-align:right">
+                    <div class="comments badge-info float-right">
+                      <span><%=comment.text%>
+                      </span>
                     </div>
                   </div>
-               
-                <% @comments.each do |comment| %>
-                  <% if comment.user == current_user%>
-                    <div class="comments_box mb-5 col-12" style="text-align:right"> 
-                      <div class= "comments badge-info float-right mt-5" >
-                        <span><%=comment.text%></span>
-                      </div>
+                <% else %>
+                  <div class="comments_box col-12 mt-5"> 
+                    <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
+                    <div class="comments badge-light ">
+                      <span> <%=comment.text%></span>
                     </div>
-                  <% else %>
-                    <div class="comments_box mb-5 col-12"> 
-                      <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                      <div class="comments badge-light">
-                        <span> <%=comment.text%></span>
-                      </div>
-                    </div>
-                  <% end %>
+                  </div>
                 <% end %>
-              <% end%>
-            </div>
-            <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true, class:"border row" do %>
+              <% end %>
+            <% end%>
+            <%if current_user.type == "Mother"%>
+                <div class="comments_box mt-5 col-12"> 
+                  <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
+                  <div class="comments badge-light" > 
+                    <span>Hello! This is Dr. <%=@doctor.last_name%>. How can I help you? </span>
+                  </div>
+                </div>
+             
+              <% @comments.each do |comment| %>
+                <% if comment.user == current_user%>
+                  <div class="comments_box mb-5 col-12" style="text-align:right"> 
+                    <div class= "comments badge-info float-right mt-5" >
+                      <span><%=comment.text%></span>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="comments_box mb-5 col-12"> 
+                    <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
+                    <div class="comments badge-light">
+                      <span> <%=comment.text%></span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end%>
+          </div>
+          <%= form_tag "/chatrooms/#{@chatroom.id}/comments", remote: true, id: "comment_form", authenticity_token: true, class:"border row" do %>
+            <div class="input-group mb-3">
               <%= text_field_tag :text, nil, id: "message_content", class: "form-control" %>
-              <%= submit_tag "Submit", :style => "display: none;", id: "submit_comment"%>
-            <% end %>  
-        </div>
+              <div class="input-group-append">
+                <%= submit_tag "Send", id: "submit_comment", class:"m-2"%>
+              </div>
+            </div>  
+          <% end %>
+      </div>
     </div>
   </div> 
 </div>
@@ -160,7 +163,7 @@
 
 
 <script type="text/javascript">
-  var blocked_dates = [];
+  var blocked_dates = [{}];
 
     <% @timeslots.each do |timeslot| %>
     var date_range = {

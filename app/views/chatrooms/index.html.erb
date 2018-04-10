@@ -1,54 +1,50 @@
-
-
 <div class="container wrapper">
 
-<% if @chatrooms.blank? %>
-  <% if current_user.type == "Mother"%>
-    <%= link_to doctors_path do %>
-      <div id="chatroom_search">
-        <%= image_tag("search_doctors.png", :alt => "rss feed") %>
-        <h5>You've not connected to any doctors yet, search for doctors.</h5>
-      </div>
-    <% end %>
-  <%elsif current_user.type == "Doctor"%>
-    <%= link_to "/" do %>
-      <div id="chatroom_search">
-        <%= image_tag("doctor.png", :alt => "rss feed") %>
-        <h5>You've not connected to any patients yet.</h5>
-      </div>
-    <% end %>
-  <%end%>
-<% end %>
-    
-      
-      <div class= col-2></div>
-      <div class= col-8>       
-        <div class= "row">
-          <% @chatrooms.each do |room| %>
-            <div class = "col-4">
-              <%= link_to chatroom_path(room)do %>
-                <%= image_tag("newborn.png", :alt => "rss feed", :id => "chat_room_image", :class => "img-thumbnail") %>
-                <div class = "b_info">
-                  <% if current_user.type == "Doctor"%>
-                    <p id = "baby_name">
-                      <strong>Baby <%= Child.find(room.child_id).name%></strong>
-                  <% else current_user.type == "Mother" %>
-                    <p id = "baby_name">
-                    <strong>Dr. <%= Doctor.find(room.doctor_id).last_name %></strong>
-                    <p>Specialty: <%=Doctor.find(room.doctor_id).specialty%></p>
-                       
-                    <br>
-                      <%= link_to "delete this chatroom", "/chatrooms/#{room.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
-                    </p>
-                  <% end %> 
-                </div>
-              <% end %>    
-            </div>
-          <% end %>
+  <% if @chatrooms.blank? %>
+    <% if current_user.type == "Mother"%>
+      <%= link_to doctors_path do %>
+        <div id="chatroom_search">
+          <%= image_tag("search_doctors.png", :alt => "rss feed") %>
+          <h5>You've not connected to any doctors yet, search for doctors.</h5>
         </div>
-      </div>
-      <div class= col-2></div>  
-    </div>  
-  </div>
+      <% end %>
+    <%elsif current_user.type == "Doctor"%>
+      <%= link_to "/" do %>
+        <div id="chatroom_search">
+          <%= image_tag("doctor.png", :alt => "rss feed") %>
+          <h5>You've not connected to any patients yet.</h5>
+        </div>
+      <% end %>
+    <%end%>
+  <% end %>
+        
+    <% @chatrooms.each do |room| %>
+      <%= link_to chatroom_path(room), class:"border " do %>
+        <div class= "d-flex justify-content-center">
 
+          <div class="align-center">
+            <% if room.doctor.avatar.url.nil? %>
+              <%= image_tag 'doctor-about-icon.png', class:"img-thumbnail p-2" %>
+            <% else %>
+              <%= image_tag room.doctor.avatar.url, class:"img-thumbnail p-2" %>
+            <% end %>
+            <p>Dr. <%=room.doctor.last_name%></p>
+          </div>
+          <div>
+            <br>
+            <%= image_tag("connect.svg", :class => "img-thumbnail p-2")%>
+          </div>           
+          <div class="align-center">  
+            <% if room.child.avatar.url.nil? %>
+              <%= image_tag "newborn.png", class:"img-thumbnail p-2"%>
+            <% else %>
+              <%= image_tag room.child.avatar, class:"img-thumbnail p-2"%>
+            <% end %>
+            <p><%=room.child.name%></p>
+          </div>
+
+        </div>    
+      <% end %>
+      <hr>
+    <%end%>
 </div>
