@@ -5,20 +5,21 @@ $(document).on('turbolinks:load', function() {
     disconnected: function() {},
     received: function(data) {
       if (data.username == $("#messages-table").data("user-name")){
+        if(temp == data.user_message){
+          return
+        }
         $("#messages-table").append(
           data.user_message
         );
-
+        temp = data.user_message;
       }else{
         $("#messages-table").append(
           data.other_message
         );
-
       }
       var objDiv = document.getElementById("messages-table");
       objDiv.scrollTop = objDiv.scrollHeight; 
       message_content.value = ""
-
     }
   })
 });
