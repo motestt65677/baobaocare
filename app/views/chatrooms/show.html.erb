@@ -102,19 +102,9 @@
               </div>
               <% @comments.each do |comment| %>
                 <% if comment.user == current_user%>
-                  <div class="comments_box col-12  mt-5" style="text-align:right">
-                    <div class="comments badge-info float-right">
-                      <span><%=comment.text%>
-                      </span>
-                    </div>
-                  </div>
+                  <%=render(partial: 'comments/user_comment', locals: { comment: comment })%>
                 <% else %>
-                  <div class="comments_box col-12 mt-5"> 
-                    <%=image_tag "family_icon.png", class: "message_icon"%> <span><strong> Ms.<%=comment.user.last_name%></strong></span><br>
-                    <div class="comments badge-light ">
-                      <span> <%=comment.text%></span>
-                    </div>
-                  </div>
+                  <%=render(partial: 'comments/mother_comment', locals: { comment: comment })%>
                 <% end %>
               <% end %>
             <% end%>
@@ -128,18 +118,9 @@
              
               <% @comments.each do |comment| %>
                 <% if comment.user == current_user%>
-                  <div class="comments_box mb-5 col-12" style="text-align:right"> 
-                    <div class= "comments badge-info float-right mt-5" >
-                      <span><%=comment.text%></span>
-                    </div>
-                  </div>
+                  <%=render(partial: 'comments/user_comment', locals: { comment: comment })%>
                 <% else %>
-                  <div class="comments_box mb-5 col-12"> 
-                    <%=image_tag "doctor_icon.png", class: "message_icon"%> <span><strong> Dr.<%=@doctor.last_name%></strong></span><br>
-                    <div class="comments badge-light">
-                      <span> <%=comment.text%></span>
-                    </div>
-                  </div>
+                  <%=render(partial: 'comments/doctor_comment', locals: { comment: comment })%>
                 <% end %>
               <% end %>
             <% end%>
