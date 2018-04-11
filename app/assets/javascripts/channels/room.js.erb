@@ -4,11 +4,25 @@ $(document).on('turbolinks:load', function() {
     connected: function() {},
     disconnected: function() {},
     received: function(data) {
+        console.log("4");
+
       if (data.username == $("#messages-table").data("user-name")){
+        console.log("1");
+        console.log(temp);
+        console.log(data.user_message);
+
+        if(temp == data.user_message){
+          console.log("2");
+          return
+        }
         $("#messages-table").append(
           data.user_message
         );
+          console.log("3");
+          
+          
 
+        temp = data.user_message;
       }else{
         $("#messages-table").append(
           data.other_message
