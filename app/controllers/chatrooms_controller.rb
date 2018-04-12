@@ -28,6 +28,7 @@ class ChatroomsController < ApplicationController
     @mother = @child.mother
 
     if current_user.nil? && params[:id]==21
+      sign_in(User.find_by_first_name("Guest"))
       return
     end
 
