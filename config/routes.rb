@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   post "/guest" => "sessions#guest", as: "guest"
+  post "/chat" => "welcome#chat", as: "chat"
   root "welcome#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :doctors
